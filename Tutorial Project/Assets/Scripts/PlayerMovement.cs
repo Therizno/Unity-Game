@@ -15,14 +15,17 @@ public class PlayerMovement : MonoBehaviour
 
         //make cursor invisible
         Cursor.lockState = CursorLockMode.Locked;
-
-        //keep the player from falling over
-        rb.freezeRotation = false;
     }
 
     // FixedUpdate is called once per fixed length of time (use for physics)
     void FixedUpdate()
     {
+        float moveX = Input.GetAxis("Horizontal") * speed;
+        float moveZ = Input.GetAxis("Vertical") * speed;
+
+        transform.Translate(moveX, 0, moveZ);
+
+        /*
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             rb.velocity = transform.right * -speed;
@@ -30,6 +33,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = transform.right * speed;
-        }
+        }*/
     }
 }
