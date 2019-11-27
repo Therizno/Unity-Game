@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
         //make cursor invisible
         Cursor.lockState = CursorLockMode.Locked;
+
+        //keep the player from falling over
+        rb.freezeRotation = true;
     }
 
     // FixedUpdate is called once per fixed length of time (use for physics)
