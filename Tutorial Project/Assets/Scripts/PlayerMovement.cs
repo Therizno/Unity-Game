@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     public float speed;
+    public float jumpHeight;
+    public float jumpInterval;
+
+    private float coolDown;
 
     // Start is called before the first frame update
     void Start()
@@ -23,19 +27,18 @@ public class PlayerMovement : MonoBehaviour
     // FixedUpdate is called once per fixed length of time (use for physics)
     void FixedUpdate()
     {
+        coolDown++;
+
         float moveX = Input.GetAxis("Horizontal") * speed;
         float moveZ = Input.GetAxis("Vertical") * speed;
 
         transform.Translate(moveX, 0, moveZ);
 
-        /*
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetAxis("Jump") != 0 && coolDown >= jumpInterval)
         {
-            rb.velocity = transform.right * -speed;
+            rb.AddForce(new Vector3(0, jumpHeight, 0));
+            coolDown = 0;
         }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rb.velocity = transform.right * speed;
-        }*/
+
     }
 }
