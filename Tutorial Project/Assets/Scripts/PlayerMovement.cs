@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody rb;
+    CharacterController cc;
 
     public float speed;
-    public float jumpHeight;
+    public float jumpSpeed;
+    public float jumpTime;
     public float jumpInterval;
 
     private float coolDown;
@@ -15,13 +16,13 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        cc = GetComponent<CharacterController>();
 
-        //make cursor invisible
+        //lock cursor
         Cursor.lockState = CursorLockMode.Locked;
 
-        //keep the player from falling over
-        rb.freezeRotation = true;
+        //prevent player from jumping when spawned
+        coolDown = jumpTime;
     }
 
     // FixedUpdate is called once per fixed length of time (use for physics)
@@ -29,16 +30,26 @@ public class PlayerMovement : MonoBehaviour
     {
         coolDown++;
 
-        float moveX = Input.GetAxis("Horizontal") * speed;
-        float moveZ = Input.GetAxis("Vertical") * speed;
+        float moveX = Input.GetAxis("Vertical") * -speed;
+        float moveY = 0;
+        float moveZ = Input.GetAxis("Horizontal") * speed;
+        
 
-        transform.Translate(moveX, 0, moveZ);
-
-        if (Input.GetAxis("Jump") != 0 && coolDown >= jumpInterval)
+        if (Input.GetAxis("Jump") != 0)
         {
-            rb.AddForce(new Vector3(0, jumpHeight, 0));
-            coolDown = 0;
+            if (coolDown >= jumpInterval)
+            {
+                coolDown = 0;
+            }
+            
         }
 
+        if (coolDown < jumpTime)
+        {
+            moveY += jumpSpeed;
+        }
+
+
+        cc.Move(new Vector3(moveX, moveY, moveZ));
     }
 }
