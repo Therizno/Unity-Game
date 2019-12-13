@@ -49,7 +49,9 @@ public class PlayerMovement : MonoBehaviour
             moveY += jumpSpeed;
         }
 
-
-        cc.Move(new Vector3(moveX, moveY, moveZ));
+        cc.Move(Vector3.up * moveY);
+        cc.Move(Vector3.right * moveX);
+        cc.Move(Vector3.forward * moveZ);
+        cc.SimpleMove(new Vector3(0, 0, 0));
     }
 }
