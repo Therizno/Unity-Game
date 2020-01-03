@@ -3,25 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
-{
-
+{ 
     public float sensitivity;
 
-    // Start is called before the first frame update
-    void Start()
+    //total camera rotation
+    Vector2 mouseLook;
+
+    GameObject player;
+
+    // Awake is called before the first frame update
+    void Awake()
     {
-        
+        //lock cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
+    //Start is called right after Awake, and is for interaction with other objects
+    void Start()
+    {
+        player = transform.parent.gameObject;
+    }
+
+
+    // FixedUpdate is called once per set unit of time
     void FixedUpdate()
     {
-        //mouse input
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
-        transform.Rotate(transform.up * mouseX  * sensitivity);
+        //add smoothing here if necessary
 
-        transform.parent.gameObject.transform.Rotate(transform.up * mouseX * sensitivity);
+        mouseLook += mouseDelta;
+
+        //transform camera
+        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+
+        //transform player
+        player.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, player.transform.up);
     }
 }

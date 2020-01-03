@@ -18,9 +18,6 @@ public class PlayerMovement : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
 
-        //lock cursor
-        Cursor.lockState = CursorLockMode.Locked;
-
         //prevent player from jumping when spawned
         coolDown = jumpTime;
     }
