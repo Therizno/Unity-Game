@@ -30,9 +30,9 @@ public class CameraRotation : MonoBehaviour
     {
         var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
-        //add smoothing here if necessary
+        //add smoothing here later 
 
-        mouseLook += mouseDelta;
+        mouseLook += (sensitivity * mouseDelta);
 
         //transform camera
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
