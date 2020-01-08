@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraRotation : MonoBehaviour
 { 
     public float sensitivity;
+    public float smoothing;
 
     //total camera rotation
     Vector2 mouseLook;
@@ -28,16 +29,30 @@ public class CameraRotation : MonoBehaviour
     // FixedUpdate is called once per set unit of time
     void FixedUpdate()
     {
+        //get raw input
         var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
-        //add smoothing here later 
-
-        mouseLook += (sensitivity * mouseDelta);
+        //smooth input and add it to total mouse movement
+        mouseLook += smoothMouseInput(mouseDelta);
 
         //transform camera
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
 
         //transform player
         player.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, player.transform.up);
+    }
+
+
+    //uses lerping to smooth mouse input
+    public Vector2 smoothMouseInput(Vector2 raw) {
+
+        Vector2 smoothV = new Vector2();
+
+        raw *= sensitivity * smoothing;
+
+        smoothV.x = Mathf.Lerp(smoothV.x, raw.x, 1f / smoothing);
+        smoothV.y = Mathf.Lerp(smoothV.y, raw.y, 1f / smoothing);
+
+        return smoothV;
     }
 }
