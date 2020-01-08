@@ -35,6 +35,9 @@ public class CameraRotation : MonoBehaviour
         //smooth input and add it to total mouse movement
         mouseLook += smoothMouseInput(mouseDelta);
 
+        //clamp x axis
+        clampX();
+
         //transform camera
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
 
@@ -44,7 +47,7 @@ public class CameraRotation : MonoBehaviour
 
 
     //uses lerping to smooth mouse input
-    public Vector2 smoothMouseInput(Vector2 raw) {
+    private Vector2 smoothMouseInput(Vector2 raw) {
 
         Vector2 smoothV = new Vector2();
 
@@ -54,5 +57,17 @@ public class CameraRotation : MonoBehaviour
         smoothV.y = Mathf.Lerp(smoothV.y, raw.y, 1f / smoothing);
 
         return smoothV;
+    }
+
+
+    private void clampX() {
+        if (mouseLook.y > 90)
+        {
+            mouseLook.y = 90;
+        }
+        else if (mouseLook.y < -90)
+        {
+            mouseLook.y = -90;
+        }
     }
 }
