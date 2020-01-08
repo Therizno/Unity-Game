@@ -1892,6 +1892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 4
+  smoothing: 2
 --- !u!1001 &982903831
 PrefabInstance:
   m_ObjectHideFlags: 0
