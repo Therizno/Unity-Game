@@ -61,6 +61,8 @@ public class CameraRotation : MonoBehaviour
 
 
     private void clampX() {
+
+        //mouse's y is unity's x
         if (mouseLook.y > 90)
         {
             mouseLook.y = 90;

@@ -4,51 +4,25 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    CharacterController cc;
-
     public float speed;
-    public float jumpSpeed;
-    public float jumpTime;
-    public float jumpInterval;
 
-    private float coolDown;
+    CharacterController cc;
 
     // Start is called before the first frame update
     void Start()
     {
         cc = GetComponent<CharacterController>();
-
-        //prevent player from jumping when spawned
-        coolDown = jumpTime;
     }
 
     // FixedUpdate is called once per fixed length of time (use for physics)
     void FixedUpdate()
     {
-        coolDown++;
+        float vertInput = Input.GetAxis("Vertical");
+        float horzInput = Input.GetAxis("Horizontal");
 
-        float moveX = Input.GetAxis("Vertical") * -speed;
-        float moveY = 0;
-        float moveZ = Input.GetAxis("Horizontal") * speed;
-        
+        Vector3 forwardMove = transform.forward * vertInput;
+        Vector3 strafeMove = transform.right * horzInput;
 
-        if (Input.GetAxis("Jump") != 0)
-        {
-            if (coolDown >= jumpInterval)
-            {
-                coolDown = 0;
-            }
-            
-        }
-
-        if (coolDown < jumpTime)
-        {
-            moveY += jumpSpeed;
-        }
-
-        cc.Move(Vector3.up * moveY);
-        cc.Move(Vector3.right * moveX);
-        cc.Move(Vector3.forward * moveZ);
-        cc.SimpleMove(new Vector3(0, 0, 0));
+        cc.SimpleMove((forwardMove + strafeMove) * speed);
     }
 }
