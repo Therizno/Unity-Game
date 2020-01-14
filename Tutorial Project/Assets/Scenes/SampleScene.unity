@@ -1690,23 +1690,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  jumpMultiplier: 35
+  jumpMultiplier: 5
   jumpCooldown: 0.5
   jumpFalloff:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.00008095708
-      value: 0.999828
-      inSlope: 0.054043442
-      outSlope: 0.054043442
+      time: -0.00004561222
+      value: 0.99999404
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.14750956
+      outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 0.00199047
+      time: 0.6987021
+      value: 0.000015767466
       inSlope: 0
       outSlope: 0
       tangentMode: 0

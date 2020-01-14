@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         //move player in each direction
         Vector3 forwardMove = transform.forward * vertInput;
         Vector3 strafeMove = transform.right * horzInput;
-
+        
         cc.SimpleMove((forwardMove + strafeMove) * speed);
 
         jumpInput();
@@ -41,31 +41,28 @@ public class PlayerMovement : MonoBehaviour
 
     void jumpInput()
     {
-        //check for player input
-        isJumping = Input.GetAxis("Jump") != 0 && !isJumping && cc.isGrounded && timeSinceLand >= jumpCooldown;
 
         //evaluate upward movement based of jump curve
         if (isJumping)
         {
-            timeSinceLand = 0;
-
-
             float jumpForce = jumpMultiplier * jumpFalloff.Evaluate(timeInAir);
 
             cc.Move(Vector3.up * jumpForce * Time.deltaTime);
+            Debug.Log(cc.isGrounded ? "Grounded" : "Not grounded");
+            //check for upward obstruction or a floor below
+            isJumping = !cc.isGrounded && cc.collisionFlags != CollisionFlags.Above;
 
             timeInAir += Time.deltaTime;
         }
         else
         {
-            timeSinceLand += Time.deltaTime;
+            timeInAir = 0;
+
+            //check for player jump input
+            isJumping = (Input.GetAxis("Jump") != 0 && cc.isGrounded);
         }
 
-        //check for upward obstruction or a floor below
-        if (cc.isGrounded || cc.collisionFlags == CollisionFlags.Above)
-        {
-            isJumping = false;
-            timeInAir = 0;
-        }
+        Debug.Log(isJumping ? "Jumping" : "Not jumping");
+        
     }
 }
