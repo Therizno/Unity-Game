@@ -43,24 +43,33 @@ public class PlayerMovement : MonoBehaviour
         //evaluate upward movement based of jump curve
         if (isJumping)
         {
+            //avoid glitchy collisions while jumping
+            cc.slopeLimit = 90.0f;
+
+
             float jumpForce = jumpMultiplier * jumpFalloff.Evaluate(timeInAir);
 
             cc.Move(Vector3.up * jumpForce * Time.deltaTime);
-            Debug.Log(cc.isGrounded ? "Grounded" : "Not grounded");
-            //check for upward obstruction or a floor below (janky fix)
-            isJumping = jumpForce != 0 && cc.collisionFlags != CollisionFlags.Above;
-            Debug.Log((Vector3.up * jumpForce * Time.deltaTime).y);
+
+
+            //this line prevents the isGrounded check from working incorrectly
+            cc.SimpleMove(new Vector3(0,0,0));
+
+            //check for upward obstruction or a floor below
+            isJumping = !cc.isGrounded && cc.collisionFlags != CollisionFlags.Above;
+
             timeInAir += Time.deltaTime;
         }
         else
         {
             timeInAir = 0;
-            Debug.Log(cc.isGrounded ? "Grounded" : "Not grounded");
+
+            //reset slopeLimit
+            cc.slopeLimit = 90.0f;
+
             //check for player jump input
             isJumping = (Input.GetAxis("Jump") != 0 && cc.isGrounded);
         }
-
-        Debug.Log(isJumping ? "Jumping" : "Not jumping");
         
     }
 }

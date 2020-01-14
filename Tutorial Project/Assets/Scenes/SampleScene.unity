@@ -1689,9 +1689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f19d87aa50204d38bcf55ee4cf66795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  jumpMultiplier: 5
-  jumpCooldown: 0.5
+  speed: 5
+  jumpMultiplier: 9
   jumpFalloff:
     serializedVersion: 2
     m_Curve:
@@ -1705,7 +1704,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.7001059
+      time: 0.4507773
       value: 0
       inSlope: 0
       outSlope: 0
