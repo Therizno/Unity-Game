@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float sprintMultiplier;
     [SerializeField] private float jumpMultiplier;
 
     [SerializeField] private AnimationCurve jumpFalloff;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         float horzInput = Input.GetAxis("Horizontal");
 
         //move player in each direction
-        Vector3 forwardMove = transform.forward * vertInput;
+        Vector3 forwardMove = sprintModifier(transform.forward * vertInput);
         Vector3 strafeMove = transform.right * horzInput;
         
         cc.SimpleMove((forwardMove + strafeMove) * speed);
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    void jumpInput()
+    private void jumpInput()
     {
 
         //evaluate upward movement based of jump curve
@@ -70,8 +71,23 @@ public class PlayerMovement : MonoBehaviour
             cc.slopeLimit = 45.0f;
 
             //check for player jump input
-            isJumping = (Input.GetAxis("Jump") != 0 && cc.isGrounded);
+            isJumping = (Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting());
         }
         
+    }
+
+    private bool isSprinting()
+    {
+        return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0;
+    }
+
+    private Vector3 sprintModifier(Vector3 forwardMovement)
+    {
+        if (isSprinting())
+        {
+            return sprintMultiplier * forwardMovement;
+        }
+
+        return forwardMovement;
     }
 }

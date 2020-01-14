@@ -1690,6 +1690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  sprintMultiplier: 2
   jumpMultiplier: 9
   jumpFalloff:
     serializedVersion: 2
