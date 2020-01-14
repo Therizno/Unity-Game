@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
-    public float jumpMultiplier;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpMultiplier;
+
+    [SerializeField] private AnimationCurve jumpFalloff;
 
     private bool isJumping;
     private float timeInAir;
 
-    [SerializeField] private AnimationCurve jumpFalloff;
+    private CharacterController cc;
 
-    CharacterController cc;
 
     // Start is called before the first frame update
     void Start()

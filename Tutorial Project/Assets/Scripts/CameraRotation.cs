@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
-{ 
-    public float sensitivity;
-    public float smoothing;
+{
+    [SerializeField] private float sensitivity;
+    [SerializeField] private float smoothing;
 
     //total camera rotation
-    Vector2 mouseLook;
+    private Vector2 mouseLook;
 
-    GameObject player;
+    private GameObject player;
 
     // Awake is called before the first frame update
     void Awake()
@@ -59,7 +59,7 @@ public class CameraRotation : MonoBehaviour
         return smoothV;
     }
 
-
+    //prevents player perspective from turning upside down
     private void clampX() {
 
         //mouse's y is unity's x
