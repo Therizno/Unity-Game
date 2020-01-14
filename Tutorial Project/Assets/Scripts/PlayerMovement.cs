@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             //avoid glitchy collisions while jumping
             cc.slopeLimit = 90.0f;
 
-
+            //calculate forces and move player
             float jumpForce = jumpMultiplier * jumpFalloff.Evaluate(timeInAir);
 
             cc.Move(Vector3.up * jumpForce * Time.deltaTime);
@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
             //check for upward obstruction or a floor below
             isJumping = !cc.isGrounded && cc.collisionFlags != CollisionFlags.Above;
 
+
             timeInAir += Time.deltaTime;
         }
         else
@@ -65,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             timeInAir = 0;
 
             //reset slopeLimit
-            cc.slopeLimit = 90.0f;
+            cc.slopeLimit = 45.0f;
 
             //check for player jump input
             isJumping = (Input.GetAxis("Jump") != 0 && cc.isGrounded);
