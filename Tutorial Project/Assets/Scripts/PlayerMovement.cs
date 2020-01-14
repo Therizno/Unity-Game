@@ -6,11 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public float jumpMultiplier;
-    public float jumpCooldown;
 
     private bool isJumping;
     private float timeInAir;
-    private float timeSinceLand;
 
     [SerializeField] private AnimationCurve jumpFalloff;
 
@@ -49,15 +47,15 @@ public class PlayerMovement : MonoBehaviour
 
             cc.Move(Vector3.up * jumpForce * Time.deltaTime);
             Debug.Log(cc.isGrounded ? "Grounded" : "Not grounded");
-            //check for upward obstruction or a floor below
-            isJumping = !cc.isGrounded && cc.collisionFlags != CollisionFlags.Above;
-
+            //check for upward obstruction or a floor below (janky fix)
+            isJumping = jumpForce != 0 && cc.collisionFlags != CollisionFlags.Above;
+            Debug.Log((Vector3.up * jumpForce * Time.deltaTime).y);
             timeInAir += Time.deltaTime;
         }
         else
         {
             timeInAir = 0;
-
+            Debug.Log(cc.isGrounded ? "Grounded" : "Not grounded");
             //check for player jump input
             isJumping = (Input.GetAxis("Jump") != 0 && cc.isGrounded);
         }
