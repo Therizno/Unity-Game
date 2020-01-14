@@ -6,9 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public float jumpMultiplier;
+    public float jumpCooldown;
 
     private bool isJumping;
     private float timeInAir;
+    private float timeSinceLand;
 
     [SerializeField] private AnimationCurve jumpFalloff;
 
@@ -40,16 +42,23 @@ public class PlayerMovement : MonoBehaviour
     void jumpInput()
     {
         //check for player input
-        isJumping = Input.GetAxis("Jump") != 0 && !isJumping && cc.isGrounded;
-        
+        isJumping = Input.GetAxis("Jump") != 0 && !isJumping && cc.isGrounded && timeSinceLand >= jumpCooldown;
+
         //evaluate upward movement based of jump curve
         if (isJumping)
         {
+            timeSinceLand = 0;
+
+
             float jumpForce = jumpMultiplier * jumpFalloff.Evaluate(timeInAir);
-            
-            cc.Move(Vector3.up * jumpForce);
+
+            cc.Move(Vector3.up * jumpForce * Time.deltaTime);
 
             timeInAir += Time.deltaTime;
+        }
+        else
+        {
+            timeSinceLand += Time.deltaTime;
         }
 
         //check for upward obstruction or a floor below
