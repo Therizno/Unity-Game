@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             cc.SimpleMove(Vector3.zero);
 
             //check for upward obstruction or a floor below
-            isJumping = !cc.isGrounded && cc.collisionFlags != CollisionFlags.Above;
+            isJumping = !cc.isGrounded && (cc.collisionFlags & CollisionFlags.Above) == 0;
 
 
             timeInAir += Time.deltaTime;
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isSprinting()
     {
-        return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0;
+        return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0 && (cc.collisionFlags & CollisionFlags.Sides) == 0;
     }
 
 }
