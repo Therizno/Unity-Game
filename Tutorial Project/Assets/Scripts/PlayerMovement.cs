@@ -30,10 +30,10 @@ public class PlayerMovement : MonoBehaviour
         float horzInput = Input.GetAxis("Horizontal");
 
         //move player in each direction
-        Vector3 forwardMove = sprintModifier(transform.forward * vertInput);
+        Vector3 forwardMove = transform.forward * vertInput;
         Vector3 strafeMove = transform.right * horzInput;
         
-        cc.SimpleMove((forwardMove + strafeMove) * speed);
+        cc.SimpleMove(Vector3.ClampMagnitude(forwardMove + strafeMove, 1.0f) * speed * (isSprinting() ? sprintMultiplier : 1.0f));
 
         jumpInput();
     }
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
 
             //this line prevents the isGrounded check from working incorrectly
-            cc.SimpleMove(new Vector3(0,0,0));
+            cc.SimpleMove(Vector3.zero);
 
             //check for upward obstruction or a floor below
             isJumping = !cc.isGrounded && cc.collisionFlags != CollisionFlags.Above;
@@ -81,13 +81,4 @@ public class PlayerMovement : MonoBehaviour
         return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0;
     }
 
-    private Vector3 sprintModifier(Vector3 forwardMovement)
-    {
-        if (isSprinting())
-        {
-            return sprintMultiplier * forwardMovement;
-        }
-
-        return forwardMovement;
-    }
 }
