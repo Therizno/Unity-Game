@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float baseSpeed;
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float jumpMultiplier;
 
@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isJumping;
     private float timeInAir;
+
+    private float moveSpeed;
 
     private CharacterController cc;
 
@@ -32,8 +34,12 @@ public class PlayerMovement : MonoBehaviour
         //move player in each direction
         Vector3 forwardMove = transform.forward * vertInput;
         Vector3 strafeMove = transform.right * horzInput;
-        
-        cc.SimpleMove(Vector3.ClampMagnitude(forwardMove + strafeMove, 1.0f) * speed * (isSprinting() ? sprintMultiplier : 1.0f));
+
+        Vector3 move = Vector3.ClampMagnitude(forwardMove + strafeMove, 1.0f) * baseSpeed * (isSprinting() ? sprintMultiplier : 1.0f);
+
+        moveSpeed = Vector3.Magnitude(move);
+
+        cc.SimpleMove(move);
 
         jumpInput();
     }
@@ -79,6 +85,15 @@ public class PlayerMovement : MonoBehaviour
     private bool isSprinting()
     {
         return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0 && (cc.collisionFlags & CollisionFlags.Sides) == 0;
+    }
+
+
+
+    // getters and setters
+
+    public float getCurrentMoveSpeed()
+    {
+        return moveSpeed;
     }
 
 }

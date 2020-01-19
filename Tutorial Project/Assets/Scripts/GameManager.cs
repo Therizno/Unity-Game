@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
     // singleton
     private static GameManager g;
 
-    //[SerializeField] private GameObject player;
 
+    [SerializeField] private GameObject player;
+
+    private PlayerMovement playerMovement;
 
     // hide the constructor
     private GameManager()
@@ -29,5 +31,20 @@ public class GameManager : MonoBehaviour
         {
             g = this;
         }
+    }
+
+    // Start is called before the first frame update (use for getting other objects)
+    void Start()
+    {
+        playerMovement = player.GetComponent<PlayerMovement>();
+    }
+
+
+
+    // getters and setters
+
+    public float getPlayerMoveSpeed()
+    {
+        return playerMovement.getCurrentMoveSpeed();
     }
 }
