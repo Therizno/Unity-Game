@@ -96,4 +96,8 @@ public class PlayerMovement : MonoBehaviour
         return moveSpeed;
     }
 
+    public float getPlayerMomentum()
+    {
+        return Vector3.Magnitude(cc.velocity);
+    }
 }

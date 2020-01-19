@@ -47,4 +47,9 @@ public class GameManager : MonoBehaviour
     {
         return playerMovement.getCurrentMoveSpeed();
     }
+
+    public float getPlayerMomentum()
+    {
+        return playerMovement.getPlayerMomentum();
+    }
 }

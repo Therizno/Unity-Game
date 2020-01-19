@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e89851ccfcf43d39b84eb2c9baf11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkAnimSpeed: 0.1
 --- !u!4 &29537427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4537607260992020172, guid: 42c8d042cef6f403cae0a7f94927f8b9,

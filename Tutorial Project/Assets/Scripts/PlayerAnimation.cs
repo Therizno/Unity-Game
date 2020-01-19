@@ -6,6 +6,8 @@ public class PlayerAnimation : MonoBehaviour
 {
     GameManager gm;
 
+    [SerializeField] private float walkAnimSpeed;
+
     Animator anim;
 
     // Start is called before the first frame update
@@ -20,5 +22,6 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         anim.SetBool("movement", gm.getPlayerMoveSpeed() != 0);
+        anim.SetFloat("speed", gm.getPlayerMomentum() * walkAnimSpeed);
     }
 }
