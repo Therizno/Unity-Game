@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void jumpInput()
     {
 
-        //evaluate upward movement based of jump curve
+        //evaluate upward movement based on jump curve
         if (isJumping)
         {
             //avoid glitchy collisions while jumping
