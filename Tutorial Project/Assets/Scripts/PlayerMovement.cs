@@ -23,12 +23,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController cc;
 
 
-    // Awake is called before the first frame update
-    void Awake()
-    {
-        aimingToggleable = true;
-    }
-
     //Start is called right after Awake, and is for interaction with other objects
     void Start()
     {
@@ -109,10 +103,13 @@ public class PlayerMovement : MonoBehaviour
     private void checkAiming()
     {
         //check for aim key
-        if (Input.GetAxisRaw("Fire2") != 0 && aimingToggleable)
+        if (Input.GetButton("Fire2"))
         {
-            aiming = !aiming;
-            aimingToggleable = false;
+            if (aimingToggleable)
+            {
+                aimingToggleable = false;
+                aiming = !aiming;
+            }
         }
         else
         {
