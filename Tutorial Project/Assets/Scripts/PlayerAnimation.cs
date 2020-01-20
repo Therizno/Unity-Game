@@ -25,6 +25,5 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetFloat("speed", gm.getPlayerMomentum() * walkAnimSpeed);
         anim.SetBool("sprinting", gm.getPlayerSprint());
         anim.SetBool("jump", gm.getPlayerJump());
-        Debug.Log(gm.getPlayerJump());
     }
 }
