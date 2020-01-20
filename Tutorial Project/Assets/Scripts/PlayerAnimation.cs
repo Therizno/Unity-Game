@@ -23,5 +23,6 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetBool("movement", gm.getPlayerMoveSpeed() != 0);
         anim.SetFloat("speed", gm.getPlayerMomentum() * walkAnimSpeed);
+        anim.SetBool("sprinting", gm.getPlayerSprint());
     }
 }

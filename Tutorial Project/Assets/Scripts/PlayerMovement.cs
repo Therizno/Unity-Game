@@ -82,14 +82,13 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private bool isSprinting()
+
+    // getters and setters
+
+    public bool isSprinting()
     {
         return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0 && (cc.collisionFlags & CollisionFlags.Sides) == 0;
     }
-
-
-
-    // getters and setters
 
     public float getCurrentMoveSpeed()
     {
