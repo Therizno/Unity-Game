@@ -57,4 +57,9 @@ public class GameManager : MonoBehaviour
     {
         return playerMovement.isSprinting();
     }
+
+    public bool getPlayerJump()
+    {
+        return playerMovement.isJumping();
+    }
 }

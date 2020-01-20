@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private AnimationCurve jumpFalloff;
 
-    private bool isJumping;
+    private bool jumping;
     private float timeInAir;
 
     private float moveSpeed;
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //evaluate upward movement based on jump curve
-        if (isJumping)
+        if (jumping)
         {
             //avoid glitchy collisions while jumping
             cc.slopeLimit = 90.0f;
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
             cc.SimpleMove(Vector3.zero);
 
             //check for upward obstruction or a floor below
-            isJumping = !cc.isGrounded && (cc.collisionFlags & CollisionFlags.Above) == 0;
+            jumping = !cc.isGrounded && (cc.collisionFlags & CollisionFlags.Above) == 0;
 
 
             timeInAir += Time.deltaTime;
@@ -77,13 +77,18 @@ public class PlayerMovement : MonoBehaviour
             cc.slopeLimit = 45.0f;
 
             //check for player jump input
-            isJumping = (Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting());
+            jumping = (Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting());
         }
         
     }
 
 
     // getters and setters
+
+    public bool isJumping()
+    {
+        return jumping;
+    }
 
     public bool isSprinting()
     {
