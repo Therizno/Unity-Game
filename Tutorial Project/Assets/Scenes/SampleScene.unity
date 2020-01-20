@@ -1864,6 +1864,7 @@ MonoBehaviour:
   sprintMultiplier: 2
   jumpMultiplier: 9
   jumpCooldown: 0.5
+  aimCooldown: 0.05
   jumpFalloff:
     serializedVersion: 2
     m_Curve:
@@ -2089,6 +2090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 3.5
   smoothing: 2
+  aimSensitivity: 0.5
 --- !u!1001 &982903831
 PrefabInstance:
   m_ObjectHideFlags: 0

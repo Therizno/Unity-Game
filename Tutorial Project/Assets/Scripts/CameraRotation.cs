@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
 {
+    private GameManager gm;
+
     [SerializeField] private float sensitivity;
     [SerializeField] private float smoothing;
+    [SerializeField] private float aimSensitivity;
 
     //total camera rotation
     private Vector2 mouseLook;
 
     private GameObject player;
+
 
     // Awake is called before the first frame update
     void Awake()
@@ -22,6 +26,8 @@ public class CameraRotation : MonoBehaviour
     //Start is called right after Awake, and is for interaction with other objects
     void Start()
     {
+        gm = GameManager.getInstance();
+
         player = transform.parent.gameObject;
     }
 
@@ -51,7 +57,7 @@ public class CameraRotation : MonoBehaviour
 
         Vector2 smoothV = new Vector2();
 
-        raw *= sensitivity * smoothing;
+        raw *= (gm.getPlayerAim() ? aimSensitivity : sensitivity) * smoothing;
 
         smoothV.x = Mathf.Lerp(smoothV.x, raw.x, 1f / smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, raw.y, 1f / smoothing);

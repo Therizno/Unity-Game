@@ -62,4 +62,9 @@ public class GameManager : MonoBehaviour
     {
         return playerMovement.isJumping();
     }
+
+    public bool getPlayerAim()
+    {
+        return playerMovement.isAiming();
+    }
 }

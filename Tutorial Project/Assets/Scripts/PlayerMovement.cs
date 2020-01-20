@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float jumpMultiplier;
     [SerializeField] private float jumpCooldown;
+    [SerializeField] private float aimCooldown;
 
     [SerializeField] private AnimationCurve jumpFalloff;
 
@@ -16,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private float timeSinceLand;
 
     private float moveSpeed;
+
+    private bool aiming;
+    private float timeSinceAim;
 
     private CharacterController cc;
 
@@ -29,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     // FixedUpdate is called once per fixed length of time (use for physics)
     void FixedUpdate()
     {
+        checkAiming();
+
         moveInput();
 
         jumpInput();
@@ -61,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
         {
             timeSinceLand = 0;
 
+            timeInAir += Time.deltaTime;
+
             //avoid glitchy collisions while jumping
             cc.slopeLimit = 90.0f;
 
@@ -76,8 +84,6 @@ public class PlayerMovement : MonoBehaviour
             //check for upward obstruction or a floor below
             jumping = !cc.isGrounded && (cc.collisionFlags & CollisionFlags.Above) == 0;
 
-
-            timeInAir += Time.deltaTime;
         }
         else
         {
@@ -95,6 +101,21 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    private void checkAiming()
+    {
+        //check for aim key
+        if (Input.GetAxis("Fire2") != 0 && timeSinceAim > aimCooldown)
+        {
+            timeSinceAim = 0;
+            aiming = !aiming;
+        }
+        else
+        {
+            timeSinceAim += Time.deltaTime;
+        }
+    }
+
+
     // getters and setters
 
     public bool isJumping()
@@ -105,6 +126,11 @@ public class PlayerMovement : MonoBehaviour
     public bool isSprinting()
     {
         return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0 && (cc.collisionFlags & CollisionFlags.Sides) == 0;
+    }
+
+    public bool isAiming()
+    {
+        return aiming;
     }
 
     public float getCurrentMoveSpeed()
