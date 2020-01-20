@@ -7,8 +7,8 @@ public class CameraRotation : MonoBehaviour
     private GameManager gm;
 
     [SerializeField] private float sensitivity;
+    [SerializeField] private float aimSensitMultiplier;
     [SerializeField] private float smoothing;
-    [SerializeField] private float aimSensitivity;
 
     //total camera rotation
     private Vector2 mouseLook;
@@ -57,7 +57,7 @@ public class CameraRotation : MonoBehaviour
 
         Vector2 smoothV = new Vector2();
 
-        raw *= (gm.getPlayerAiming() ? aimSensitivity : sensitivity) * smoothing;
+        raw *= (gm.getPlayerAiming() ? aimSensitMultiplier : 1.0f) *  sensitivity * smoothing;
 
         smoothV.x = Mathf.Lerp(smoothV.x, raw.x, 1f / smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, raw.y, 1f / smoothing);

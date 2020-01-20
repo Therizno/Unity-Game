@@ -512,7 +512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 857919756}
-  playerArms: {fileID: 3439503}
 --- !u!4 &316089905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4488616196064996, guid: 5fce63c0820cd874d9771957678b36a1,
@@ -1863,7 +1862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 5
   sprintMultiplier: 2
-  jumpMultiplier: 9
+  jumpSpeed: 9
   jumpCooldown: 0.5
   jumpFalloff:
     serializedVersion: 2
@@ -2089,8 +2088,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 3.5
+  aimSensitMultiplier: 0.3
   smoothing: 2
-  aimSensitivity: 0.5
 --- !u!1001 &982903831
 PrefabInstance:
   m_ObjectHideFlags: 0

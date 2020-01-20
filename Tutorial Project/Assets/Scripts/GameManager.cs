@@ -9,10 +9,9 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject playerArms;
 
     private PlayerMovement playerMovement;
-    private PlayerAnimation playerAnim;
+
 
     // hide the constructor
     private GameManager()
@@ -35,11 +34,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     // Start is called before the first frame update (use for getting other objects)
     void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
-        playerAnim = playerArms.GetComponent<PlayerAnimation>();
     }
 
 

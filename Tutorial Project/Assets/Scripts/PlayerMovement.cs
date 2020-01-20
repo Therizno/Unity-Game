@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float baseSpeed;
     [SerializeField] private float sprintMultiplier;
-    [SerializeField] private float jumpMultiplier;
+    [SerializeField] private float jumpSpeed;
     [SerializeField] private float jumpCooldown;
 
     [SerializeField] private AnimationCurve jumpFalloff;
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             cc.slopeLimit = 90.0f;
 
             //calculate forces and move player
-            float jumpForce = jumpMultiplier * jumpFalloff.Evaluate(timeInAir);
+            float jumpForce = jumpSpeed * jumpFalloff.Evaluate(timeInAir);
 
             cc.Move(Vector3.up * jumpForce * Time.deltaTime);
 
