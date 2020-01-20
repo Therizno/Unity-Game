@@ -1862,6 +1862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 5
   sprintMultiplier: 2
+  aimMultiplier: 0.5
   jumpSpeed: 9
   jumpCooldown: 0.5
   jumpFalloff:

@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float baseSpeed;
     [SerializeField] private float sprintMultiplier;
+    [SerializeField] private float aimMultiplier;
+
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float jumpCooldown;
 
@@ -51,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forwardMove = transform.forward * vertInput;
         Vector3 strafeMove = transform.right * horzInput;
 
-        Vector3 move = Vector3.ClampMagnitude(forwardMove + strafeMove, 1.0f) * baseSpeed * (isSprinting() ? sprintMultiplier : 1.0f);
+        Vector3 move = Vector3.ClampMagnitude(forwardMove + strafeMove, 1.0f) * baseSpeed * getSpeedModifiers();
 
         moveSpeed = Vector3.Magnitude(move);
 
@@ -100,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    //checks if the player should be aiming 
     private void checkAiming()
     {
         //check for aim key
@@ -118,6 +121,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    //returns any modifiers to player speed
+    private float getSpeedModifiers()
+    {
+        return (isSprinting() ? sprintMultiplier : 1.0f) * (isAiming() ? aimMultiplier : 1.0f);
+    }
+
 
     // getters and setters
 
@@ -128,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isSprinting()
     {
-        return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0 && (cc.collisionFlags & CollisionFlags.Sides) == 0;
+        return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0 && (cc.collisionFlags & CollisionFlags.Sides) == 0 && !aiming;
     }
 
     public bool isAiming()
