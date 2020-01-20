@@ -7,11 +7,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float baseSpeed;
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float jumpMultiplier;
+    [SerializeField] private float jumpCooldown;
 
     [SerializeField] private AnimationCurve jumpFalloff;
 
     private bool jumping;
     private float timeInAir;
+    private float timeSinceLand;
 
     private float moveSpeed;
 
@@ -27,6 +29,14 @@ public class PlayerMovement : MonoBehaviour
     // FixedUpdate is called once per fixed length of time (use for physics)
     void FixedUpdate()
     {
+        moveInput();
+
+        jumpInput();
+    }
+
+
+    private void moveInput()
+    {
         //get raw data
         float vertInput = Input.GetAxis("Vertical");
         float horzInput = Input.GetAxis("Horizontal");
@@ -40,8 +50,6 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = Vector3.Magnitude(move);
 
         cc.SimpleMove(move);
-
-        jumpInput();
     }
 
 
@@ -51,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
         //evaluate upward movement based on jump curve
         if (jumping)
         {
+            timeSinceLand = 0;
+
             //avoid glitchy collisions while jumping
             cc.slopeLimit = 90.0f;
 
@@ -73,11 +83,13 @@ public class PlayerMovement : MonoBehaviour
         {
             timeInAir = 0;
 
+            timeSinceLand += Time.deltaTime;
+
             //reset slopeLimit
             cc.slopeLimit = 45.0f;
 
             //check for player jump input
-            jumping = (Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting());
+            jumping = Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting() && timeSinceLand > jumpCooldown;
         }
         
     }
