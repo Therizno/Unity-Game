@@ -57,7 +57,7 @@ public class CameraRotation : MonoBehaviour
 
         Vector2 smoothV = new Vector2();
 
-        raw *= (gm.getPlayerAim() ? aimSensitivity : sensitivity) * smoothing;
+        raw *= (gm.getPlayerAiming() ? aimSensitivity : sensitivity) * smoothing;
 
         smoothV.x = Mathf.Lerp(smoothV.x, raw.x, 1f / smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, raw.y, 1f / smoothing);

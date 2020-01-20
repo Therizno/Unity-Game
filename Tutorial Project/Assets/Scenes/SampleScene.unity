@@ -512,6 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 857919756}
+  playerArms: {fileID: 3439503}
 --- !u!4 &316089905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4488616196064996, guid: 5fce63c0820cd874d9771957678b36a1,
@@ -1864,7 +1865,6 @@ MonoBehaviour:
   sprintMultiplier: 2
   jumpMultiplier: 9
   jumpCooldown: 0.5
-  aimCooldown: 0.05
   jumpFalloff:
     serializedVersion: 2
     m_Curve:

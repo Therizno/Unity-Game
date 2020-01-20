@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float jumpMultiplier;
     [SerializeField] private float jumpCooldown;
-    [SerializeField] private float aimCooldown;
 
     [SerializeField] private AnimationCurve jumpFalloff;
 
@@ -19,12 +18,18 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed;
 
     private bool aiming;
-    private float timeSinceAim;
+    private bool aimingToggleable;
 
     private CharacterController cc;
 
 
-    // Start is called before the first frame update
+    // Awake is called before the first frame update
+    void Awake()
+    {
+        aimingToggleable = true;
+    }
+
+    //Start is called right after Awake, and is for interaction with other objects
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -34,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         checkAiming();
+
 
         moveInput();
 
@@ -100,20 +106,20 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-
     private void checkAiming()
     {
         //check for aim key
-        if (Input.GetAxis("Fire2") != 0 && timeSinceAim > aimCooldown)
+        if (Input.GetAxisRaw("Fire2") != 0 && aimingToggleable)
         {
-            timeSinceAim = 0;
             aiming = !aiming;
+            aimingToggleable = false;
         }
         else
         {
-            timeSinceAim += Time.deltaTime;
+            aimingToggleable = true;
         }
     }
+
 
 
     // getters and setters

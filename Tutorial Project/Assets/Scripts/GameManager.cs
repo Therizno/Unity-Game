@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playerArms;
 
     private PlayerMovement playerMovement;
+    private PlayerAnimation playerAnim;
 
     // hide the constructor
     private GameManager()
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
+        playerAnim = playerArms.GetComponent<PlayerAnimation>();
     }
 
 
@@ -53,17 +56,17 @@ public class GameManager : MonoBehaviour
         return playerMovement.getPlayerMomentum();
     }
 
-    public bool getPlayerSprint()
+    public bool getPlayerSprinting()
     {
         return playerMovement.isSprinting();
     }
 
-    public bool getPlayerJump()
+    public bool getPlayerJumping()
     {
         return playerMovement.isJumping();
     }
 
-    public bool getPlayerAim()
+    public bool getPlayerAiming()
     {
         return playerMovement.isAiming();
     }
