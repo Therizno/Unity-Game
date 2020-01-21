@@ -83,16 +83,18 @@ public class CameraRotation : MonoBehaviour
         }
     }
 
+    // change this method once the aim animation issue is solved
     private void adjustFOV()
     {
         if (gm.getPlayerAiming())
         {
-            Camera.main.fieldOfView = aimingFOV;
+            Camera.main.fieldOfView -= (Camera.main.fieldOfView - aimingFOV)/2;
         }
         else
         {
-            //return to default 
-            Camera.main.fieldOfView = 60;
+            //return to default
+            Camera.main.fieldOfView += (Camera.main.fieldOfView >= 60 ? 0 : 1);
+            //Camera.main.fieldOfView += (60 - Camera.main.fieldOfView)/20;
         }
     }
 }
