@@ -2092,6 +2092,7 @@ MonoBehaviour:
   sensitivity: 3.5
   aimSensitMultiplier: 0.3
   smoothing: 2
+  aimingFOV: 33
 --- !u!1001 &982903831
 PrefabInstance:
   m_ObjectHideFlags: 0

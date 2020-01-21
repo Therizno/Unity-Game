@@ -9,6 +9,7 @@ public class CameraRotation : MonoBehaviour
     [SerializeField] private float sensitivity;
     [SerializeField] private float aimSensitMultiplier;
     [SerializeField] private float smoothing;
+    [SerializeField] private float aimingFOV;
 
     //total camera rotation
     private Vector2 mouseLook;
@@ -47,6 +48,9 @@ public class CameraRotation : MonoBehaviour
         //transform camera
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
 
+        //adjust the camera's field of view
+        adjustFOV();
+
         //transform player
         player.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, player.transform.up);
     }
@@ -76,6 +80,19 @@ public class CameraRotation : MonoBehaviour
         else if (mouseLook.y < -90)
         {
             mouseLook.y = -90;
+        }
+    }
+
+    private void adjustFOV()
+    {
+        if (gm.getPlayerAiming())
+        {
+            Camera.main.fieldOfView = aimingFOV;
+        }
+        else
+        {
+            //return to default 
+            Camera.main.fieldOfView = 60;
         }
     }
 }
