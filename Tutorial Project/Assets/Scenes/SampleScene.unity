@@ -1862,7 +1862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 5
-  sprintMultiplier: 2
+  sprintMultiplier: 1.75
   aimMultiplier: 0.5
   jumpSpeed: 9
   jumpCooldown: 0.5
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7682cf74f640d41bcb3e0bbce63a9bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 3.5
+  sensitivity: 3
   aimSensitMultiplier: 0.3
   smoothing: 2
   aimingFOV: 33
