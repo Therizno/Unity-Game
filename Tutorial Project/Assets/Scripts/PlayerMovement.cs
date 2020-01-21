@@ -118,6 +118,13 @@ public class PlayerMovement : MonoBehaviour
         {
             aimingToggleable = true;
         }
+
+        // cancel aiming if the player decides to sprint
+        if (isSprinting())
+        {
+            aiming = false;
+            aimingToggleable = true;
+        }
     }
 
 
@@ -137,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isSprinting()
     {
-        return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0 && (cc.collisionFlags & CollisionFlags.Sides) == 0 && !aiming;
+        return Input.GetAxis("Sprint") != 0 && Input.GetAxis("Vertical") > 0 && (cc.collisionFlags & CollisionFlags.Sides) == 0;
     }
 
     public bool isAiming()
