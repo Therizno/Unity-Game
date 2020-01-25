@@ -88,12 +88,12 @@ public class CameraRotation : MonoBehaviour
     {
         if (gm.getPlayerAiming())
         {
-            Camera.main.fieldOfView -= (Camera.main.fieldOfView - aimingFOV)/2;
+            //Camera.main.fieldOfView -= (Camera.main.fieldOfView - aimingFOV)/2;
         }
         else
         {
             //return to default
-            Camera.main.fieldOfView += (Camera.main.fieldOfView >= 60 ? 0 : 1);
+            //Camera.main.fieldOfView += (Camera.main.fieldOfView >= 60 ? 0 : 1);
             //Camera.main.fieldOfView += (60 - Camera.main.fieldOfView)/20;
         }
     }
