@@ -6,6 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     GameManager gm;
 
+    //animation speed variables. Control animations only
     [SerializeField] private float walkAnimSpeed;
     [SerializeField] private float sprintAnimSpeed;
     [SerializeField] private float aimWalkSpeedMultiplier;
@@ -23,6 +24,7 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //pass variables to the animator 
         anim.SetBool("movement", gm.getPlayerMoveSpeed() != 0);
         anim.SetFloat("speed", gm.getPlayerMomentum() * walkAnimSpeed);
         anim.SetFloat("sprint speed", gm.getPlayerMomentum() * sprintAnimSpeed);
