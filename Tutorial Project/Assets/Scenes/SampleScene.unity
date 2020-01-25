@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkAnimSpeed: 0.2
+  sprintAnimSpeed: 0.11
   aimWalkSpeedMultiplier: 0.25
 --- !u!4 &29537427 stripped
 Transform:

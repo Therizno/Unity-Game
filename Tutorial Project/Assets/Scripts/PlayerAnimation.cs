@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     GameManager gm;
 
     [SerializeField] private float walkAnimSpeed;
+    [SerializeField] private float sprintAnimSpeed;
     [SerializeField] private float aimWalkSpeedMultiplier;
 
     Animator anim;
@@ -24,6 +25,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetBool("movement", gm.getPlayerMoveSpeed() != 0);
         anim.SetFloat("speed", gm.getPlayerMomentum() * walkAnimSpeed);
+        anim.SetFloat("sprint speed", gm.getPlayerMomentum() * sprintAnimSpeed);
         anim.SetBool("sprinting", gm.getPlayerSprinting());
         anim.SetBool("jump", gm.getPlayerJumping());
         anim.SetBool("aim", gm.getPlayerAiming());
