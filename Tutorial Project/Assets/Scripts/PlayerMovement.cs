@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             cc.slopeLimit = 45.0f;
 
             //check for player jump input
-            jumping = Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting() && timeSinceLand > jumpCooldown;
+            jumping = Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting() && timeSinceLand > jumpCooldown && ! aiming;
         }
         
     }
