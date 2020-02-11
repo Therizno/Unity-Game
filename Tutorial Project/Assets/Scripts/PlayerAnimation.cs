@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    GameManager gm;
+    private GameManager gm;
 
     //animation speed variables. Control animations only
     [SerializeField] private float walkAnimSpeed;
@@ -14,7 +14,7 @@ public class PlayerAnimation : MonoBehaviour
     private Animator anim;
 
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update (use for getting other objects)
     void Start()
     {
         gm = GameManager.getInstance();

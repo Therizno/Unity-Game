@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
-    private PlayerMovement playerMovement;
+    private PlayerBehavior playerBehavior;
 
 
     // hide the constructor
@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update (use for getting other objects)
     void Start()
     {
-        playerMovement = player.GetComponent<PlayerMovement>();
+        //To do: replace this object with the PlayerBehavior object 
+        playerBehavior = player.GetComponent<PlayerBehavior>();
     }
 
 
@@ -47,31 +48,32 @@ public class GameManager : MonoBehaviour
 
     public float getPlayerMoveSpeed()
     {
-        return playerMovement.getCurrentMoveSpeed();
+        return playerBehavior.getPlayerMoveSpeed();
     }
 
     public float getPlayerMomentum()
     {
-        return playerMovement.getPlayerMomentum();
+        return playerBehavior.getPlayerMomentum();
     }
 
     public bool getPlayerSprinting()
     {
-        return playerMovement.isSprinting();
+        return playerBehavior.getPlayerSprinting();
     }
 
     public bool getPlayerJumping()
     {
-        return playerMovement.isJumping();
+        return playerBehavior.getPlayerJumping();
     }
 
     public bool getPlayerAiming()
     {
-        return playerMovement.isAiming();
+        return playerBehavior.getPlayerAiming();
     }
 }
 
 public enum GameEvent
 {
-    PlayerFire
+    // localized events (can happen multiple places, multiple times at once)
+    FireGun 
 }

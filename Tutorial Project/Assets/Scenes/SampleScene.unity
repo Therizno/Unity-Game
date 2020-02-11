@@ -1937,6 +1937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee6c03f0d6d54b0cb39ee233d39fd83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 963194225}
+  fpsHands: {fileID: 3439503}
 --- !u!4 &867962072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4488616196064996, guid: 5fce63c0820cd874d9771957678b36a1,

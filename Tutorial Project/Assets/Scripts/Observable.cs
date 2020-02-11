@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface Observable
+﻿public interface Observable
 {
     void addObserver(Observer o);
+    void removeObserver(Observer o); 
 }
