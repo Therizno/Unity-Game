@@ -84,7 +84,7 @@ public class CameraRotation : MonoBehaviour
         }
     }
 
-    // change this method once the aim animation issue is solved
+    
     private void adjustFOV()
     {
         if (gm.getPlayerAiming())

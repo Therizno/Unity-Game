@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             cc.slopeLimit = 45.0f;
 
             //check for player jump input
-            jumping = Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting() && timeSinceLand > jumpCooldown && ! aiming;
+            jumping = Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting() && timeSinceLand > jumpCooldown;
         }
         
     }
@@ -119,11 +119,18 @@ public class PlayerMovement : MonoBehaviour
             aimingToggleable = true;
         }
 
-        // cancel aiming if the player decides to sprint
+        // cancel aiming if the player decides to sprint 
         if (isSprinting())
         {
             aiming = false;
             aimingToggleable = true;
+        }
+
+        // stop player from aiming if currently jumping
+        if (isJumping())
+        {
+            aiming = false;
+            aimingToggleable = false;
         }
     }
 

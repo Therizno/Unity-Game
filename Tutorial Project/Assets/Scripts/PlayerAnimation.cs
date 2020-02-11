@@ -11,7 +11,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private float sprintAnimSpeed;
     [SerializeField] private float aimWalkSpeedMultiplier;
 
-    Animator anim;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
