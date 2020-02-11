@@ -13,7 +13,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private Animator anim;
 
-    private AnimationClip currentClip;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +33,11 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool("jump", gm.getPlayerJumping());
         anim.SetBool("aim", gm.getPlayerAiming());
         anim.SetFloat("aim walk speed", gm.getPlayerMomentum() * aimWalkSpeedMultiplier);
+    }
 
-        // get the current state of the animator
-        if (anim.GetCurrentAnimatorClipInfo(0).Length > 0)
-        {
-            currentClip = anim.GetCurrentAnimatorClipInfo(0)[0].clip;
-            Debug.Log(currentClip.name);
-        }
+    public bool isFiring()
+    {
+        AnimatorStateInfo inf = anim.GetCurrentAnimatorStateInfo(0);
+        return inf.IsName("Shot") || inf.IsName("Aiming_Shot");
     }
 }
