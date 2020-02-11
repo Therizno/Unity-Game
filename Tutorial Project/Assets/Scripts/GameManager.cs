@@ -70,3 +70,8 @@ public class GameManager : MonoBehaviour
         return playerMovement.isAiming();
     }
 }
+
+public enum GameEvent
+{
+    PlayerFire
+}
