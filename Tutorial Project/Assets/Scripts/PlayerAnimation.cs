@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimation : MonoBehaviour, Observer
 {
     private GameManager gm;
 
@@ -13,7 +13,9 @@ public class PlayerAnimation : MonoBehaviour
 
     private Animator anim;
 
+    private bool fire;
 
+    int i = 0;
     // Start is called before the first frame update (use for getting other objects)
     void Start()
     {
@@ -33,9 +35,35 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool("jump", gm.getPlayerJumping());
         anim.SetBool("aim", gm.getPlayerAiming());
         anim.SetFloat("aim walk speed", gm.getPlayerMomentum() * aimWalkSpeedMultiplier);
+
+
+        if (fire)
+        {
+            Debug.Log(i);
+            anim.SetBool("fire", true);
+            fire = false;
+            i++;
+        }
+        else
+        {
+            anim.SetBool("fire", false); 
+        }
     }
 
-    public bool isFiring()
+
+    //Observer methods
+
+    public void notify(GameEvent g)
+    {
+        if (g == GameEvent.FireWeapon)
+        {
+            fire = true;
+        }
+    }
+
+
+
+    public bool isFiringAnimated()
     {
         AnimatorStateInfo inf = anim.GetCurrentAnimatorStateInfo(0);
         return inf.IsName("Shot") || inf.IsName("Aiming_Shot");

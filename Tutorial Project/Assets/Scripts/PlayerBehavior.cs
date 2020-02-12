@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+This class is for handling game aspects of the player rather than controls.
+It notifies lower level player control classes when relevant events occur.
+DOES NOT facilitate communication BETWEEN lower level control classes - instead
+passes that information to GameManager. 
+*/
+
 public class PlayerBehavior : MonoBehaviour, Observable
 {
     private GameManager gm;
@@ -17,6 +24,11 @@ public class PlayerBehavior : MonoBehaviour, Observable
     private List<Observer> observers;
 
 
+    [SerializeField] float fireCooldown;
+
+    private float timeSinceFire;
+
+
     // called before start
     void Awake()
     {
@@ -30,13 +42,15 @@ public class PlayerBehavior : MonoBehaviour, Observable
 
         playerMovement = GetComponent<PlayerMovement>();
         cameraRotation = cam.GetComponent<CameraRotation>();
-        playerAnimation = fpsHands.GetComponent<PlayerAnimation>(); 
+        playerAnimation = fpsHands.GetComponent<PlayerAnimation>();
+
+        addObserver(playerAnimation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        checkFire();
     }
 
 
@@ -62,9 +76,17 @@ public class PlayerBehavior : MonoBehaviour, Observable
 
 
 
-    public bool fire()
+    private void checkFire()
     {
-        return !gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Fire1") != 0;
+        if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Fire1") != 0 && timeSinceFire > fireCooldown)
+        {
+            notifyAll(GameEvent.FireWeapon);
+            timeSinceFire = 0;
+        }
+        else
+        {
+            timeSinceFire += Time.deltaTime; 
+        }
     }
 
 
