@@ -702,8 +702,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8683518331416180866}
-  - {fileID: -1898000712806117982}
   - {fileID: 8665298632320721605}
+  - {fileID: -1898000712806117982}
   - {fileID: -7091299935830070314}
   - {fileID: -3393242391770553271}
   - {fileID: 6325817702122270417}
@@ -744,7 +744,7 @@ AnimatorStateTransition:
   m_ExitTime: 0.5808669
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 4
+  m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &3381334503487914968
