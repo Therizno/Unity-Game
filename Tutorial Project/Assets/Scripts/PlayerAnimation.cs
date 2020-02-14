@@ -60,8 +60,13 @@ public class PlayerAnimation : MonoBehaviour, Observer
     }
 
 
+    public bool isFireReady()
+    {
+        AnimatorStateInfo inf = anim.GetCurrentAnimatorStateInfo(0);
+        return !inf.IsName("Jump") && !inf.IsName("Run");
+    }
 
-    public bool isFiringAnimated()
+    public bool isFiring()
     {
         AnimatorStateInfo inf = anim.GetCurrentAnimatorStateInfo(0);
         return inf.IsName("Shot") || inf.IsName("Aiming_Shot");

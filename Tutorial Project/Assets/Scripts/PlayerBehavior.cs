@@ -81,7 +81,7 @@ public class PlayerBehavior : MonoBehaviour, Observable
 
     private void checkFire()
     {
-        if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Fire1") != 0 && timeSinceFire > fireCooldown)
+        if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Fire1") != 0 && timeSinceFire > fireCooldown && playerAnimation.isFireReady())
         {
             notifyAll(GameEvent.FireWeapon);
             timeSinceFire = 0;
