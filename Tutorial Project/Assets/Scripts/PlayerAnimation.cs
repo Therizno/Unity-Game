@@ -15,7 +15,7 @@ public class PlayerAnimation : MonoBehaviour, Observer
 
     private bool fire;
 
-    int i = 0;
+
     // Start is called before the first frame update (use for getting other objects)
     void Start()
     {
@@ -39,10 +39,8 @@ public class PlayerAnimation : MonoBehaviour, Observer
 
         if (fire)
         {
-            Debug.Log(i);
             anim.SetBool("fire", true);
             fire = false;
-            i++;
         }
         else
         {
