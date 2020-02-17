@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
-This class is for handling game aspects of the player rather than controls.
-It notifies lower level player control classes when relevant events occur.
-DOES NOT facilitate communication BETWEEN lower level control classes - instead
+This class is for handling the interface between the player and the game. 
+It notifies lower level player control classes when relevant events occur. 
+DOES NOT facilitate communication BETWEEN lower level control classes - instead 
 passes that information to GameManager. 
 */
 
