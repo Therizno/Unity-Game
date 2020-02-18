@@ -32,7 +32,7 @@ public class ShotgunEffects : MonoBehaviour, Observer
     {
         if (g == GameEvent.FireWeapon)
         {
-            //audioSource.PlayOneShot(shot);
+            audioSource.PlayOneShot(shot);
             shotEffects.Play();
         }
         
