@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunSound : MonoBehaviour, Observer
+public class ShotgunEffects : MonoBehaviour, Observer
 {
     private AudioSource audioSource;
 
     [SerializeField] private AudioClip shot;
+    [SerializeField] private GameObject fireParticles;
+
+    private ParticleSystem shotEffects;
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        shotEffects = fireParticles.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -27,7 +32,8 @@ public class ShotgunSound : MonoBehaviour, Observer
     {
         if (g == GameEvent.FireWeapon)
         {
-            audioSource.PlayOneShot(shot);
+            //audioSource.PlayOneShot(shot);
+            shotEffects.Play();
         }
         
     }

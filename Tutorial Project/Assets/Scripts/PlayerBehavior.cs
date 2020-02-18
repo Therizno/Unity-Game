@@ -20,7 +20,7 @@ public class PlayerBehavior : MonoBehaviour, Observable
     private PlayerMovement playerMovement;
     private CameraRotation cameraRotation;
     private PlayerAnimation playerAnimation;
-    private ShotgunSound shotgunSound;
+    private ShotgunEffects shotgunEffects;
 
     private List<Observer> observers;
 
@@ -44,10 +44,10 @@ public class PlayerBehavior : MonoBehaviour, Observable
         playerMovement = GetComponent<PlayerMovement>();
         cameraRotation = cam.GetComponent<CameraRotation>();
         playerAnimation = fpsHands.GetComponent<PlayerAnimation>();
-        shotgunSound = fpsHands.GetComponent<ShotgunSound>();
+        shotgunEffects = fpsHands.GetComponent<ShotgunEffects>();
 
         addObserver(playerAnimation);
-        addObserver(shotgunSound);
+        addObserver(shotgunEffects);
     }
 
     // Update is called once per frame
