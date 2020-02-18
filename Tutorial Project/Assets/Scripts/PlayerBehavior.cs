@@ -21,7 +21,7 @@ public class PlayerBehavior : MonoBehaviour, Observable
     private PlayerMovement playerMovement;
     private CameraRotation cameraRotation;
     private PlayerAnimation playerAnimation;
-    private ShotgunEffects shotgunEffects;
+    private GunEffects gunEffects;
     private ShotgunBehavior shotgunBehavior;
 
     private List<Observer> observers;
@@ -46,11 +46,11 @@ public class PlayerBehavior : MonoBehaviour, Observable
         playerMovement = GetComponent<PlayerMovement>();
         cameraRotation = cam.GetComponent<CameraRotation>();
         playerAnimation = fpsHands.GetComponent<PlayerAnimation>();
-        shotgunEffects = fpsHands.GetComponent<ShotgunEffects>();
+        gunEffects = fpsHands.GetComponent<GunEffects>();
         shotgunBehavior = bulletSource.GetComponent<ShotgunBehavior>();
 
         addObserver(playerAnimation);
-        addObserver(shotgunEffects);
+        addObserver(gunEffects);
         addObserver(shotgunBehavior);
     }
 

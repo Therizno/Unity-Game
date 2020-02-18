@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunEffects : MonoBehaviour, Observer
+public class GunEffects : MonoBehaviour, Observer
 {
     private AudioSource audioSource;
 
