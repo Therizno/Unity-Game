@@ -16,11 +16,13 @@ public class PlayerBehavior : MonoBehaviour, Observable
 
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject fpsHands;
+    [SerializeField] private GameObject bulletSource;
 
     private PlayerMovement playerMovement;
     private CameraRotation cameraRotation;
     private PlayerAnimation playerAnimation;
     private ShotgunEffects shotgunEffects;
+    private ShotgunBehavior shotgunBehavior;
 
     private List<Observer> observers;
 
@@ -45,9 +47,11 @@ public class PlayerBehavior : MonoBehaviour, Observable
         cameraRotation = cam.GetComponent<CameraRotation>();
         playerAnimation = fpsHands.GetComponent<PlayerAnimation>();
         shotgunEffects = fpsHands.GetComponent<ShotgunEffects>();
+        shotgunBehavior = bulletSource.GetComponent<ShotgunBehavior>();
 
         addObserver(playerAnimation);
         addObserver(shotgunEffects);
+        addObserver(shotgunBehavior);
     }
 
     // Update is called once per frame
