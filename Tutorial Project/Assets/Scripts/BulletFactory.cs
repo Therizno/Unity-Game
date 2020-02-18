@@ -23,6 +23,11 @@ public class BulletFactory : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab);
 
         Rigidbody rgbd = bullet.GetComponent<Rigidbody>();
-        rgbd.velocity = (dir * vel); 
+        rgbd.velocity = (dir * vel);
+
+        bullet.transform.position = transform.position;
+
+        //temp
+        bullet.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 }
