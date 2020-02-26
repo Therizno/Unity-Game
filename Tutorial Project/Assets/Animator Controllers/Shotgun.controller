@@ -129,6 +129,34 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &-5774665350983479429
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: movement
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: aim
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -1715882898758057137}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.19099104
+  m_TransitionOffset: 0
+  m_ExitTime: 0.4765319
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 1
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-5769227911650047716
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -214,10 +242,10 @@ AnimatorState:
   m_Transitions:
   - {fileID: -5769227911650047716}
   - {fileID: 1758556735827508587}
-  - {fileID: 8200583439278032282}
   - {fileID: -7852584217691252767}
   - {fileID: 3493883083095370537}
   - {fileID: 950026665950580572}
+  - {fileID: 8200583439278032282}
   - {fileID: 230154016260338893}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -562,18 +590,21 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: aim
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: movement
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1969173529117882668}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.15945959
   m_TransitionOffset: 0
   m_ExitTime: 0.925
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 4
+  m_InterruptionSource: 1
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &-923752156557026497
@@ -612,9 +643,11 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
+  - {fileID: 6266661988302142112}
   - {fileID: 3776077313940555862}
   - {fileID: -7872272205755692238}
   - {fileID: 5726569390225947520}
+  - {fileID: -5774665350983479429}
   - {fileID: -1322919625139411172}
   - {fileID: 4653616901018974302}
   - {fileID: -5538067996471557393}
@@ -750,7 +783,7 @@ AnimatorStateTransition:
   m_ExitTime: 0.75
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 4
+  m_InterruptionSource: 1
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &980454728831396785
@@ -981,6 +1014,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: fire
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: aim
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8997317866065450492}
   m_Solo: 0
@@ -1142,6 +1178,34 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &6266661988302142112
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: aim
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: fire
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -4374480002644211013}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.87927884
+  m_TransitionOffset: 0.110013835
+  m_ExitTime: 0.03256827
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &6325817702122270417
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1279,7 +1343,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: movement
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -263883084783318594}
   m_Solo: 0
