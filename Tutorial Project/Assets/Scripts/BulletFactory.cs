@@ -18,7 +18,7 @@ public class BulletFactory : MonoBehaviour
         
     }
 
-    public void createBullet(Vector3 dir, float vel, float damage)
+    public void createBullet(Vector3 dir, float vel, float size, float damage)
     {
         GameObject bullet = Instantiate(bulletPrefab);
 
@@ -26,8 +26,10 @@ public class BulletFactory : MonoBehaviour
         rgbd.velocity = (dir * vel);
 
         bullet.transform.position = transform.position;
+        bullet.transform.rotation = transform.rotation;
 
-        //temp
-        bullet.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        bullet.transform.Rotate(90, 0, 0);
+
+        bullet.transform.localScale = new Vector3(size, size, size);
     }
 }
