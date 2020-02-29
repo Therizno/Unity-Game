@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update (use for getting other objects)
     void Start()
     {
-        //To do: replace this object with the PlayerBehavior object 
         playerBehavior = player.GetComponent<PlayerBehavior>();
     }
 
