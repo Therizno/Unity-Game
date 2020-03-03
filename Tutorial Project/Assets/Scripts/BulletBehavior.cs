@@ -23,22 +23,30 @@ public class BulletBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        GameObject hole;
+        //Raycast to find the normal of the surface of the hit at the point of contact
 
-        GameObject collParent = other.gameObject;
+        RaycastHit hitInfo;
 
-        if (Random.Range(0, 2) == 0)
+        if (Physics.Raycast(transform.position - transform.forward, transform.forward, out hitInfo, Mathf.Infinity))
         {
-            hole = Instantiate(bulletHole1);
-        }
-        else
-        {
-            hole = Instantiate(bulletHole2);
-        }
+            // instantiate the bullet hole
 
-        hole.transform.position = transform.position;
-        hole.transform.rotation = collParent.transform.rotation;
-        hole.transform.localScale = transform.localScale;
+            GameObject hole;
+
+            if (Random.Range(0, 2) == 0)
+            {
+                hole = Instantiate(bulletHole1);
+            }
+            else
+            {
+                hole = Instantiate(bulletHole2);
+            }
+
+
+            hole.transform.position = hitInfo.point;
+            hole.transform.rotation = Quaternion.Euler(hitInfo.normal);
+            hole.transform.localScale = transform.localScale;
+        }
 
 
         Destroy(gameObject);
