@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BASML_Props_Box Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1130817653258138, guid: 270dfc038b81e504cb244e675695ae08, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130817653258138, guid: 270dfc038b81e504cb244e675695ae08, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4126872159919350, guid: 270dfc038b81e504cb244e675695ae08, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
