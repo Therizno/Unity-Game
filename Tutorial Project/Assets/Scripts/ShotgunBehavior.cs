@@ -33,6 +33,7 @@ public class ShotgunBehavior : MonoBehaviour, Observer
             {
                 switch (i % 4)
                 {
+                    //distribute bullets between each quadrant 
                     case 0:
                         fac.createBullet(transform.forward + ((transform.right + transform.up) * Random.Range(0.0f, maxBulletSpread)), bulletVelocity, bulletSize, bulletDamage);
                         break;
