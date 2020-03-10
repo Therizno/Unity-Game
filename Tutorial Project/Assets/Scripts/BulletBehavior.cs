@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
+    [SerializeField] private float bulletScaleMultiplier;
+    [SerializeField] private float raycastOffset;
+
     private float damage;
 
     [SerializeField] private GameObject bulletHole1;
@@ -23,16 +26,18 @@ public class BulletBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Raycast to find the normal of the surface of the hit at the point of contact
+        /*
+         * Raycast to find the normal of the surface of the hit at the point of contact
+         */
 
         RaycastHit hitInfo;
 
-        transform.position -= (transform.up * 0.1f);
+        //A point slightly behind the bullet 
+        Vector3 offset = transform.position - (transform.up * raycastOffset);
 
-        if (Physics.Raycast(transform.position, transform.up, out hitInfo, Mathf.Infinity, LayerMask.GetMask("BulletCollidable")))
+        if (Physics.Raycast(offset, transform.up, out hitInfo, Mathf.Infinity, LayerMask.GetMask("BulletCollidable")))
         {
-            // instantiate the bullet hole
-
+            // instantiate a bullet hole
             GameObject hole;
 
             if (Random.Range(0, 2) == 0)
@@ -44,19 +49,18 @@ public class BulletBehavior : MonoBehaviour
                 hole = Instantiate(bulletHole2);
             }
 
+            //Position the bullet hole slightly above the surface
+            hole.transform.position = offset;
 
-            hole.transform.position = transform.position;
-            GameObject child = hole.transform.GetChild(0).gameObject;
-
-            Debug.Log(hole.transform.position - transform.position);
+            //Rotate it to sit flush against the surface
             hole.transform.rotation = Quaternion.FromToRotation(hole.transform.up, hitInfo.normal);
-            hole.transform.localScale = transform.localScale;
 
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            //Scale it correctly
+            hole.transform.localScale = transform.localScale * bulletScaleMultiplier;
+
+            //Destroy the bullet
+            Destroy(gameObject);
         }
-
-
-        //Destroy(gameObject);
     }
 
 

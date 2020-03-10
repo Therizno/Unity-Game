@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227ce1fedc2ab46749af05b3ed9bc951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletScaleMultiplier: 0.4
+  raycastOffset: 0.1
   bulletHole1: {fileID: 1431879522425158942, guid: fbd7d043056444404b52f880526bde9e,
     type: 3}
   bulletHole2: {fileID: 5640758221633445564, guid: 50cacfda5153a42a4b25989bb80f593a,
