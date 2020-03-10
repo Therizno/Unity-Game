@@ -6,7 +6,11 @@ public class ShotgunBehavior : MonoBehaviour, Observer
 {
     private BulletFactory fac;
 
-    [SerializeField] float bulletVelocity;
+    [SerializeField] private float bulletVelocity;
+    [SerializeField] private float bulletSize;
+    [SerializeField] private float numBullets;
+    [SerializeField] private float maxBulletSpread;
+    [SerializeField] private float bulletDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,29 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     {
         if (e == GameEvent.FireWeapon)
         {
+            for (int i = 0; i < numBullets; i++)
+            {
+                switch (i % 4)
+                {
+                    case 0:
+                        fac.createBullet(transform.forward + ((transform.right + transform.up) * Random.Range(0.0f, maxBulletSpread)), bulletVelocity, bulletSize, bulletDamage);
+                        break;
+
+                    case 1:
+                        fac.createBullet(transform.forward + ((-transform.right + transform.up) * Random.Range(0.0f, maxBulletSpread)), bulletVelocity, bulletSize, bulletDamage);
+                        break;
+
+                    case 2:
+                        fac.createBullet(transform.forward + ((transform.right - transform.up) * Random.Range(0.0f, maxBulletSpread)), bulletVelocity, bulletSize, bulletDamage);
+                        break;
+
+                    case 3:
+                        fac.createBullet(transform.forward + ((-transform.right - transform.up) * Random.Range(0.0f, maxBulletSpread)), bulletVelocity, bulletSize, bulletDamage);
+                        break;
+                }
+            }
+
+
             fac.createBullet(transform.forward, bulletVelocity, 0.05f, 0);
         }
     }

@@ -35,7 +35,7 @@ public class BulletBehavior : MonoBehaviour
         //A point slightly behind the bullet 
         Vector3 offset = transform.position - (transform.up * raycastOffset);
 
-        if (Physics.Raycast(offset, transform.up, out hitInfo, Mathf.Infinity, LayerMask.GetMask("BulletCollidable")))
+        if (other.gameObject.layer == LayerMask.NameToLayer("BulletCollidable") && Physics.Raycast(offset, transform.up, out hitInfo, Mathf.Infinity, LayerMask.GetMask("BulletCollidable")))
         {
             // instantiate a bullet hole
             GameObject hole;
