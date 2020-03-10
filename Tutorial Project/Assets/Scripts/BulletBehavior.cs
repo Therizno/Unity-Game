@@ -27,7 +27,9 @@ public class BulletBehavior : MonoBehaviour
 
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(transform.position - transform.forward, transform.forward, out hitInfo, Mathf.Infinity))
+        transform.position -= (transform.up * 0.1f);
+
+        if (Physics.Raycast(transform.position, transform.up, out hitInfo, Mathf.Infinity, LayerMask.GetMask("BulletCollidable")))
         {
             // instantiate the bullet hole
 
@@ -43,13 +45,18 @@ public class BulletBehavior : MonoBehaviour
             }
 
 
-            hole.transform.position = hitInfo.point;
-            hole.transform.rotation = Quaternion.Euler(hitInfo.normal);
+            hole.transform.position = transform.position;
+            GameObject child = hole.transform.GetChild(0).gameObject;
+
+            Debug.Log(hole.transform.position - transform.position);
+            hole.transform.rotation = Quaternion.FromToRotation(hole.transform.up, hitInfo.normal);
             hole.transform.localScale = transform.localScale;
+
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
 

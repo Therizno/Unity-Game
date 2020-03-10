@@ -25,7 +25,7 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     {
         if (e == GameEvent.FireWeapon)
         {
-            fac.createBullet(transform.forward, bulletVelocity, 0.1f, 0);
+            fac.createBullet(transform.forward, bulletVelocity, 0.05f, 0);
         }
     }
 }
