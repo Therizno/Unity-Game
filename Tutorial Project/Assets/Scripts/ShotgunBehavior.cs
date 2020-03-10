@@ -51,9 +51,6 @@ public class ShotgunBehavior : MonoBehaviour, Observer
                         break;
                 }
             }
-
-
-            fac.createBullet(transform.forward, bulletVelocity, 0.05f, 0);
         }
     }
 }
