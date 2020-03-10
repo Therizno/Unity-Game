@@ -62,7 +62,6 @@ public class BulletBehavior : MonoBehaviour
             //Destroy the bullet
             Destroy(gameObject);
         }
-        //else { Debug.Log(other.gameObject.name); }
     }
 
 
