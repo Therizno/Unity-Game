@@ -624,6 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 857919756}
+  bulletHoleCleanupTime: 15
 --- !u!1001 &256286570
 PrefabInstance:
   m_ObjectHideFlags: 0

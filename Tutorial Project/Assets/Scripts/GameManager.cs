@@ -5,15 +5,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
-    // singleton
-    private static GameManager g;
-
-
     [SerializeField] private GameObject player;
+    [SerializeField] private float bulletHoleCleanupTime;
 
     private PlayerBehavior playerBehavior;
 
+    /*
+     * singleton
+     */
+
+    private static GameManager g;
 
     // hide the constructor
     private GameManager()
@@ -36,6 +37,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /*
+     * end singleton
+     */
+
 
     // Start is called before the first frame update (use for getting other objects)
     void Start()
@@ -45,7 +50,12 @@ public class GameManager : MonoBehaviour
 
 
 
-	// getters and setters
+    // getters and setters
+
+    public float getBulletHoleCleanupTime()
+    {
+        return bulletHoleCleanupTime;
+    }
 
     public float getPlayerMoveSpeed()
     {
