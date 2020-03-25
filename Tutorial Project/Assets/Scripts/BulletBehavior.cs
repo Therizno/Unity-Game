@@ -5,38 +5,39 @@ using UnityEngine;
 public class BulletBehavior : MonoBehaviour
 {
     [SerializeField] private float bulletScaleMultiplier;
-    [SerializeField] private float raycastOffset;
 
     private float damage;
+    private float speed;
 
     [SerializeField] private GameObject bulletHole1;
     [SerializeField] private GameObject bulletHole2;
 
+
     // Start is called before the first frame update (use for getting other objects)
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    // FixedUpdate is called once per fixed period of time
+    void FixedUpdate()
     {
-        
+        detectHit(transform.position);
+
+        //move the bullet forward
+        transform.position += transform.up * speed;
     }
 
-    void OnTriggerEnter(Collider other)
+    private void detectHit(Vector3 startPos)
     {
         /*
-         * Raycast to find the normal of the surface of the hit at the point of contact
-         */
+        * Raycast to detect whether there is a collidable object between the bullet's current
+        * position and it's next
+        */
 
         RaycastHit hitInfo;
 
-        //A point slightly behind the bullet 
-        Vector3 offset = transform.position - (transform.up * raycastOffset);
-
-        if (other.gameObject.layer == LayerMask.NameToLayer("BulletCollidable")
-            && Physics.Raycast(offset, transform.up, out hitInfo, Mathf.Infinity, LayerMask.GetMask("BulletCollidable")))
+        if (Physics.Raycast(startPos, transform.up, out hitInfo, speed, LayerMask.GetMask("BulletCollidable")))
         {
             // instantiate a bullet hole
             GameObject hole;
@@ -50,8 +51,8 @@ public class BulletBehavior : MonoBehaviour
                 hole = Instantiate(bulletHole2);
             }
 
-            //Position the bullet hole slightly above the surface
-            hole.transform.position = offset;
+            //Position the bullet hole at the point of contact
+            hole.transform.position = hitInfo.point;
 
             //Rotate it to sit flush against the surface
             hole.transform.rotation = Quaternion.FromToRotation(hole.transform.up, hitInfo.normal);
@@ -68,5 +69,10 @@ public class BulletBehavior : MonoBehaviour
     public void setDamage(float dmg)
     {
         damage = dmg;
+    }
+
+    public void setSpeed(float spd)
+    {
+        speed = spd;
     }
 }

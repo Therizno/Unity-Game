@@ -3550,8 +3550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f2cd8bfeb5d4891a2215b452a7d201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletVelocity: 75
-  bulletSize: 0.05
+  bulletVelocity: 3.5
+  bulletSize: 0.04
   numBullets: 6
   maxBulletSpread: 0.03
   bulletDamage: 10

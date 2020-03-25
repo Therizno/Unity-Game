@@ -22,21 +22,21 @@ public class BulletFactory : MonoBehaviour
     {
         //create the bullet
         GameObject bullet = Instantiate(bulletPrefab);
+        BulletBehavior bbh = bullet.GetComponent<BulletBehavior>();
 
         //give it velocity
-        Rigidbody rgbd = bullet.GetComponent<Rigidbody>();
-        rgbd.velocity = (dir * vel);
+        bbh.setSpeed(vel);
+
+        //rotate it
+        bullet.transform.rotation = Quaternion.FromToRotation(bullet.transform.up, dir);
 
         //position it
         bullet.transform.position = transform.position;
-        bullet.transform.rotation = transform.rotation;
-
-        bullet.transform.Rotate(90, 0, 0);
-
+        
+        //scale it
         bullet.transform.localScale = new Vector3(size, size, size);
 
-
         //set the damage
-        bullet.GetComponent<BulletBehavior>().setDamage(damage);
+        bbh.setDamage(damage);
     }
 }
