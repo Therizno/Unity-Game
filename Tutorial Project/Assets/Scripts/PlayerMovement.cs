@@ -7,10 +7,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float baseSpeed;
     [SerializeField] private float sprintMultiplier;
 
-    [SerializeField] private float aimMultiplier;
-
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float jumpCooldown;
+
+    [SerializeField] private float aimMultiplier;
 
     [SerializeField] private float crouchSpeed;
     [SerializeField] private float crouchHeight;
@@ -19,14 +19,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AnimationCurve jumpFalloff;
 
 
+    private float moveSpeed;
+
     private bool jumping;
     private float timeInAir;
     private float timeSinceLand;
 
-    private float moveSpeed;
-
     private bool aiming;
     private bool aimingToggleable;
+
+    private bool crouching;
+    private float originalHeight;
 
 
     private CharacterController cc;
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         cc = GetComponent<CharacterController>();
+        originalHeight = cc.height;
     }
 
     // FixedUpdate is called once per fixed length of time (use for physics)
@@ -116,15 +120,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetAxis("Crouch") != 0)
         {
-            Vector3 crouchScale = cc.transform.localScale;
-            crouchScale.y = crouchHeight;
-
-            cc.transform.localScale = Vector3.Lerp(cc.transform.localScale, crouchScale, crouchSpeed);
-            
+            cc.height = Mathf.Lerp(cc.height, crouchHeight, crouchSpeed);
         }
         else
         {
-
+            cc.height = Mathf.Lerp(cc.height, originalHeight, crouchSpeed);
         }
     }
 

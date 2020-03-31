@@ -2123,10 +2123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 5
   sprintMultiplier: 1.75
-  aimMultiplier: 0.5
   jumpSpeed: 9
   jumpCooldown: 0.5
-  crouchSpeed: 0.1
+  aimMultiplier: 0.5
+  crouchSpeed: 0.4
   crouchHeight: 0.5
   jumpFalloff:
     serializedVersion: 2
