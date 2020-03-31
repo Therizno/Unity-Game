@@ -6,12 +6,18 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float baseSpeed;
     [SerializeField] private float sprintMultiplier;
+
     [SerializeField] private float aimMultiplier;
 
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float jumpCooldown;
 
+    [SerializeField] private float crouchSpeed;
+    [SerializeField] private float crouchHeight;
+
+
     [SerializeField] private AnimationCurve jumpFalloff;
+
 
     private bool jumping;
     private float timeInAir;
@@ -21,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool aiming;
     private bool aimingToggleable;
+
 
     private CharacterController cc;
 
@@ -40,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
         moveInput();
 
         jumpInput();
+
+        crouchInput();
     }
 
 
@@ -102,6 +111,24 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+
+    private void crouchInput()
+    {
+        if (Input.GetAxis("Crouch") != 0)
+        {
+            Vector3 crouchScale = cc.transform.localScale;
+            crouchScale.y = crouchHeight;
+
+            cc.transform.localScale = Vector3.Lerp(cc.transform.localScale, crouchScale, crouchSpeed);
+            
+        }
+        else
+        {
+
+        }
+    }
+
+
     //checks if the player should be aiming 
     private void checkAiming()
     {
@@ -133,6 +160,7 @@ public class PlayerMovement : MonoBehaviour
             aimingToggleable = false;
         }
     }
+
 
 
     //returns any modifiers to player speed
