@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool crouching;
     private float originalHeight;
-    private float lastLerpValue;
+    private float originalCameraHeight;
 
 
     private CharacterController cc;
@@ -43,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         originalHeight = cc.height;
-        lastLerpValue = originalHeight;
+
+        originalCameraHeight = cameraObject.transform.localPosition.y;
     }
 
     // FixedUpdate is called once per fixed length of time (use for physics)
@@ -124,25 +125,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetAxis("Crouch") != 0)
         {
+            float lastHeightValue = cc.height;
+
             cc.height = Mathf.Lerp(cc.height, crouchHeight, crouchSpeed);
 
-            float dHeight = cc.height - lastLerpValue;
-
-            cameraObject.transform.position = new Vector3(cameraObject.transform.position.x, cameraObject.transform.position.y + ((cameraObject.transform.position.y / cc.height/2) * (dHeight/2)), cameraObject.transform.position.z);
+            float dHeight = cc.height - lastHeightValue;
             transform.position = new Vector3(transform.position.x, transform.position.y + (dHeight / 2), transform.position.z);
 
-            lastLerpValue = cc.height;
+            cameraObject.transform.localPosition = new Vector3(cameraObject.transform.localPosition.x, originalCameraHeight * (cc.height / originalHeight), cameraObject.transform.localPosition.z);
         }
         else
         {
             cc.height = Mathf.Lerp(cc.height, originalHeight, crouchSpeed);
-
-            float dHeight = cc.height - lastLerpValue;
-
-            cameraObject.transform.position = new Vector3(cameraObject.transform.position.x, cameraObject.transform.position.y + ((cameraObject.transform.position.y / cc.height/2) * (dHeight/2)), cameraObject.transform.position.z);
-
-            lastLerpValue = cc.height;
         }
+
+        //keep the camera localPosition proportional to the current height
+        cameraObject.transform.localPosition = new Vector3(cameraObject.transform.localPosition.x, originalCameraHeight * (cc.height / originalHeight), cameraObject.transform.localPosition.z);
     }
 
 
