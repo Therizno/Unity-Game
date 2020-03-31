@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private AnimationCurve jumpFalloff;
 
+    [SerializeField] private GameObject cameraObject;
+
 
     private float moveSpeed;
 
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool crouching;
     private float originalHeight;
+    private float lastLerpValue;
 
 
     private CharacterController cc;
@@ -40,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         originalHeight = cc.height;
+        lastLerpValue = originalHeight;
     }
 
     // FixedUpdate is called once per fixed length of time (use for physics)
@@ -121,10 +125,23 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Crouch") != 0)
         {
             cc.height = Mathf.Lerp(cc.height, crouchHeight, crouchSpeed);
+
+            float dHeight = cc.height - lastLerpValue;
+
+            cameraObject.transform.position = new Vector3(cameraObject.transform.position.x, cameraObject.transform.position.y + ((cameraObject.transform.position.y / cc.height/2) * (dHeight/2)), cameraObject.transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y + (dHeight / 2), transform.position.z);
+
+            lastLerpValue = cc.height;
         }
         else
         {
             cc.height = Mathf.Lerp(cc.height, originalHeight, crouchSpeed);
+
+            float dHeight = cc.height - lastLerpValue;
+
+            cameraObject.transform.position = new Vector3(cameraObject.transform.position.x, cameraObject.transform.position.y + ((cameraObject.transform.position.y / cc.height/2) * (dHeight/2)), cameraObject.transform.position.z);
+
+            lastLerpValue = cc.height;
         }
     }
 

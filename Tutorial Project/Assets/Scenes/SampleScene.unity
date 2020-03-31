@@ -2152,6 +2152,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  cameraObject: {fileID: 963194225}
 --- !u!143 &857919758
 CharacterController:
   m_ObjectHideFlags: 0
