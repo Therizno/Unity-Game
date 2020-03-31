@@ -12,8 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float aimMultiplier;
 
-    [SerializeField] private float crouchSpeed;
+    [SerializeField] private float enterCrouchSpeed;
     [SerializeField] private float crouchHeight;
+    [SerializeField] private float crouchMultiplier;
 
 
     [SerializeField] private AnimationCurve jumpFalloff;
@@ -130,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             float lastHeightValue = cc.height;
 
             //shrink the player's capsule collider 
-            cc.height = Mathf.Lerp(cc.height, crouchHeight, crouchSpeed);
+            cc.height = Mathf.Lerp(cc.height, crouchHeight, enterCrouchSpeed);
 
             float dHeight = cc.height - lastHeightValue;
 
@@ -140,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             //leave the crouch
-            cc.height = Mathf.Lerp(cc.height, originalHeight, crouchSpeed);
+            cc.height = Mathf.Lerp(cc.height, originalHeight, enterCrouchSpeed);
         }
 
         //keep the camera localPosition proportional to the current height
@@ -185,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
     //returns any modifiers to player speed
     private float getSpeedModifiers()
     {
-        return (isSprinting() ? sprintMultiplier : 1.0f) * (isAiming() ? aimMultiplier : 1.0f);
+        return (isSprinting() ? sprintMultiplier : 1.0f) * (isAiming() ? aimMultiplier : 1.0f) * (isCrouching() ? crouchMultiplier : 1.0f);
     }
 
 
@@ -204,6 +205,11 @@ public class PlayerMovement : MonoBehaviour
     public bool isAiming()
     {
         return aiming;
+    }
+
+    public bool isCrouching()
+    {
+        return crouching;
     }
 
     public float getCurrentMoveSpeed()
