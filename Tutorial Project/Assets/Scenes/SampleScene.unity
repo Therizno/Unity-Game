@@ -2127,7 +2127,7 @@ MonoBehaviour:
   jumpCooldown: 0.5
   aimMultiplier: 0.5
   crouchSpeed: 0.4
-  crouchHeight: 0.5
+  crouchHeight: 1
   jumpFalloff:
     serializedVersion: 2
     m_Curve:

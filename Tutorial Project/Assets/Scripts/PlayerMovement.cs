@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
             cc.slopeLimit = 45.0f;
 
             //check for player jump input
-            jumping = Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting() && timeSinceLand > jumpCooldown;
+            jumping = Input.GetAxis("Jump") != 0 && cc.isGrounded && !isSprinting() && timeSinceLand > jumpCooldown && !crouching;
         }
         
     }
@@ -123,19 +123,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void crouchInput()
     {
-        if (Input.GetAxis("Crouch") != 0)
+        crouching = Input.GetAxis("Crouch") != 0 && !jumping && !isSprinting();
+
+        if (crouching)
         {
             float lastHeightValue = cc.height;
 
+            //shrink the player's capsule collider 
             cc.height = Mathf.Lerp(cc.height, crouchHeight, crouchSpeed);
 
             float dHeight = cc.height - lastHeightValue;
-            transform.position = new Vector3(transform.position.x, transform.position.y + (dHeight / 2), transform.position.z);
 
-            cameraObject.transform.localPosition = new Vector3(cameraObject.transform.localPosition.x, originalCameraHeight * (cc.height / originalHeight), cameraObject.transform.localPosition.z);
+            //transform the player object to keep it firmly on the ground 
+            transform.position = new Vector3(transform.position.x, transform.position.y + (dHeight / 2), transform.position.z);
         }
         else
         {
+            //leave the crouch
             cc.height = Mathf.Lerp(cc.height, originalHeight, crouchSpeed);
         }
 
