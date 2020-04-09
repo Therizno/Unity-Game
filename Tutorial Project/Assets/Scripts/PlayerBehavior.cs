@@ -58,6 +58,8 @@ public class PlayerBehavior : MonoBehaviour, Observable
     void Update()
     {
         checkFire();
+
+        checkReload();
     }
 
 
@@ -96,6 +98,12 @@ public class PlayerBehavior : MonoBehaviour, Observable
         }
     }
 
+
+    private void checkReload()
+    {
+        if (Input.GetAxis("Reload") != 0)
+            notifyAll(GameEvent.ReloadWeapon);
+    }
 
 
     // getters and setters

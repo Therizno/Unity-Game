@@ -14,6 +14,10 @@ public class PlayerAnimation : MonoBehaviour, Observer
     private Animator anim;
 
     private bool fire;
+    private bool reload;
+
+    //used for shotgun only
+    private bool isGunAtCapacity;
 
 
     // Start is called before the first frame update (use for getting other objects)
@@ -46,6 +50,16 @@ public class PlayerAnimation : MonoBehaviour, Observer
         {
             anim.SetBool("fire", false); 
         }
+
+        if (reload)
+        {
+            anim.SetBool("reload", true);
+            reload = false;
+        }
+        else
+        {
+            anim.SetBool("reload", false);
+        }
     }
 
 
@@ -56,6 +70,10 @@ public class PlayerAnimation : MonoBehaviour, Observer
         if (g == GameEvent.FireWeapon)
         {
             fire = true;
+        }
+        else if (g == GameEvent.ReloadWeapon)
+        {
+            reload = true;
         }
     }
 

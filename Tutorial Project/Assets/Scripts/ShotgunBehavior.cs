@@ -6,11 +6,24 @@ public class ShotgunBehavior : MonoBehaviour, Observer
 {
     private BulletFactory fac;
 
-    [SerializeField] private float bulletVelocity;
-    [SerializeField] private float bulletSize;
-    [SerializeField] private float numBullets;
-    [SerializeField] private float maxBulletSpread;
-    [SerializeField] private float bulletDamage;
+    [SerializeField] private float pelletVelocity;
+    [SerializeField] private float pelletSize;
+    [SerializeField] private float numPellets;
+    [SerializeField] private float maxPelletSpread;
+    [SerializeField] private float pelletDamage;
+
+    [SerializeField] private uint maxShellCapacity;
+
+    private bool isChambered;
+    private uint shellsHeld;     //does not include chambered shell
+
+
+    //Awake is called before start
+    void Awake()
+    {
+        isChambered = true;
+        shellsHeld = maxShellCapacity;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,28 +42,54 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     {
         if (e == GameEvent.FireWeapon)
         {
-            for (int i = 0; i < numBullets; i++)
+            fire();
+        }
+    }
+
+
+    private void fire()
+    {
+        //keep track of ammo 
+        if (shellsHeld == 0 && isChambered)
+        {
+            isChambered = false;
+        }
+        else
+        {
+            shellsHeld -= 1;
+        }
+
+
+        for (int i = 0; i < numPellets; i++)
+        {
+            switch (i % 4)
             {
-                switch (i % 4)
-                {
-                    //distribute bullets between each quadrant 
-                    case 0:
-                        fac.createBullet(transform.forward + (transform.right * Random.Range(0.0f, maxBulletSpread)) + (transform.up * Random.Range(0.0f, maxBulletSpread)), bulletVelocity, bulletSize, bulletDamage);
-                        break;
+                //distribute bullets between each quadrant 
+                case 0:
+                    fac.createBullet(transform.forward + (transform.right * Random.Range(0.0f, maxPelletSpread)) + (transform.up * Random.Range(0.0f, maxPelletSpread)), pelletVelocity, pelletSize, pelletDamage);
+                    break;
 
-                    case 1:
-                        fac.createBullet(transform.forward + (-transform.right * Random.Range(0.0f, maxBulletSpread)) + (transform.up * Random.Range(0.0f, maxBulletSpread)), bulletVelocity, bulletSize, bulletDamage);
-                        break;
+                case 1:
+                    fac.createBullet(transform.forward + (-transform.right * Random.Range(0.0f, maxPelletSpread)) + (transform.up * Random.Range(0.0f, maxPelletSpread)), pelletVelocity, pelletSize, pelletDamage);
+                    break;
 
-                    case 2:
-                        fac.createBullet(transform.forward + (transform.right * Random.Range(0.0f, maxBulletSpread)) + (-transform.up * Random.Range(0.0f, maxBulletSpread)), bulletVelocity, bulletSize, bulletDamage);
-                        break;
+                case 2:
+                    fac.createBullet(transform.forward + (transform.right * Random.Range(0.0f, maxPelletSpread)) + (-transform.up * Random.Range(0.0f, maxPelletSpread)), pelletVelocity, pelletSize, pelletDamage);
+                    break;
 
-                    case 3:
-                        fac.createBullet(transform.forward + (-transform.right * Random.Range(0.0f, maxBulletSpread)) + (-transform.up * Random.Range(0.0f, maxBulletSpread)), bulletVelocity, bulletSize, bulletDamage);
-                        break;
-                }
+                case 3:
+                    fac.createBullet(transform.forward + (-transform.right * Random.Range(0.0f, maxPelletSpread)) + (-transform.up * Random.Range(0.0f, maxPelletSpread)), pelletVelocity, pelletSize, pelletDamage);
+                    break;
             }
         }
+    }
+
+
+    //getters and setters
+
+    public void setShellsHeld(int shells)
+    {
+        if (shells > 0 && shells < maxShellCapacity)
+            shellsHeld = (uint)shells;
     }
 }

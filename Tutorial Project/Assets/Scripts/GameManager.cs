@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
 public enum GameEvent
 {
     // localized events (can happen multiple places, multiple times at once)
-    FireWeapon
+    FireWeapon, ReloadWeapon
 
     //globalized events (detected by the game manager (WIP))
 }
