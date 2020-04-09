@@ -102,7 +102,15 @@ public class PlayerBehavior : MonoBehaviour, Observable
         if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Reload") != 0 && !playerAnimation.isReloading() && !playerAnimation.isFiring())
             notifyAll(GameEvent.ReloadWeapon);
 
+        //sync the number of shells the gun his holding with the reload animation
         playerAnimation.setGunCapacityLeft(shotgunBehavior.getEmptyMagCapacity());
+        shotgunBehavior.setShellsHolding(shotgunBehavior.getMaxShellCapacity() - playerAnimation.updatedGunCapacityLeft());
+
+        //attempt to cycle the weapon if reloading is finished
+        if (!playerAnimation.isReloading())
+        {
+            shotgunBehavior.cycle();
+        }
     }
 
 

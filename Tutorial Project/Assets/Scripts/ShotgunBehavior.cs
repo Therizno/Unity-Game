@@ -84,6 +84,20 @@ public class ShotgunBehavior : MonoBehaviour, Observer
         }
     }
 
+    //tries to cycle the weapon, returns true if successful  
+    public bool cycle()
+    {
+        if (shellsHeld > 0 && !chambered)
+        {
+            chambered = true;
+            shellsHeld -= 1;
+
+            return true;
+        }
+
+        return false;
+    }
+
 
     //getters and setters
 
@@ -107,5 +121,10 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     public bool isChambered()
     {
         return chambered;
+    }
+
+    public int getMaxShellCapacity()
+    {
+        return (int)maxShellCapacity;
     }
 }

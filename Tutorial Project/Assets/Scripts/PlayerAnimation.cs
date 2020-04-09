@@ -41,6 +41,9 @@ public class PlayerAnimation : MonoBehaviour, Observer
         anim.SetBool("aim", gm.getPlayerAiming());
         anim.SetFloat("aim walk speed", gm.getPlayerMomentum() * aimWalkSpeedMultiplier);
 
+        //relevant to shotgun only
+        anim.SetFloat("shells left", ((float)gunCapacityLeft));
+
 
         if (fire)
         {
@@ -104,12 +107,10 @@ public class PlayerAnimation : MonoBehaviour, Observer
     //relevant only when shotgun equipped
     public void repeatReload()
     {
-        AnimatorStateInfo inf = anim.GetCurrentAnimatorStateInfo(0);
+        AnimatorTransitionInfo itf = anim.GetAnimatorTransitionInfo(0);
 
-        if (inf.IsName("Reload") || inf.IsName("Begin_Reload") && gunCapacityLeft > 0)
+        if (itf.IsName("Base Layer.Reload -> Base Layer.Reload") || itf.IsName("Reload -> End_Reload") || itf.IsName("End_Reload -> Idle") && gunCapacityLeft > 0)
         {
-            reload = true;
-
             if (anim.IsInTransition(0))
             {
                 if (!loadedShell)
@@ -131,5 +132,10 @@ public class PlayerAnimation : MonoBehaviour, Observer
     {
         if (shells > 0)
             gunCapacityLeft = (uint)shells;
+    }
+
+    public int updatedGunCapacityLeft()
+    {
+        return (int)gunCapacityLeft;
     }
 }
