@@ -101,7 +101,7 @@ public class PlayerBehavior : MonoBehaviour, Observable
 
     private void checkReload()
     {
-        if (Input.GetAxis("Reload") != 0)
+        if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Reload") != 0 && !playerAnimation.isReloading() && !playerAnimation.isFiring())
             notifyAll(GameEvent.ReloadWeapon);
     }
 
