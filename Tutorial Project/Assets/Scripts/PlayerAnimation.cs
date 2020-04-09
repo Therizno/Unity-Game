@@ -17,7 +17,8 @@ public class PlayerAnimation : MonoBehaviour, Observer
     private bool reload;
 
     //used for shotgun only
-    private bool isGunAtCapacity;
+    private uint gunCapacityLeft;
+    private bool loadedShell;
 
 
     // Start is called before the first frame update (use for getting other objects)
@@ -60,6 +61,9 @@ public class PlayerAnimation : MonoBehaviour, Observer
         {
             anim.SetBool("reload", false);
         }
+
+        //relevant to shotgun only
+        repeatReload();
     }
 
 
@@ -94,5 +98,38 @@ public class PlayerAnimation : MonoBehaviour, Observer
     {
         AnimatorStateInfo inf = anim.GetCurrentAnimatorStateInfo(0);
         return inf.IsName("Begin_Reload") || inf.IsName("Reload") || inf.IsName("End_Reload");
+    }
+
+
+    //relevant only when shotgun equipped
+    public void repeatReload()
+    {
+        AnimatorStateInfo inf = anim.GetCurrentAnimatorStateInfo(0);
+
+        if (inf.IsName("Reload") || inf.IsName("Begin_Reload") && gunCapacityLeft > 0)
+        {
+            reload = true;
+
+            if (anim.IsInTransition(0))
+            {
+                if (!loadedShell)
+                {
+                    gunCapacityLeft -= 1;
+                    loadedShell = true;
+                }
+            }
+            else
+            {
+                loadedShell = false;
+            }
+        }
+    }
+
+
+    //getters and setters
+    public void setGunCapacityLeft(int shells)
+    {
+        if (shells > 0)
+            gunCapacityLeft = (uint)shells;
     }
 }

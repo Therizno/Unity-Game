@@ -14,14 +14,14 @@ public class ShotgunBehavior : MonoBehaviour, Observer
 
     [SerializeField] private uint maxShellCapacity;
 
-    private bool isChambered;
-    private uint shellsHeld;     //does not include chambered shell
-
+    private bool chambered;
+    private uint shellsHeld;     //shells currently held, does not include chambered shell
+    private uint reserveShells;
 
     //Awake is called before start
     void Awake()
     {
-        isChambered = true;
+        chambered = true;
         shellsHeld = maxShellCapacity;
     }
 
@@ -50,9 +50,9 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     private void fire()
     {
         //keep track of ammo 
-        if (shellsHeld == 0 && isChambered)
+        if (shellsHeld == 0 && chambered)
         {
-            isChambered = false;
+            chambered = false;
         }
         else
         {
@@ -87,9 +87,25 @@ public class ShotgunBehavior : MonoBehaviour, Observer
 
     //getters and setters
 
-    public void setShellsHeld(int shells)
+    public void setShellsHolding(int shells)
     {
         if (shells > 0 && shells < maxShellCapacity)
             shellsHeld = (uint)shells;
+    }
+
+    public void addReserveShells(int shells)
+    {
+        if(shells > 0)
+            reserveShells += (uint)shells;
+    }
+
+    public int getEmptyMagCapacity()
+    {
+        return (int)(maxShellCapacity - shellsHeld);
+    }
+
+    public bool isChambered()
+    {
+        return chambered;
     }
 }

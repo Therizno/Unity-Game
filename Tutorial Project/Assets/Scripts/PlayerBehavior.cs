@@ -5,8 +5,6 @@ using UnityEngine;
 /*
 This class is for handling the interface between the player and the game. 
 It notifies lower level player control classes when relevant events occur. 
-DOES NOT facilitate communication BETWEEN lower level control classes - instead 
-passes that information to GameManager. 
 */
 
 public class PlayerBehavior : MonoBehaviour, Observable
@@ -87,7 +85,7 @@ public class PlayerBehavior : MonoBehaviour, Observable
 
     private void checkFire()
     {
-        if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Fire1") != 0 && timeSinceFire > fireCooldown && playerAnimation.isFireReady())
+        if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Fire1") != 0 && timeSinceFire > fireCooldown && playerAnimation.isFireReady() && shotgunBehavior.isChambered())
         {
             notifyAll(GameEvent.FireWeapon);
             timeSinceFire = 0;
@@ -103,6 +101,8 @@ public class PlayerBehavior : MonoBehaviour, Observable
     {
         if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Reload") != 0 && !playerAnimation.isReloading() && !playerAnimation.isFiring())
             notifyAll(GameEvent.ReloadWeapon);
+
+        playerAnimation.setGunCapacityLeft(shotgunBehavior.getEmptyMagCapacity());
     }
 
 

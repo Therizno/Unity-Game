@@ -3560,6 +3560,7 @@ MonoBehaviour:
   numPellets: 6
   maxPelletSpread: 0.03
   pelletDamage: 10
+  maxShellCapacity: 6
 --- !u!114 &1609505090
 MonoBehaviour:
   m_ObjectHideFlags: 0
