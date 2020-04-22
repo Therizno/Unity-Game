@@ -2216,6 +2216,7 @@ MonoBehaviour:
   fpsHands: {fileID: 3439503}
   bulletSource: {fileID: 1609505087}
   fireCooldown: 1
+  startingAmmoShells: 24
 --- !u!114 &857919761
 MonoBehaviour:
   m_ObjectHideFlags: 0

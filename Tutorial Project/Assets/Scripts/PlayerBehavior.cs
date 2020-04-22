@@ -30,6 +30,9 @@ public class PlayerBehavior : MonoBehaviour, Observable
     private float timeSinceFire;
 
 
+    [SerializeField] int startingAmmoShells;
+
+
     // called before start
     void Awake()
     {
@@ -50,6 +53,9 @@ public class PlayerBehavior : MonoBehaviour, Observable
         addObserver(playerAnimation);
         addObserver(gunEffects);
         addObserver(shotgunBehavior);
+
+        // give the player some starting ammo 
+        shotgunBehavior.addReserveShells(startingAmmoShells);
     }
 
     // Update is called once per frame
@@ -99,10 +105,11 @@ public class PlayerBehavior : MonoBehaviour, Observable
 
     private void checkReload()
     {
-        if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Reload") != 0 && !playerAnimation.isReloading() && !playerAnimation.isFiring())
+        if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Reload") != 0 && !playerAnimation.isReloading() && !playerAnimation.isFiring() && shotgunBehavior.canReload())
             notifyAll(GameEvent.ReloadWeapon);
 
-        playerAnimation.setEmptyShellCapacity(shotgunBehavior.getEmptyMagCapacity());
+        // reload either the number of shells that will fit in the mag, or the number of shells left
+        playerAnimation.setReloadShellNum(Mathf.Min(shotgunBehavior.getEmptyMagCapacity(), shotgunBehavior.getReserveShells()));
     }
 
 

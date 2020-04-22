@@ -94,7 +94,7 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     //loads a single shell from reserve into the magazine 
     public bool reloadShell()
     {
-        if (shellsHeld < maxShellCapacity && reserveShells > 0)
+        if (canReload())
         {
             shellsHeld++;
             reserveShells--;
@@ -120,6 +120,11 @@ public class ShotgunBehavior : MonoBehaviour, Observer
             reserveShells += (uint)shells;
     }
 
+    public int getReserveShells()
+    {
+        return (int)reserveShells;
+    }
+
     public int getEmptyMagCapacity()
     {
         return (int)(maxShellCapacity - shellsHeld);
@@ -128,6 +133,11 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     public bool isChambered()
     {
         return chambered;
+    }
+
+    public bool canReload()
+    {
+        return shellsHeld < maxShellCapacity && reserveShells > 0;
     }
 
     public int getMaxShellCapacity()
