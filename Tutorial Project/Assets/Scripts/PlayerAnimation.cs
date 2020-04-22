@@ -16,10 +16,6 @@ public class PlayerAnimation : MonoBehaviour, Observer
     private bool fire;
     private bool reload;
 
-    //used for shotgun only
-    private uint gunCapacityLeft;
-    private bool loadedShell;
-
 
     // Start is called before the first frame update (use for getting other objects)
     void Start()
@@ -40,10 +36,9 @@ public class PlayerAnimation : MonoBehaviour, Observer
         anim.SetBool("jump", gm.getPlayerJumping());
         anim.SetBool("aim", gm.getPlayerAiming());
         anim.SetFloat("aim walk speed", gm.getPlayerMomentum() * aimWalkSpeedMultiplier);
+        
 
-        //relevant to shotgun only
-        anim.SetFloat("shells left", ((float)gunCapacityLeft));
-
+        //pass certain variables once when booleans are triggered
 
         if (fire)
         {
@@ -52,7 +47,7 @@ public class PlayerAnimation : MonoBehaviour, Observer
         }
         else
         {
-            anim.SetBool("fire", false); 
+            anim.SetBool("fire", false);
         }
 
         if (reload)
@@ -64,9 +59,6 @@ public class PlayerAnimation : MonoBehaviour, Observer
         {
             anim.SetBool("reload", false);
         }
-
-        //relevant to shotgun only
-        repeatReload();
     }
 
 
@@ -104,38 +96,11 @@ public class PlayerAnimation : MonoBehaviour, Observer
     }
 
 
-    //relevant only when shotgun equipped
-    public void repeatReload()
-    {
-        AnimatorTransitionInfo itf = anim.GetAnimatorTransitionInfo(0);
 
-        if (itf.IsName("Base Layer.Reload -> Base Layer.Reload") || itf.IsName("Reload -> End_Reload") || itf.IsName("End_Reload -> Idle") && gunCapacityLeft > 0)
-        {
-            if (anim.IsInTransition(0))
-            {
-                if (!loadedShell)
-                {
-                    gunCapacityLeft -= 1;
-                    loadedShell = true;
-                }
-            }
-            else
-            {
-                loadedShell = false;
-            }
-        }
+    //used for shotgun only
+    public void setEmptyShellCapacity(float numShells)
+    {
+        anim.SetFloat("shells left", numShells);
     }
 
-
-    //getters and setters
-    public void setGunCapacityLeft(int shells)
-    {
-        if (shells > 0)
-            gunCapacityLeft = (uint)shells;
-    }
-
-    public int updatedGunCapacityLeft()
-    {
-        return (int)gunCapacityLeft;
-    }
-}
+} 

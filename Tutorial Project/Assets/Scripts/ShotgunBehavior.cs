@@ -50,14 +50,7 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     private void fire()
     {
         //keep track of ammo 
-        if (shellsHeld == 0 && chambered)
-        {
-            chambered = false;
-        }
-        else
-        {
-            shellsHeld -= 1;
-        }
+        chambered = false;
 
 
         for (int i = 0; i < numPellets; i++)
