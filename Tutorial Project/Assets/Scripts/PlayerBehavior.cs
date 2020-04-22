@@ -101,6 +101,8 @@ public class PlayerBehavior : MonoBehaviour, Observable
     {
         if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Reload") != 0 && !playerAnimation.isReloading() && !playerAnimation.isFiring())
             notifyAll(GameEvent.ReloadWeapon);
+
+        playerAnimation.setEmptyShellCapacity(shotgunBehavior.getEmptyMagCapacity());
     }
 
 
