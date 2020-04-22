@@ -36,12 +36,16 @@ public class PlayerMovement : MonoBehaviour
     private float originalCameraHeight;
 
 
+    private GameManager gm;
+
     private CharacterController cc;
 
 
     //Start is called right after Awake, and is for interaction with other objects
     void Start()
     {
+        gm = GameManager.getInstance();
+
         cc = GetComponent<CharacterController>();
         originalHeight = cc.height;
 
@@ -173,8 +177,8 @@ public class PlayerMovement : MonoBehaviour
             aimingToggleable = true;
         }
 
-        // stop player from aiming if currently jumping
-        if (isJumping())
+        // stop player from aiming if currently jumping or reloading
+        if (isJumping() || gm.getPlayerReloading())
         {
             aiming = false;
             aimingToggleable = false;

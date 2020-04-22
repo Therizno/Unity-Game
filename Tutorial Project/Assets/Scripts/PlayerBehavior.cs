@@ -139,4 +139,9 @@ public class PlayerBehavior : MonoBehaviour, Observable
     {
         return playerMovement.isAiming();
     }
+
+    public bool getPlayerReloading()
+    {
+        return playerAnimation.isReloading();
+    }
 }

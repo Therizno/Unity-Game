@@ -100,7 +100,7 @@ public class PlayerAnimation : MonoBehaviour, Observer
     //used for shotgun only
     public void setReloadShellNum(float numShells)
     {
-        anim.SetFloat("shells left", numShells); Debug.Log(numShells);
+        anim.SetFloat("shells left", numShells); 
     }
 
 } 

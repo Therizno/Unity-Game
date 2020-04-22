@@ -81,6 +81,11 @@ public class GameManager : MonoBehaviour
     {
         return playerBehavior.getPlayerAiming();
     }
+
+    public bool getPlayerReloading()
+    {
+        return playerBehavior.getPlayerReloading();
+    }
 }
 
 public enum GameEvent
