@@ -91,6 +91,20 @@ public class ShotgunBehavior : MonoBehaviour, Observer
         return false;
     }
 
+    //loads a single shell from reserve into the magazine 
+    public bool reloadShell()
+    {
+        if (shellsHeld < maxShellCapacity && reserveShells > 0)
+        {
+            shellsHeld++;
+            reserveShells--;
+
+            return true;
+        }
+
+        return false;
+    }
+
 
     //getters and setters
 
