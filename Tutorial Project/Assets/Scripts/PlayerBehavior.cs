@@ -107,7 +107,7 @@ public class PlayerBehavior : MonoBehaviour, Observable
     {
         if (!gm.getPlayerJumping() && !gm.getPlayerSprinting() && Input.GetAxis("Reload") != 0 && !playerAnimation.isReloading() && !playerAnimation.isFiring() && shotgunBehavior.canReload())
             notifyAll(GameEvent.ReloadWeapon);
-
+        
         // reload either the number of shells that will fit in the mag, or the number of shells left
         playerAnimation.setReloadShellNum(Mathf.Min(shotgunBehavior.getEmptyMagCapacity(), shotgunBehavior.getReserveShells()));
     }
