@@ -4317,6 +4317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2062c2edf3a4489b6dfccfd211a0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObj: {fileID: 857919756}
+  magCapacityObj: {fileID: 931127743}
+  reserveAmmoObj: {fileID: 673687762}
 --- !u!1001 &2007607095
 PrefabInstance:
   m_ObjectHideFlags: 0

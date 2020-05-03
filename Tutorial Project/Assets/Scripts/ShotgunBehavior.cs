@@ -108,6 +108,11 @@ public class ShotgunBehavior : MonoBehaviour, Observer
 
     //getters and setters
 
+    public int getShellsHolding()
+    {
+        return (int)shellsHeld + (chambered ? 1 : 0); 
+    }
+
     public void setShellsHolding(int shells)
     {
         if (shells > 0 && shells < maxShellCapacity)

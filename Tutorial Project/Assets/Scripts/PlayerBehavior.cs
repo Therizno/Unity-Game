@@ -144,4 +144,14 @@ public class PlayerBehavior : MonoBehaviour, Observable
     {
         return playerAnimation.isReloading();
     }
+
+    public int getClipAmmo()
+    {
+        return shotgunBehavior.getShellsHolding();
+    }
+
+    public int getReserveAmmo()
+    {
+        return shotgunBehavior.getReserveShells();
+    }
 }
