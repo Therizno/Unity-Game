@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviour
         return bulletHoleCleanupTime;
     }
 
+    public Vector3 getPlayerCoords()
+    {
+        return player.transform.position;
+    }
+
     public float getPlayerMoveSpeed()
     {
         return playerBehavior.getPlayerMoveSpeed();
