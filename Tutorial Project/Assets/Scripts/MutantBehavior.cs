@@ -18,10 +18,17 @@ public class MutantBehavior : MonoBehaviour
     // FixedUpdate is called on a fixed interval
     void FixedUpdate()
     {
-        //temp demo code
+        //temp demo code//
         Vector3 playerCoords = gm.getPlayerCoords();
 
         Vector3 goalPosition = new Vector3(playerCoords.x, transform.position.y, playerCoords.z);
-        transform.position = Vector3.MoveTowards(transform.position, goalPosition, speed); 
+        transform.position = Vector3.MoveTowards(transform.position, goalPosition, speed);
+
+        //face the player
+        transform.LookAt(playerCoords);
+
+        //correct the monster's orientation so that it doesn't rotate on the x axis
+        Vector3 transformCorrection = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
+        transform.rotation = Quaternion.Euler(transformCorrection);
     }
 }
