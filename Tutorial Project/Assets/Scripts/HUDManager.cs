@@ -53,7 +53,7 @@ public class HUDManager : MonoBehaviour
 
         float currentY = magCapacityObj.GetComponent<RectTransform>().anchoredPosition.y;
 
-        magCapacityObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(margin + (magCapacity.renderedWidth/2), currentY);
+        magCapacityObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(margin, currentY);
 
 
         //make the reserve ammo HUD element stick to the left side of the mag capacity HUD element
