@@ -47,7 +47,7 @@ public class HUDManager : MonoBehaviour
 
 
         //position the ammo HUD box so that it has room for the HUD elements inside with some margin
-        ammoDisplayBox.transform.position = new Vector3(HUDBox.width + (ammoBox.width / 2) - (magCapacity.renderedWidth + reserveCapacity.renderedWidth + spaceBetweenElements + 2*margin), ammoDisplayBox.transform.position.y, 0);
+        ammoDisplayBox.transform.position = new Vector3(HUDBox.width - (magCapacity.renderedWidth + reserveCapacity.renderedWidth + spaceBetweenElements + 2*margin), ammoDisplayBox.transform.position.y, 0);
 
 
         //make the magazine ammo HUD element stick to the left side of the ammo HUD box element
