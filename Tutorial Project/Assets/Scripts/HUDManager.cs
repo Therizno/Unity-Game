@@ -23,6 +23,7 @@ public class HUDManager : MonoBehaviour
     private TextMeshProUGUI magCapacity;
     private TextMeshProUGUI reserveCapacity;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class HUDManager : MonoBehaviour
         magCapacity = magCapacityObj.GetComponent<TextMeshProUGUI>();
         reserveCapacity = reserveAmmoObj.GetComponent<TextMeshProUGUI>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -41,10 +43,10 @@ public class HUDManager : MonoBehaviour
         alignBottomRightElements();
     }
 
+
     private void alignBottomRightElements()
     {
         Rect HUDBox = gameObject.GetComponent<RectTransform>().rect; //rect of HUD
-        Rect ammoBox = ammoDisplayBox.GetComponent<RectTransform>().rect; //rect of ammo HUD box
 
 
         //position the ammo HUD box so that it has room for the HUD elements inside with some margin
