@@ -4912,8 +4912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030fda0572e6d4c2dbdcf3fd9c1f718c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  margin: 0
-  spaceBetweenElements: 0
+  margin: 10
+  spaceBetweenElements: 5
   playerObj: {fileID: 857919756}
   ammoDisplayBox: {fileID: 1139203085}
   magCapacityObj: {fileID: 931127743}

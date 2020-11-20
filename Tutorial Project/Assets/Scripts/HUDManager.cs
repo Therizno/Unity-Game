@@ -61,6 +61,6 @@ public class HUDManager : MonoBehaviour
 
         currentY = reserveAmmoObj.GetComponent<RectTransform>().anchoredPosition.y;
 
-        reserveAmmoObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(margin + magCapacity.renderedWidth + spaceBetweenElements, currentY);
+        reserveAmmoObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(magCapacity.renderedWidth + spaceBetweenElements, currentY);
     }
 }
