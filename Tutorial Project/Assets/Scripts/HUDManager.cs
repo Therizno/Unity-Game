@@ -28,9 +28,15 @@ public class HUDManager : MonoBehaviour
     private TextMeshProUGUI healthAmount;
 
 
+    private GameManager gm;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameManager.getInstance();
+
+
         playerBehavior = playerObj.GetComponent<PlayerBehavior>();
 
         magCapacity = magCapacityObj.GetComponent<TextMeshProUGUI>();
@@ -49,6 +55,22 @@ public class HUDManager : MonoBehaviour
 
         //update health graphic
         healthAmount.SetText(""+playerBehavior.getHealth());
+
+        int health = playerBehavior.getHealth();
+        int maxHealth = playerBehavior.getMaxHealth();
+
+        if (health >= 2 * (maxHealth / 3))
+        {
+            healthAmount.color = gm.green();
+        }
+        else if (health >= maxHealth / 3)
+        {
+            healthAmount.color = gm.yellow();
+        }
+        else
+        {
+            healthAmount.color = gm.red();
+        }
 
 
         alignBottomRightElements();

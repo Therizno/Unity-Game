@@ -638,13 +638,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorGreen:
     serializedVersion: 2
-    rgba: 1179392
+    rgba: 4279369472
   colorYellow:
     serializedVersion: 2
-    rgba: 65523
+    rgba: 4278255603
   colorRed:
     serializedVersion: 2
-    rgba: 4803071
+    rgba: 4282993151
   player: {fileID: 857919756}
   bulletHoleCleanupTime: 15
 --- !u!1001 &256286570
