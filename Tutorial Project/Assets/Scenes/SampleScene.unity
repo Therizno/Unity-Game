@@ -3006,7 +3006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540.69, y: -323.39996}
+  m_AnchoredPosition: {x: -523.1, y: -325.4}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1007614722
@@ -3818,7 +3818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -675.69995, y: -323.39996}
+  m_AnchoredPosition: {x: -656.5, y: -325.4}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401669112
@@ -4925,7 +4925,7 @@ MonoBehaviour:
   leftMargin: 10
   rightMargin: 50
   spaceBetweenElements: 5
-  leftMarginL: 15
+  leftMarginL: 17
   playerObj: {fileID: 857919756}
   ammoDisplayBox: {fileID: 1139203085}
   magCapacityObj: {fileID: 931127743}
