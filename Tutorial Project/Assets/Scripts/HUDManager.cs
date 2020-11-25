@@ -10,6 +10,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private float rightMargin;
     [SerializeField] private float spaceBetweenElements;
 
+    [SerializeField] private float leftMarginL;
+
 
     [SerializeField] private GameObject playerObj;
 
@@ -18,6 +20,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject reserveAmmoObj;
 
     [SerializeField] private GameObject healthAmountObj;
+    [SerializeField] private GameObject healthDisplayBox;
 
 
     private PlayerBehavior playerBehavior;
@@ -73,6 +76,7 @@ public class HUDManager : MonoBehaviour
         }
 
 
+        alignBottomLeftElements();
         alignBottomRightElements();
     }
 
@@ -106,6 +110,10 @@ public class HUDManager : MonoBehaviour
 
     private void alignBottomLeftElements()
     {
+        float healthStatRectX = healthAmountObj.GetComponent<RectTransform>().anchoredPosition.x;
+        float currentY = healthDisplayBox.GetComponent<RectTransform>().anchoredPosition.y;
 
+        //make the background of the health hud element move to fit the contents
+        healthDisplayBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(healthStatRectX + leftMarginL, currentY);
     }
 }
