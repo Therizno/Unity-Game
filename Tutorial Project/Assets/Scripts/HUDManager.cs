@@ -17,11 +17,15 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject magCapacityObj;
     [SerializeField] private GameObject reserveAmmoObj;
 
+    [SerializeField] private GameObject healthAmountObj;
+
 
     private PlayerBehavior playerBehavior;
 
     private TextMeshProUGUI magCapacity;
     private TextMeshProUGUI reserveCapacity;
+
+    private TextMeshProUGUI healthAmount;
 
 
     // Start is called before the first frame update
@@ -31,14 +35,21 @@ public class HUDManager : MonoBehaviour
 
         magCapacity = magCapacityObj.GetComponent<TextMeshProUGUI>();
         reserveCapacity = reserveAmmoObj.GetComponent<TextMeshProUGUI>();
+
+        healthAmount = healthAmountObj.GetComponent<TextMeshProUGUI>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        //update ammo information graphic
         magCapacity.SetText(playerBehavior.getClipAmmo() + "/");
         reserveCapacity.SetText("" + playerBehavior.getReserveAmmo());
+
+        //update health graphic
+        healthAmount.SetText(""+playerBehavior.getHealth());
+
 
         alignBottomRightElements();
     }
@@ -68,5 +79,11 @@ public class HUDManager : MonoBehaviour
         currentY = reserveAmmoObj.GetComponent<RectTransform>().anchoredPosition.y;
 
         reserveAmmoObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(magCapacity.renderedWidth + spaceBetweenElements, currentY);
+    }
+
+
+    private void alignBottomLeftElements()
+    {
+
     }
 }

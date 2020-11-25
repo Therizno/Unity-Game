@@ -636,6 +636,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dfe87ca5b64430e8ac651b8dc406c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorGreen:
+    serializedVersion: 2
+    rgba: 1179392
+  colorYellow:
+    serializedVersion: 2
+    rgba: 65523
+  colorRed:
+    serializedVersion: 2
+    rgba: 4803071
   player: {fileID: 857919756}
   bulletHoleCleanupTime: 15
 --- !u!1001 &256286570
@@ -2482,6 +2491,7 @@ MonoBehaviour:
   bulletSource: {fileID: 1609505087}
   fireCooldown: 1
   startingAmmoShells: 24
+  maxHealth: 100
 --- !u!114 &857919761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4919,6 +4929,7 @@ MonoBehaviour:
   ammoDisplayBox: {fileID: 1139203085}
   magCapacityObj: {fileID: 931127743}
   reserveAmmoObj: {fileID: 673687762}
+  healthAmountObj: {fileID: 1007614720}
 --- !u!1001 &2007607095
 PrefabInstance:
   m_ObjectHideFlags: 0

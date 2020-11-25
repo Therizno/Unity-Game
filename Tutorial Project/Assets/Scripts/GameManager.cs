@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private Color32 colorGreen;
+    [SerializeField] private Color32 colorYellow;
+    [SerializeField] private Color32 colorRed;
+
+
     [SerializeField] private GameObject player;
     [SerializeField] private float bulletHoleCleanupTime;
 
@@ -51,6 +56,10 @@ public class GameManager : MonoBehaviour
 
 
     // getters and setters
+
+    public Color32 green() { return colorGreen;  }
+    public Color32 yellow() { return colorYellow; }
+    public Color32 red() { return colorRed; }
 
     public float getBulletHoleCleanupTime()
     {

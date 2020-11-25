@@ -33,10 +33,17 @@ public class PlayerBehavior : MonoBehaviour, Observable
     [SerializeField] int startingAmmoShells;
 
 
+    [SerializeField] int maxHealth;
+
+    private int health;
+
+
     // called before start
     void Awake()
     {
         observers = new List<Observer>();
+
+        health = maxHealth;
     }
 
     // Start is called before the first frame update (use for getting other objects)
@@ -114,6 +121,16 @@ public class PlayerBehavior : MonoBehaviour, Observable
 
 
     // getters and setters
+
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public int getMaxHealth()
+    {
+        return maxHealth;
+    }
 
     public float getPlayerMoveSpeed()
     {
