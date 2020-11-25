@@ -4922,8 +4922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030fda0572e6d4c2dbdcf3fd9c1f718c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftMargin: 10
-  rightMargin: 50
+  leftMarginR: 10
+  rightMarginR: 50
   spaceBetweenElements: 5
   leftMarginL: 17
   playerObj: {fileID: 857919756}

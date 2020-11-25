@@ -6,8 +6,8 @@ using TMPro;
 
 public class HUDManager : MonoBehaviour
 {
-    [SerializeField] private float leftMargin;
-    [SerializeField] private float rightMargin;
+    [SerializeField] private float leftMarginR;
+    [SerializeField] private float rightMarginR;
     [SerializeField] private float spaceBetweenElements;
 
     [SerializeField] private float leftMarginL;
@@ -90,14 +90,14 @@ public class HUDManager : MonoBehaviour
 
         float currentY = ammoDisplayBox.GetComponent<RectTransform>().anchoredPosition.y;
 
-        ammoDisplayBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(HUDBox.width/2 - (magCapacity.renderedWidth + reserveCapacity.renderedWidth + spaceBetweenElements + rightMargin), currentY);
+        ammoDisplayBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(HUDBox.width/2 - (magCapacity.renderedWidth + reserveCapacity.renderedWidth + spaceBetweenElements + rightMarginR), currentY);
 
 
         //make the magazine ammo HUD element stick to the left side of the ammo HUD box element
 
         currentY = magCapacityObj.GetComponent<RectTransform>().anchoredPosition.y;
 
-        magCapacityObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(leftMargin, currentY);
+        magCapacityObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(leftMarginR, currentY);
 
 
         //make the reserve ammo HUD element stick to the left side of the mag capacity HUD element
