@@ -60,6 +60,9 @@ public class BulletBehavior : MonoBehaviour
             //Scale it correctly
             hole.transform.localScale = transform.localScale * bulletScaleMultiplier;
 
+            //Attach it to the gameObject it hit
+            hole.transform.SetParent(hitInfo.collider.gameObject.transform);
+
             //Destroy the bullet
             Destroy(gameObject);
         }

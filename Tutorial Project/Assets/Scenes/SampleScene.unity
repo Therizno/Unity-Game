@@ -4621,7 +4621,7 @@ GameObject:
   - component: {fileID: 1727146639}
   - component: {fileID: 1727146638}
   - component: {fileID: 1727146637}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BodyHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

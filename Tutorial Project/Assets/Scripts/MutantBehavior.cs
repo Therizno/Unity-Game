@@ -34,10 +34,11 @@ public class MutantBehavior : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, goalPosition, speed);
         }
-        else 
+        else    
         {
-            attack();
+            attack();       //attack if nessecary
         }
+
 
         //face the position
         transform.LookAt(coords);
