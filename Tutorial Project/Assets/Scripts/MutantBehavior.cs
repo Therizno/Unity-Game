@@ -22,17 +22,21 @@ public class MutantBehavior : MonoBehaviour
     {
         //move to player//
         Vector3 playerCoords = gm.getPlayerCoords();
-        moveToward(playerCoords);
+        moveToward(playerCoords, true);
     }
 
-    private void moveToward(Vector3 coords)
+    private void moveToward(Vector3 coords, bool attacking)
     {
         //move towards the position on the x and z axes
         Vector3 goalPosition = new Vector3(coords.x, transform.position.y, coords.z);
 
-        if (Vector3.Distance(goalPosition, transform.position) > attackDistance)
+        if (!attacking || (Vector3.Distance(goalPosition, transform.position) > attackDistance && attacking))
         {
             transform.position = Vector3.MoveTowards(transform.position, goalPosition, speed);
+        }
+        else if (attacking)
+        {
+            attack();
         }
 
         //face the position
@@ -41,5 +45,11 @@ public class MutantBehavior : MonoBehaviour
         //correct the monster's orientation so that it doesn't rotate on the x axis
         Vector3 transformCorrection = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
         transform.rotation = Quaternion.Euler(transformCorrection);
+    }
+
+
+    private void attack()
+    {
+        //fill in later
     }
 }
