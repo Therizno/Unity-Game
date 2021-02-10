@@ -1806,8 +1806,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dcf20f745be497eb22ca68f450a5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.05
-  attackDistance: 1
+  speed: 2
+  attackDistance: 1.5
+--- !u!143 &677233176
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677233174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1.6
+  m_Radius: 0.4
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!4 &697162920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4537607260992020172, guid: 42c8d042cef6f403cae0a7f94927f8b9,

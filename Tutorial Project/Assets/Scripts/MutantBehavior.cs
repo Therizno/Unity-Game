@@ -6,6 +6,8 @@ public class MutantBehavior : MonoBehaviour
 {
     private GameManager gm;
 
+    private CharacterController cc;
+
 
     [SerializeField] float speed;
 
@@ -15,6 +17,8 @@ public class MutantBehavior : MonoBehaviour
     void Start()
     {
         gm = GameManager.getInstance();
+
+        cc = GetComponent<CharacterController>();
     }
 
     // FixedUpdate is called on a fixed interval
@@ -32,7 +36,7 @@ public class MutantBehavior : MonoBehaviour
 
         if (!attacking || Vector3.Distance(goalPosition, transform.position) > attackDistance)
         {
-            transform.position = Vector3.MoveTowards(transform.position, goalPosition, speed);
+            cc.SimpleMove(transform.forward * speed);
         }
         else    
         {
