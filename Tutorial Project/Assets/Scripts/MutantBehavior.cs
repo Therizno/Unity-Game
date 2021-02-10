@@ -30,11 +30,11 @@ public class MutantBehavior : MonoBehaviour
         //move towards the position on the x and z axes
         Vector3 goalPosition = new Vector3(coords.x, transform.position.y, coords.z);
 
-        if (!attacking || (Vector3.Distance(goalPosition, transform.position) > attackDistance && attacking))
+        if (!attacking || Vector3.Distance(goalPosition, transform.position) > attackDistance)
         {
             transform.position = Vector3.MoveTowards(transform.position, goalPosition, speed);
         }
-        else if (attacking)
+        else 
         {
             attack();
         }
