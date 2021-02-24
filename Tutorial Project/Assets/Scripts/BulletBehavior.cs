@@ -6,7 +6,7 @@ public class BulletBehavior : MonoBehaviour
 {
     [SerializeField] private float bulletScaleMultiplier;
 
-    private float damage;
+    private int damage;
     private float speed;
 
     [SerializeField] private GameObject bulletHole1;
@@ -63,13 +63,24 @@ public class BulletBehavior : MonoBehaviour
             //Scale it correctly
             hole.transform.localScale = transform.localScale * bulletScaleMultiplier;
 
+
+            //Deal damage if object has a hitbox
+            HitboxBehavior hb = hitInfo.collider.gameObject.GetComponent<HitboxBehavior>();
+
+            if (hb != null)
+            {
+                hb.damageParent(damage);
+            }
+
+
+
             //Destroy the bullet
             Destroy(gameObject);
         }
     }
 
 
-    public void setDamage(float dmg)
+    public void setDamage(int dmg)
     {
         damage = dmg;
     }

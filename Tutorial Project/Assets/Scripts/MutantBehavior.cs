@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MutantBehavior : MonoBehaviour
+public class MutantBehavior : MonoBehaviour, Damageable
 {
     private GameManager gm;
 
@@ -12,6 +12,18 @@ public class MutantBehavior : MonoBehaviour
     [SerializeField] float speed;
 
     [SerializeField] float attackDistance;
+
+    [SerializeField] int maxHealth;
+
+    private int health;
+
+
+    // called before start
+    void Awake()
+    {
+        health = maxHealth;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,5 +68,30 @@ public class MutantBehavior : MonoBehaviour
     private void attack()
     {
         //fill in later
+    }
+
+
+    /*
+     *  Damageable methods
+     */
+
+    public void takeDamage(int amount)
+    {
+        health -= amount;
+
+        if (health < 0)
+        {
+            health = 0;
+        }
+    }
+
+    public void heal(int amount)
+    {
+        health += amount;
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
 }

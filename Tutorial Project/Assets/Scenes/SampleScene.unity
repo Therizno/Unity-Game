@@ -1287,6 +1287,7 @@ GameObject:
   - component: {fileID: 530227973}
   - component: {fileID: 530227976}
   - component: {fileID: 530227974}
+  - component: {fileID: 530227975}
   m_Layer: 8
   m_Name: LeftLegHitbox
   m_TagString: Untagged
@@ -1321,6 +1322,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &530227975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530227972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 677233174}
 --- !u!33 &530227976
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1867,6 +1881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   attackDistance: 1.5
+  maxHealth: 100
 --- !u!143 &677233176
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4049,6 +4064,7 @@ GameObject:
   - component: {fileID: 1409142092}
   - component: {fileID: 1409142095}
   - component: {fileID: 1409142093}
+  - component: {fileID: 1409142094}
   m_Layer: 8
   m_Name: LowerBodyHitbox
   m_TagString: Untagged
@@ -4084,6 +4100,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1409142094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409142091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 677233174}
 --- !u!33 &1409142095
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4641,7 +4670,7 @@ MonoBehaviour:
   pelletSize: 0.04
   numPellets: 6
   maxPelletSpread: 0.03
-  pelletDamage: 10
+  pelletDamage: 20
   maxShellCapacity: 6
 --- !u!114 &1609505090
 MonoBehaviour:
@@ -4751,6 +4780,7 @@ GameObject:
   - component: {fileID: 1727146636}
   - component: {fileID: 1727146639}
   - component: {fileID: 1727146637}
+  - component: {fileID: 1727146638}
   m_Layer: 8
   m_Name: UpperBodyHitbox
   m_TagString: Untagged
@@ -4786,6 +4816,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1727146638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727146635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 677233174}
 --- !u!33 &1727146639
 MeshFilter:
   m_ObjectHideFlags: 0

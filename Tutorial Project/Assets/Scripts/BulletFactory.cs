@@ -18,7 +18,7 @@ public class BulletFactory : MonoBehaviour
         
     }
 
-    public void createBullet(Vector3 dir, float vel, float size, float damage)
+    public void createBullet(Vector3 dir, float vel, float size, int damage)
     {
         //create the bullet
         GameObject bullet = Instantiate(bulletPrefab);

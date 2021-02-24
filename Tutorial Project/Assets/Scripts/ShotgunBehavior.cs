@@ -10,7 +10,7 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     [SerializeField] private float pelletSize;
     [SerializeField] private float numPellets;
     [SerializeField] private float maxPelletSpread;
-    [SerializeField] private float pelletDamage;
+    [SerializeField] private int pelletDamage;
 
     [SerializeField] private uint maxShellCapacity;
 
