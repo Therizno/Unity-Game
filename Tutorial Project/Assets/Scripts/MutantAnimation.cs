@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MutantAnimation : MonoBehaviour
 {
+    //Animation speed multiplier
+    [SerializeField] private float moveAnimSpeed;
+
     private Animator anim;
 
     private float curSpeed;
@@ -19,7 +22,9 @@ public class MutantAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        anim.SetFloat("move speed", curSpeed * moveAnimSpeed);
+        anim.SetBool("moving", curSpeed != 0);
+        anim.SetBool("attack", isAttack);
     }
 
 

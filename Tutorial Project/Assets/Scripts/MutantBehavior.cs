@@ -79,7 +79,7 @@ public class MutantBehavior : MonoBehaviour, Damageable
 
     private void setAnimVars()
     {
-
+        muAnim.setMoveSpeed(Vector3.Magnitude(cc.velocity));
     }
 
 
