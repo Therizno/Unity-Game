@@ -73,7 +73,7 @@ public class MutantBehavior : MonoBehaviour, Damageable
 
     private void attack()
     {
-        //fill in later
+        muAnim.isAttacking(true);
     }
 
 

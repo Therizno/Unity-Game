@@ -25,6 +25,8 @@ public class MutantAnimation : MonoBehaviour
         anim.SetFloat("move speed", curSpeed * moveAnimSpeed);
         anim.SetBool("moving", curSpeed != 0);
         anim.SetBool("attack", isAttack);
+
+        isAttack = false;
     }
 
 
