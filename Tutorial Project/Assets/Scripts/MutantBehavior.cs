@@ -8,9 +8,10 @@ public class MutantBehavior : MonoBehaviour, Damageable
 
     private CharacterController cc;
 
+    private MutantAnimation muAnim;
 
-    [SerializeField] float speed;
 
+    [SerializeField] float speed; 
     [SerializeField] float attackDistance;
 
     [SerializeField] int maxHealth;
@@ -31,6 +32,8 @@ public class MutantBehavior : MonoBehaviour, Damageable
         gm = GameManager.getInstance();
 
         cc = GetComponent<CharacterController>();
+
+        muAnim = GetComponent<MutantAnimation>();
     }
 
     // FixedUpdate is called on a fixed interval
@@ -39,6 +42,9 @@ public class MutantBehavior : MonoBehaviour, Damageable
         //move to player//
         Vector3 playerCoords = gm.getPlayerCoords();
         moveToward(playerCoords, true);
+
+        //give the animator info//
+        setAnimVars();
     }
 
     private void moveToward(Vector3 coords, bool attacking)
@@ -68,6 +74,12 @@ public class MutantBehavior : MonoBehaviour, Damageable
     private void attack()
     {
         //fill in later
+    }
+
+
+    private void setAnimVars()
+    {
+
     }
 
 
