@@ -2059,7 +2059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e2eda657f454f89ba5fd71e2ba3dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAnimSpeed: 10
+  moveAnimSpeed: 0.5
 --- !u!4 &697162920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4537607260992020172, guid: 42c8d042cef6f403cae0a7f94927f8b9,
