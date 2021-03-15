@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
-    [SerializeField] private float bulletScaleMultiplier;
-
     private int damage;
     private float speed;
+    private float size;
 
     [SerializeField] private GameObject bulletHole1;
     [SerializeField] private GameObject bulletHole2;
@@ -58,7 +57,7 @@ public class BulletBehavior : MonoBehaviour
             hole.transform.rotation = Quaternion.FromToRotation(hole.transform.up, hitInfo.normal);
 
             //Scale it correctly
-            hole.transform.localScale = hole.transform.localScale * bulletScaleMultiplier;
+            hole.transform.localScale = hole.transform.localScale * size;
 
             //Attach it to the gameObject it hit
             hole.transform.SetParent(hitInfo.collider.gameObject.transform);
@@ -88,5 +87,11 @@ public class BulletBehavior : MonoBehaviour
     public void setSpeed(float spd)
     {
         speed = spd;
+    }
+
+    public void setSize(float bulSize)
+    {
+        size = bulSize;
+        transform.localScale = new Vector3(size, size, size);
     }
 }

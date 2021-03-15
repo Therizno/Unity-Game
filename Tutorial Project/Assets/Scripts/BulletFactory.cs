@@ -32,9 +32,9 @@ public class BulletFactory : MonoBehaviour
 
         //position it
         bullet.transform.position = transform.position;
-        
+
         //scale it
-        bullet.transform.localScale = new Vector3(size, size, size);
+        bbh.setSize(size);
 
         //set the damage
         bbh.setDamage(damage);
