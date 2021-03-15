@@ -5030,7 +5030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pelletVelocity: 3.5
-  pelletSize: 0.04
+  pelletSize: 0.03
   numPellets: 6
   maxPelletSpread: 0.03
   pelletDamage: 20
