@@ -57,12 +57,12 @@ public class BulletBehavior : MonoBehaviour
             //Rotate it to sit flush against the surface
             hole.transform.rotation = Quaternion.FromToRotation(hole.transform.up, hitInfo.normal);
 
+            //Scale it correctly
+            hole.transform.localScale = hole.transform.localScale * bulletScaleMultiplier;
+
             //Attach it to the gameObject it hit
             hole.transform.SetParent(hitInfo.collider.gameObject.transform);
-
-            //Scale it correctly
-            hole.transform.localScale = transform.localScale * bulletScaleMultiplier;
-
+            
 
             //Deal damage if object has a hitbox
             HitboxBehavior hb = hitInfo.collider.gameObject.GetComponent<HitboxBehavior>();
