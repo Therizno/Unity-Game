@@ -836,6 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   plyrTeam: 0
+  cooldownTime: 0.25
 --- !u!4 &316089905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4488616196064996, guid: 5fce63c0820cd874d9771957678b36a1,
@@ -2097,7 +2098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  attackDistance: 1.5
+  attackDistance: 1.07
   maxHealth: 100
 --- !u!143 &677233176
 CharacterController:
@@ -2111,7 +2112,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.6
-  m_Radius: 0.4
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
