@@ -774,6 +774,7 @@ GameObject:
   - component: {fileID: 283296532}
   - component: {fileID: 283296533}
   - component: {fileID: 283296534}
+  - component: {fileID: 283296535}
   m_Layer: 8
   m_Name: HandHitbox
   m_TagString: Untagged
@@ -821,6 +822,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+--- !u!114 &283296535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283296531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb68fdef6f6e4ec5b93cfeebaf3822f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  plyrTeam: 0
 --- !u!4 &316089905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4488616196064996, guid: 5fce63c0820cd874d9771957678b36a1,

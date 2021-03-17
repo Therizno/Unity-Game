@@ -106,4 +106,9 @@ public class MutantBehavior : MonoBehaviour, Damageable
             health = maxHealth;
         }
     }
+
+    public bool playerTeam()
+    {
+        return false;
+    }
 }

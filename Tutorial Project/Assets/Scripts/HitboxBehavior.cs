@@ -30,4 +30,9 @@ public class HitboxBehavior : MonoBehaviour
     {
         parentObj.heal(health);
     }
+
+    public bool playerTeam()
+    {
+        return parentObj.playerTeam();
+    }
 }
