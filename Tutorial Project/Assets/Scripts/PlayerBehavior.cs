@@ -7,7 +7,7 @@ This class is for handling the interface between the player and the game.
 It notifies lower level player control classes when relevant events occur. 
 */
 
-public class PlayerBehavior : MonoBehaviour, Observable
+public class PlayerBehavior : MonoBehaviour, Observable, Damageable
 {
     private GameManager gm;
 
@@ -69,7 +69,7 @@ public class PlayerBehavior : MonoBehaviour, Observable
     void Update()
     {
         checkFire();
-
+        
         checkReload();
     }
 
@@ -170,5 +170,33 @@ public class PlayerBehavior : MonoBehaviour, Observable
     public int getReserveAmmo()
     {
         return shotgunBehavior.getReserveShells();
+    }
+
+
+    //Damageable methods
+
+    public void takeDamage(int amount)
+    {
+        health -= amount;
+
+        if (health < 0)
+        {
+            health = 0;
+        }
+    }
+
+    public void heal(int amount)
+    {
+        health += amount;
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
+    public bool playerTeam()
+    {
+        return true;
     }
 }
