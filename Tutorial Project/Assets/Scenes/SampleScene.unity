@@ -2225,6 +2225,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAnimSpeed: 0.5
+--- !u!114 &677233178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677233174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 677233174}
 --- !u!4 &697162920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4537607260992020172, guid: 42c8d042cef6f403cae0a7f94927f8b9,
