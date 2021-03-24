@@ -3894,7 +3894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
   damage: 20
-  cooldownTime: 0.2
+  cooldownTime: 0.5
 --- !u!54 &1068376824
 Rigidbody:
   m_ObjectHideFlags: 0

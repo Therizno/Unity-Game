@@ -16,7 +16,10 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
 
     [SerializeField] int maxHealth;
 
+
     private int health;
+
+    private bool isAttack;
 
 
     // called before start
@@ -55,10 +58,13 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
         if (Vector3.Distance(goalPosition, transform.position) > attackDistance)
         {
             cc.SimpleMove(transform.forward * speed);
+
+            isAttack = false;
+
         }
         else    
         {
-            attack();       //attack if nessecary
+            isAttack = true;       //attack if close enough
         }
 
 
@@ -71,15 +77,11 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
     }
 
 
-    private void attack()
-    {
-        muAnim.setAttacking(true);
-    }
-
 
     private void setAnimVars()
     {
         muAnim.setMoveSpeed(Vector3.Magnitude(cc.velocity));
+        muAnim.setAttacking(isAttack);
     }
 
 
@@ -120,6 +122,6 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
 
     public bool isAttacking()
     {
-        return true;    //temp
+        return isAttack;
     }
 }
