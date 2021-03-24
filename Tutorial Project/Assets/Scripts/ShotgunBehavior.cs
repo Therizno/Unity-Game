@@ -51,6 +51,7 @@ public class ShotgunBehavior : MonoBehaviour, Observer
     {
         //keep track of ammo 
         chambered = false;
+        cycle();
 
 
         for (int i = 0; i < numPellets; i++)
