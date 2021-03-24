@@ -10,7 +10,12 @@ public class MeleeAttack : MonoBehaviour
 
     private float timeSinceAttack;
 
-    private bool isAttacking;   //get this information from the parent
+    private bool isAttacking = true;   //get this information from the parent (WIP)
+
+
+    private Rigidbody rb;
+
+    private Vector3 oldPosition;
 
 
     void Awake()
@@ -18,12 +23,35 @@ public class MeleeAttack : MonoBehaviour
         timeSinceAttack = 0;
     }
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        oldPosition = transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {
         timeSinceAttack += Time.deltaTime;
 
-        //check to see if we missed any hitboxes, and hit them if needed
+        /*
+         * check to see if we missed any hitboxes, and hit them if needed
+         */
+        if (isAttacking)
+        {
+            // a vector from our current position to our old one
+            Vector3 route = oldPosition - transform.position;
+
+            RaycastHit hit;             //ignore triggers, those are for bullet collision only
+            if (rb.SweepTest(route, out hit, route.magnitude, QueryTriggerInteraction.Ignore))
+            {
+                dealDamage(hit.collider.gameObject.GetComponent<HitboxBehavior>());
+            }
+        }
+
+
+        oldPosition = transform.position;
     }
 
 
