@@ -10,6 +10,8 @@ public class MeleeAttack : MonoBehaviour
 
     private float timeSinceAttack;
 
+    private bool isAttacking;   //get this information from the parent
+
 
     void Awake()
     {
@@ -20,13 +22,25 @@ public class MeleeAttack : MonoBehaviour
     void Update()
     {
         timeSinceAttack += Time.deltaTime;
+
+        //check to see if we missed any hitboxes, and hit them if needed
     }
 
+
+    /*
+     *  deal damage if collides with a hitbox
+     */
     private void OnTriggerEnter(Collider other)
     {
-        HitboxBehavior hb = other.gameObject.GetComponent<HitboxBehavior>();
+        HitboxBehavior hitb = other.gameObject.GetComponent<HitboxBehavior>();
 
-        if (hb != null && timeSinceAttack > cooldownTime && plyrTeam != hb.playerTeam())
+        dealDamage(hitb);
+    }
+
+
+    private void dealDamage(HitboxBehavior hb)
+    {
+        if (isAttacking && timeSinceAttack > cooldownTime && hb != null && plyrTeam != hb.playerTeam())
         {
             hb.damageParent(damage);
 
