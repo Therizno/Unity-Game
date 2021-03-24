@@ -35,7 +35,7 @@ public class MutantAnimation : MonoBehaviour
         curSpeed = speed;
     }
 
-    public void isAttacking(bool attack)
+    public void setAttacking(bool attack)
     {
         isAttack = attack;
     }

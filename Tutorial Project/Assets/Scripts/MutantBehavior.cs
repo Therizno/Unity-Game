@@ -41,18 +41,18 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
     {
         //move to player//
         Vector3 playerCoords = gm.getPlayerCoords();
-        moveToward(playerCoords, true);
+        moveToward(playerCoords);
 
         //give the animator info//
         setAnimVars();
     }
 
-    private void moveToward(Vector3 coords, bool attacking)
+    private void moveToward(Vector3 coords)
     {
         //move towards the position on the x and z axes
         Vector3 goalPosition = new Vector3(coords.x, transform.position.y, coords.z);
 
-        if (!attacking || Vector3.Distance(goalPosition, transform.position) > attackDistance)
+        if (Vector3.Distance(goalPosition, transform.position) > attackDistance)
         {
             cc.SimpleMove(transform.forward * speed);
         }
@@ -73,7 +73,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
 
     private void attack()
     {
-        muAnim.isAttacking(true);
+        muAnim.setAttacking(true);
     }
 
 
