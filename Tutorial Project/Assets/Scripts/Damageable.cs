@@ -1,7 +1,6 @@
 ﻿
-public interface Damageable 
+public interface Damageable : TeamAssigned
 {
     void takeDamage(int amount);
     void heal(int amount);
-    bool playerTeam();
 }

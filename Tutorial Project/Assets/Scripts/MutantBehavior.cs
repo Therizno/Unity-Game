@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MutantBehavior : MonoBehaviour, Damageable
+public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
 {
     private GameManager gm;
 
@@ -110,5 +110,16 @@ public class MutantBehavior : MonoBehaviour, Damageable
     public bool playerTeam()
     {
         return false;
+    }
+
+
+
+    /*
+     *  MeleeAttacker methods
+     */
+
+    public bool isAttacking()
+    {
+        return true;    //temp
     }
 }

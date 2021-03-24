@@ -3892,8 +3892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb68fdef6f6e4ec5b93cfeebaf3822f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentObject: {fileID: 677233174}
   damage: 20
-  plyrTeam: 0
   cooldownTime: 0.2
 --- !u!54 &1068376824
 Rigidbody:

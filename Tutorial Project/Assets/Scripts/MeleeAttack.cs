@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
+    [SerializeField] private GameObject parentObject;
+
     [SerializeField] private int damage;
-    [SerializeField] private bool plyrTeam;
     [SerializeField] private float cooldownTime;
 
-    private float timeSinceAttack;
-
-    private bool isAttacking = true;   //get this information from the parent (WIP)
-
+    private MeleeAttacker parent;
 
     private Rigidbody rb;
 
     private Vector3 oldPosition;
-
+    private float timeSinceAttack;
 
     void Awake()
     {
@@ -26,6 +24,8 @@ public class MeleeAttack : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        parent = parentObject.GetComponent<MeleeAttacker>();
 
         oldPosition = transform.position;
     }
@@ -38,7 +38,7 @@ public class MeleeAttack : MonoBehaviour
         /*
          * check to see if we missed any hitboxes, and hit them if needed
          */
-        if (isAttacking)
+        if (parent.isAttacking())
         {
             // a vector from our current position to our old one
             Vector3 route = oldPosition - transform.position;
@@ -68,7 +68,7 @@ public class MeleeAttack : MonoBehaviour
 
     private void dealDamage(HitboxBehavior hb)
     {
-        if (isAttacking && timeSinceAttack > cooldownTime && hb != null && plyrTeam != hb.playerTeam())
+        if (parent.isAttacking() && timeSinceAttack > cooldownTime && hb != null && parent.playerTeam() != hb.playerTeam())
         {
             hb.damageParent(damage);
 
