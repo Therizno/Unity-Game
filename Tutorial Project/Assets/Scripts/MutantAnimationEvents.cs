@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MutantAnimationEvent : MonoBehaviour
+public class MutantAnimationEvents : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool attacking;
+
+
+    // Awake is called before start
+    void Awake()
     {
-        
+        attacking = false;
     }
 
     // Update is called once per frame
@@ -17,15 +20,21 @@ public class MutantAnimationEvent : MonoBehaviour
     }
 
 
+    public bool isAttacking()
+    {
+        return attacking;
+    }
+
+
     // any of these functions can be triggered by an animation
 
     public void startAttack()
     {
-
+        attacking = true;
     }
 
     public void endAttack()
     {
-
+        attacking = false;
     }
 }

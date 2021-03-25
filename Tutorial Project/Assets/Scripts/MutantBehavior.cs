@@ -9,6 +9,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
     private CharacterController cc;
 
     private MutantAnimation muAnim;
+    private MutantAnimationEvents muAnimEvents;
 
 
     [SerializeField] float speed; 
@@ -37,6 +38,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
         cc = GetComponent<CharacterController>();
 
         muAnim = GetComponent<MutantAnimation>();
+        muAnimEvents = GetComponent<MutantAnimationEvents>();
     }
 
     // FixedUpdate is called on a fixed interval
@@ -122,6 +124,6 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
 
     public bool isAttacking()
     {
-        return isAttack;
+        return muAnimEvents.isAttacking();
     }
 }
