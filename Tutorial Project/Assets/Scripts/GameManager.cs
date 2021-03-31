@@ -53,6 +53,22 @@ public class GameManager : MonoBehaviour
         playerBehavior = player.GetComponent<PlayerBehavior>();
     }
 
+    void Update()
+    {
+        checkEndState();
+    }
+
+
+
+    //checks when to end the game
+    private void checkEndState()
+    {
+        if (playerBehavior.getHealth() == 0)
+        {
+            Time.timeScale = 0;
+        }
+    }
+
 
 
     // getters and setters
