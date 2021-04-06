@@ -48,6 +48,8 @@ public class StartManager : MonoBehaviour
     {
         startButton = GetComponent<Button>();
         startButton.onClick.AddListener(startGame);
+
+        resetGameSettings();
     }
 
     // Update is called once per frame
@@ -60,5 +62,13 @@ public class StartManager : MonoBehaviour
     public void startGame()
     {
         SceneManager.LoadSceneAsync("SampleScene");
+    }
+
+
+
+    private void resetGameSettings()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 1;
     }
 }
