@@ -653,6 +653,7 @@ MonoBehaviour:
     rgba: 4282993151
   player: {fileID: 857919756}
   bulletHoleCleanupTime: 15
+  postGameFrames: 1
 --- !u!1001 &256286570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5862,13 +5863,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 21.091278}
   m_textInfo:
     textComponent: {fileID: 1583583972}
-    characterCount: 9
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

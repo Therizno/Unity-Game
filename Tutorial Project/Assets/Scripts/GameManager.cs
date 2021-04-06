@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Diagnostics;
 
 
 public class GameManager : MonoBehaviour, Observable
@@ -15,10 +14,13 @@ public class GameManager : MonoBehaviour, Observable
     [SerializeField] private GameObject player;
     [SerializeField] private float bulletHoleCleanupTime;
 
+    [SerializeField] private uint postGameFrames; //the number of frames to execute code for after
+                                                  //game end
+
     private PlayerBehavior playerBehavior;
 
     private bool playerDead;
-    private Stopwatch stopwatch;
+    private int postGameFrameCount;
 
 
     private List<Observer> observers;
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour, Observable
         observers = new List<Observer>();
 
         playerDead = false;
-        stopwatch = new Stopwatch();
+        postGameFrameCount = 0;
 
         playerBehavior = player.GetComponent<PlayerBehavior>();
     }
@@ -84,18 +86,21 @@ public class GameManager : MonoBehaviour, Observable
             //tell all other necessary scripts
             //allows post-death actions to take place before the game is frozen
             notifyAll(GameEvent.PlayerDeath);
-
-            stopwatch.Start();
         }
-        //wait for a few millis before freesing the game, so that the death message can render
-        else if (playerDead && stopwatch.Elapsed.Milliseconds > 50)
+        //run a few frames before game end, so that the death message can render
+        else if (playerDead)
         {
-            //freeze the game
-            Time.timeScale = 0;
+            postGameFrameCount++;
 
-            System.Threading.Thread.Sleep(1000);
+            if (postGameFrameCount >= postGameFrames)
+            {
+                //freeze the game
+                Time.timeScale = 0;
 
-            SceneManager.LoadSceneAsync("StartScreen");
+                System.Threading.Thread.Sleep(1000);
+
+                SceneManager.LoadScene("StartScreen");
+            }
         }
     }
 
