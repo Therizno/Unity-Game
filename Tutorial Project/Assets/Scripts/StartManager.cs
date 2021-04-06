@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class StartManager : MonoBehaviour
 {
@@ -58,7 +59,6 @@ public class StartManager : MonoBehaviour
 
     public void startGame()
     {
-        Debug.Log("button triggered");
         SceneManager.LoadSceneAsync("SampleScene");
     }
 }
