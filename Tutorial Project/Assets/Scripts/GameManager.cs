@@ -14,13 +14,9 @@ public class GameManager : MonoBehaviour, Observable
     [SerializeField] private GameObject player;
     [SerializeField] private float bulletHoleCleanupTime;
 
-    [SerializeField] private uint postGameFrames; //the number of frames to execute code for after
-                                                  //game end
-
     private PlayerBehavior playerBehavior;
 
     private bool playerDead;
-    private int postGameFrameCount;
 
 
     private List<Observer> observers;
@@ -64,7 +60,6 @@ public class GameManager : MonoBehaviour, Observable
         observers = new List<Observer>();
 
         playerDead = false;
-        postGameFrameCount = 0;
 
         playerBehavior = player.GetComponent<PlayerBehavior>();
     }
@@ -87,20 +82,15 @@ public class GameManager : MonoBehaviour, Observable
             //allows post-death actions to take place before the game is frozen
             notifyAll(GameEvent.PlayerDeath);
         }
-        //run a few frames before game end, so that the death message can render
         else if (playerDead)
         {
-            postGameFrameCount++;
+            //freeze the game
+            Time.timeScale = 0;
 
-            if (postGameFrameCount >= postGameFrames)
-            {
-                //freeze the game
-                Time.timeScale = 0;
+            System.Threading.Thread.Sleep(1000);
 
-                System.Threading.Thread.Sleep(1000);
-
-                SceneManager.LoadScene("StartScreen");
-            }
+            SceneManager.LoadScene("StartScreen");
+            
         }
     }
 
