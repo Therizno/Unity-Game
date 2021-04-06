@@ -4,7 +4,7 @@ using UnityEngine;
 
 using TMPro;
 
-public class HUDManager : MonoBehaviour
+public class HUDManager : MonoBehaviour, Observer
 {
     [SerializeField] private float leftMarginR;
     [SerializeField] private float rightMarginR;
@@ -45,6 +45,7 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
         gm = GameManager.getInstance();
+        gm.addObserver(this);
 
 
         playerBehavior = playerObj.GetComponent<PlayerBehavior>();
@@ -53,6 +54,9 @@ public class HUDManager : MonoBehaviour
         reserveCapacity = reserveAmmoObj.GetComponent<TextMeshProUGUI>();
 
         healthAmount = healthAmountObj.GetComponent<TextMeshProUGUI>();
+
+
+        gameOverMessage.GetComponent<TextMeshProUGUI>().color = gm.red();
     }
 
 
@@ -123,4 +127,18 @@ public class HUDManager : MonoBehaviour
         //make the background of the health hud element move to fit the contents
         healthDisplayBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(healthStatRectX + leftMarginL, currentY);
     }
+
+
+
+    //observer method
+    public void notify(GameEvent game)
+    {
+        if (game == GameEvent.PlayerDeath)
+        {
+            deathMessage.GetComponent<UnityEngine.UI.Image>().enabled = true;
+            youDiedMessage.GetComponent<TextMeshProUGUI>().enabled = true;
+            gameOverMessage.GetComponent<TextMeshProUGUI>().enabled = true;
+        }
+    }
+
 }

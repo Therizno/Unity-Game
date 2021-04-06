@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, Observable
 {
     [SerializeField] private Color32 colorGreen;
     [SerializeField] private Color32 colorYellow;
@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float bulletHoleCleanupTime;
 
     private PlayerBehavior playerBehavior;
+
+
+    private List<Observer> observers;
+
 
     /*
      * singleton
@@ -50,6 +54,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update (use for getting other objects)
     void Start()
     {
+        observers = new List<Observer>();
+
         playerBehavior = player.GetComponent<PlayerBehavior>();
     }
 
@@ -66,6 +72,10 @@ public class GameManager : MonoBehaviour
         if (playerBehavior.getHealth() == 0)
         {
             Time.timeScale = 0;
+
+            //tell all other necessary scripts
+            //allows post-death actions to take place while update() is not being called
+            notifyAll(GameEvent.PlayerDeath);
         }
     }
 
@@ -116,12 +126,34 @@ public class GameManager : MonoBehaviour
     {
         return playerBehavior.getPlayerReloading();
     }
+
+
+
+    // Observable methods
+
+    public void addObserver(Observer o)
+    {
+        observers.Add(o);
+    }
+
+    public void removeObserver(Observer o)
+    {
+        observers.Remove(o);
+    }
+
+    private void notifyAll(GameEvent game)
+    {
+        foreach (Observer o in observers)
+        {
+            o.notify(game);
+        }
+    }
 }
+
+
 
 public enum GameEvent
 {
-    // localized events (can happen multiple places, multiple times at once)
-    FireWeapon, ReloadWeapon
-
-    //globalized events (detected by the game manager (WIP))
+    // used for observer pattern
+    FireWeapon, ReloadWeapon, PlayerDeath
 }
