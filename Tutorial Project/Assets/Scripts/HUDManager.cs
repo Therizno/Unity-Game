@@ -15,12 +15,19 @@ public class HUDManager : MonoBehaviour
 
     [SerializeField] private GameObject playerObj;
 
+    //ammo HUD
     [SerializeField] private GameObject ammoDisplayBox;
     [SerializeField] private GameObject magCapacityObj;
     [SerializeField] private GameObject reserveAmmoObj;
 
+    //health HUD
     [SerializeField] private GameObject healthAmountObj;
     [SerializeField] private GameObject healthDisplayBox;
+
+    //death message
+    [SerializeField] private GameObject deathMessage;
+    [SerializeField] private GameObject youDiedMessage;
+    [SerializeField] private GameObject gameOverMessage;
 
 
     private PlayerBehavior playerBehavior;
