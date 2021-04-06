@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 
 public class GameManager : MonoBehaviour, Observable
@@ -14,6 +16,9 @@ public class GameManager : MonoBehaviour, Observable
     [SerializeField] private float bulletHoleCleanupTime;
 
     private PlayerBehavior playerBehavior;
+
+    private bool playerDead;
+    private Stopwatch stopwatch;
 
 
     private List<Observer> observers;
@@ -56,6 +61,9 @@ public class GameManager : MonoBehaviour, Observable
     {
         observers = new List<Observer>();
 
+        playerDead = false;
+        stopwatch = new Stopwatch();
+
         playerBehavior = player.GetComponent<PlayerBehavior>();
     }
 
@@ -69,13 +77,25 @@ public class GameManager : MonoBehaviour, Observable
     //checks when to end the game
     private void checkEndState()
     {
-        if (playerBehavior.getHealth() == 0)
+        if (playerBehavior.getHealth() == 0 && !playerDead)
         {
-            Time.timeScale = 0;
+            playerDead = true;
 
             //tell all other necessary scripts
-            //allows post-death actions to take place while update() is not being called
+            //allows post-death actions to take place before the game is frozen
             notifyAll(GameEvent.PlayerDeath);
+
+            stopwatch.Start();
+        }
+        //wait for a few millis before freesing the game, so that the death message can render
+        else if (playerDead && stopwatch.Elapsed.Milliseconds > 50)
+        {
+            //freeze the game
+            Time.timeScale = 0;
+
+            System.Threading.Thread.Sleep(1000);
+
+            SceneManager.LoadSceneAsync("StartScreen");
         }
     }
 
