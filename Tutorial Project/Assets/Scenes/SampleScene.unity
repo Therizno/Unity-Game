@@ -1361,7 +1361,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530227973}
-  - component: {fileID: 530227976}
   - component: {fileID: 530227974}
   - component: {fileID: 530227975}
   m_Layer: 8
@@ -1411,14 +1410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
---- !u!33 &530227976
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530227972}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &545392338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1492,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 556164673}
-  - component: {fileID: 556164676}
   - component: {fileID: 556164675}
   - component: {fileID: 556164674}
   m_Layer: 8
@@ -1551,14 +1541,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.34, y: 0.11, z: 0.11}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &556164676
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556164672}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &556497301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2793,7 +2775,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838690610}
-  - component: {fileID: 838690613}
   - component: {fileID: 838690612}
   - component: {fileID: 838690611}
   m_Layer: 8
@@ -2843,14 +2824,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.34, y: 0.15, z: 0.11}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &838690613
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838690609}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &843930136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3958,7 +3931,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1042471143}
-  - component: {fileID: 1042471146}
   - component: {fileID: 1042471145}
   - component: {fileID: 1042471144}
   m_Layer: 8
@@ -4008,14 +3980,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.31, y: 0.15, z: 0.11}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1042471146
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042471142}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1052462417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5475,7 +5439,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1515198608}
-  - component: {fileID: 1515198611}
   - component: {fileID: 1515198610}
   - component: {fileID: 1515198609}
   m_Layer: 8
@@ -5525,14 +5488,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.45, y: 0.21, z: 0.11}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1515198611
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515198607}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1517117164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4100253998191288, guid: b715c4d3f2bae11489afa6652ee6a7cd,
@@ -6956,7 +6911,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2118338943}
-  - component: {fileID: 2118338946}
   - component: {fileID: 2118338945}
   - component: {fileID: 2118338944}
   m_Layer: 8
@@ -7006,14 +6960,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.34, y: 0.11, z: 0.11}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &2118338946
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118338942}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &2124151188
 PrefabInstance:
   m_ObjectHideFlags: 0
