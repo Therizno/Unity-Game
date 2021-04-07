@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
+public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollHub
 {
     private GameManager gm;
 
@@ -18,6 +18,8 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
     [SerializeField] int maxHealth;
 
 
+    private List<Observer> observers; 
+
     private int health;
     private bool isDead;
 
@@ -27,6 +29,8 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
     // called before start
     void Awake()
     {
+        observers = new List<Observer>();
+
         health = maxHealth;
         isDead = false;
     }
@@ -55,16 +59,17 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
 
             //give the animator info//
             setAnimVars();
-        }
 
 
-        //check that we're still alive//
-        if (health <= 0)
-        {
-            isDead = true;
-            onDeath();
+            //check that we're still alive//
+            if (health <= 0)
+            {
+                isDead = true;
+                onDeath();
+            }
         }
     }
+
 
     private void moveToward(Vector3 coords)
     {
@@ -105,6 +110,8 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
     {
         muAnim.disableAnimations();
         cc.enabled = false;
+
+        notifyAll(GameEvent.MonsterDeath);
     }
 
 
@@ -146,5 +153,29 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
     public bool isAttacking()
     {
         return muAnimEvents.isAttacking();
+    }
+
+
+
+    /*
+     * Observable methods
+     */
+
+    public void addObserver(Observer o)
+    {
+        observers.Add(o);
+    }
+
+    public void removeObserver(Observer o)
+    {
+        observers.Remove(o);
+    }
+
+    private void notifyAll(GameEvent g)
+    {
+        foreach (Observer o in observers)
+        {
+            o.notify(g);
+        }
     }
 }

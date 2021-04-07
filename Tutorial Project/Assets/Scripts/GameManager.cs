@@ -170,5 +170,5 @@ public class GameManager : MonoBehaviour, Observable
 public enum GameEvent
 {
     // used for observer pattern
-    FireWeapon, ReloadWeapon, PlayerDeath
+    FireWeapon, ReloadWeapon, PlayerDeath, MonsterDeath
 }
