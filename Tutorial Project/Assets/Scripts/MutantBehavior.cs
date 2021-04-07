@@ -19,6 +19,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
 
 
     private int health;
+    private bool isDead;
 
     private bool isAttack;
 
@@ -27,6 +28,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
     void Awake()
     {
         health = maxHealth;
+        isDead = false;
     }
 
 
@@ -41,15 +43,27 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
         muAnimEvents = GetComponent<MutantAnimationEvents>();
     }
 
+
     // FixedUpdate is called on a fixed interval
     void FixedUpdate()
     {
-        //move to player//
-        Vector3 playerCoords = gm.getPlayerCoords();
-        moveToward(playerCoords);
+        if (!isDead)
+        {
+            //move to player//
+            Vector3 playerCoords = gm.getPlayerCoords();
+            moveToward(playerCoords);
 
-        //give the animator info//
-        setAnimVars();
+            //give the animator info//
+            setAnimVars();
+        }
+
+
+        //check that we're still alive//
+        if (health <= 0)
+        {
+            isDead = true;
+            onDeath();
+        }
     }
 
     private void moveToward(Vector3 coords)
@@ -84,6 +98,13 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker
     {
         muAnim.setMoveSpeed(Vector3.Magnitude(cc.velocity));
         muAnim.setAttacking(isAttack);
+    }
+
+
+    private void onDeath()
+    {
+        muAnim.disableAnimations();
+        cc.enabled = false;
     }
 
 

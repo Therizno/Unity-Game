@@ -39,4 +39,10 @@ public class MutantAnimation : MonoBehaviour
     {
         isAttack = attack;
     }
+
+
+    public void disableAnimations()
+    {
+        anim.enabled = false;
+    }
 }
