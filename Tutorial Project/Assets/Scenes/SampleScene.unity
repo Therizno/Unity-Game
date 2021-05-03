@@ -4084,6 +4084,7 @@ MonoBehaviour:
   sensitivity: 3
   aimSensitMultiplier: 0.3
   smoothing: 2
+  defaultFOV: 60
   aimingFOV: 40
   smoothFOVTransit: 3
 --- !u!1001 &971682827

@@ -9,6 +9,7 @@ public class CameraRotation : MonoBehaviour
     [SerializeField] private float sensitivity;
     [SerializeField] private float aimSensitMultiplier;
     [SerializeField] private float smoothing;
+    [SerializeField] private float defaultFOV;
     [SerializeField] private float aimingFOV;
     [SerializeField] private float smoothFOVTransit;
 
@@ -23,6 +24,9 @@ public class CameraRotation : MonoBehaviour
     {
         //lock cursor
         Cursor.lockState = CursorLockMode.Locked;
+
+        //set FOV to default
+        Camera.main.fieldOfView = defaultFOV;
     }
 
     //Start is called right after Awake, and is for interaction with other objects
@@ -93,8 +97,6 @@ public class CameraRotation : MonoBehaviour
         }
         else
         {
-            float defaultFOV = 60;
-
             //return to default 
             Camera.main.fieldOfView += (defaultFOV - Camera.main.fieldOfView)/smoothFOVTransit;
         }
