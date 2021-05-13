@@ -2475,6 +2475,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b86cb1bf59444db59757371f51d2fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &677233180
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677233174}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &677233181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677233174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72042e484c3bc447f9d88dcecb337e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 677233174}
+  colliderObject: {fileID: 1409142091}
 --- !u!4 &697162920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4537607260992020172, guid: 42c8d042cef6f403cae0a7f94927f8b9,
@@ -2737,11 +2767,11 @@ CharacterJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726005110}
-  m_ConnectedBody: {fileID: 1895245276}
+  m_ConnectedBody: {fileID: 677233180}
   m_Anchor: {x: 0.05, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.12441844, y: -0.0044533354, z: 0.000000005429858}
+  m_ConnectedAnchor: {x: 0.0000000018552404, y: 1.2211086, z: -0.0026870728}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -3137,11 +3167,11 @@ CharacterJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815063046}
-  m_ConnectedBody: {fileID: 1895245276}
+  m_ConnectedBody: {fileID: 677233180}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.22034998, y: 0.00073052634, z: -0.09600205}
+  m_ConnectedAnchor: {x: 0.09600205, y: 0.8781724, z: 0.033186343}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -7291,11 +7321,11 @@ CharacterJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864492348}
-  m_ConnectedBody: {fileID: 1895245276}
+  m_ConnectedBody: {fileID: 677233180}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.22034998, y: 0.00073056004, z: 0.096002035}
+  m_ConnectedAnchor: {x: -0.096002035, y: 0.8781724, z: 0.033186343}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -7404,42 +7434,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28f1c4d4331502c48b4a93cb10c31d29, type: 3}
---- !u!1 &1895245275 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1401417566435374, guid: b7f29a11a47f4a84e8b6f67062ee0448,
-    type: 3}
-  m_PrefabInstance: {fileID: 971682827}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1895245276
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895245275}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &1895245277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895245275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72042e484c3bc447f9d88dcecb337e62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentObject: {fileID: 677233174}
-  colliderObject: {fileID: 1409142091}
 --- !u!1 &1898750706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1680277743694962, guid: b7f29a11a47f4a84e8b6f67062ee0448,
