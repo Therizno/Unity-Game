@@ -2768,32 +2768,32 @@ CharacterJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726005110}
   m_ConnectedBody: {fileID: 677233180}
-  m_Anchor: {x: 0.05, y: 0, z: 0}
+  m_Anchor: {x: -0.04, y: 0.06, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000018552404, y: 1.2211086, z: -0.0026870728}
+  m_ConnectedAnchor: {x: -0.000000008873594, y: 1.3111086, z: 0.05731201}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: 64.700195
+    limit: 90.38181
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 114.22529
+    limit: 90.38181
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 19.474792
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
-    limit: 11.533909
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_EnableProjection: 0
