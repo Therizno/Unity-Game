@@ -983,6 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 0.2
 --- !u!4 &316089905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4488616196064996, guid: 5fce63c0820cd874d9771957678b36a1,
@@ -1572,6 +1573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 0.8
 --- !u!1 &545392338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,6 +1692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 0.3
 --- !u!65 &556164675
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1943,6 +1946,11 @@ PrefabInstance:
       propertyPath: parentObject
       value: 
       objectReference: {fileID: 677233174}
+    - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
+        type: 3}
+      propertyPath: damageMultiplier
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519ac127a56f043c7b914b49cbb4d5b8, type: 3}
 --- !u!1001 &585563432
@@ -2227,6 +2235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 2
 --- !u!1 &673687762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,6 +2472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 0
 --- !u!114 &677233179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3327,6 +3337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 0.5
 --- !u!65 &838690612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3596,6 +3607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 857919756}
+  damageMultiplier: 1
 --- !u!4 &867962072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4488616196064996, guid: 5fce63c0820cd874d9771957678b36a1,
@@ -4646,6 +4658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 0.5
 --- !u!65 &1042471145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4746,6 +4759,11 @@ PrefabInstance:
       propertyPath: parentObject
       value: 
       objectReference: {fileID: 677233174}
+    - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
+        type: 3}
+      propertyPath: damageMultiplier
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519ac127a56f043c7b914b49cbb4d5b8, type: 3}
 --- !u!1 &1068376821
@@ -5519,7 +5537,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 95.69995, y: 30.599976}
+  m_AnchoredPosition: {x: 95.700195, y: 30.599976}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401669112
@@ -5714,6 +5732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 1
 --- !u!4 &1409534840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4943717514612066, guid: b7f29a11a47f4a84e8b6f67062ee0448,
@@ -5978,6 +5997,11 @@ PrefabInstance:
       propertyPath: parentObject
       value: 
       objectReference: {fileID: 677233174}
+    - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
+        type: 3}
+      propertyPath: damageMultiplier
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519ac127a56f043c7b914b49cbb4d5b8, type: 3}
 --- !u!1001 &1442783635
@@ -6409,6 +6433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 0.8
 --- !u!65 &1515198610
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7081,6 +7106,11 @@ PrefabInstance:
       propertyPath: parentObject
       value: 
       objectReference: {fileID: 677233174}
+    - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
+        type: 3}
+      propertyPath: damageMultiplier
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519ac127a56f043c7b914b49cbb4d5b8, type: 3}
 --- !u!1 &1713708865 stripped
@@ -7223,6 +7253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 1.2
 --- !u!1 &1774678847 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8750273168081563195, guid: 519ac127a56f043c7b914b49cbb4d5b8,
@@ -8139,6 +8170,11 @@ PrefabInstance:
       propertyPath: parentObject
       value: 
       objectReference: {fileID: 677233174}
+    - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
+        type: 3}
+      propertyPath: damageMultiplier
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519ac127a56f043c7b914b49cbb4d5b8, type: 3}
 --- !u!1001 &2113652148
@@ -8261,6 +8297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
+  damageMultiplier: 0.3
 --- !u!65 &2118338945
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class HitboxBehavior : MonoBehaviour
 {
-    [SerializeField] GameObject parentObject;
+    [SerializeField] private GameObject parentObject;
+
+    [SerializeField] private float damageMultiplier;
 
     private Damageable parentObj;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +26,7 @@ public class HitboxBehavior : MonoBehaviour
 
     public void damageParent(int damage)
     {
-        parentObj.takeDamage(damage);
+        parentObj.takeDamage((int)(damage * damageMultiplier));
     }
 
     public void healParent(int health)

@@ -12,10 +12,10 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
     private MutantAnimationEvents muAnimEvents;
 
 
-    [SerializeField] float speed; 
-    [SerializeField] float attackDistance;
+    [SerializeField] private float speed; 
+    [SerializeField] private float attackDistance;
 
-    [SerializeField] int maxHealth;
+    [SerializeField] private int maxHealth;
 
 
     private List<Observer> observers; 
