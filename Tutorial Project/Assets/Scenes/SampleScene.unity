@@ -2472,7 +2472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
-  damageMultiplier: 0
+  damageMultiplier: 1
 --- !u!114 &677233179
 MonoBehaviour:
   m_ObjectHideFlags: 0

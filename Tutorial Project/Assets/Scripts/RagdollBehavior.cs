@@ -42,6 +42,10 @@ public class RagdollBehavior : MonoBehaviour, Observer
     public void activateRagdoll()
     {
         colliderObject.GetComponent<Collider>().isTrigger = false;
-        GetComponent<Rigidbody>().isKinematic = false;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        rb.isKinematic = false;
+        rb.maxDepenetrationVelocity = 0.1f;
     }
 }
