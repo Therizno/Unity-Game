@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletHoleCleanup : MonoBehaviour
+public class Cleanup : MonoBehaviour
 {
     // Start is called before the first frame update (use for interaction with other objects)
     void Start()
     {
-        //destroy bullet hole after cooldown
-        Destroy(gameObject, GameManager.getInstance().getBulletHoleCleanupTime());
+        //destroy object after cooldown
+        Destroy(gameObject, GameManager.getInstance().getCleanupTime());
     }
 
     // Update is called once per frame

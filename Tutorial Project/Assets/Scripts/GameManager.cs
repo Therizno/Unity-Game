@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour, Observable
 
 
     [SerializeField] private GameObject player;
-    [SerializeField] private float bulletHoleCleanupTime;
+    [SerializeField] private float cleanupTime;
 
     private PlayerBehavior playerBehavior;
 
@@ -102,9 +102,9 @@ public class GameManager : MonoBehaviour, Observable
     public Color32 yellow() { return colorYellow; }
     public Color32 red() { return colorRed; }
 
-    public float getBulletHoleCleanupTime()
+    public float getCleanupTime()
     {
-        return bulletHoleCleanupTime;
+        return cleanupTime;
     }
 
     public Vector3 getPlayerCoords()
