@@ -4980,6 +4980,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139203085}
   m_CullTransparentMesh: 0
+--- !u!1 &1154727100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154727101}
+  - component: {fileID: 1154727102}
+  m_Layer: 0
+  m_Name: EmptyShellSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1154727101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154727100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0225, y: -0.2006, z: 0.092}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 476112364}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1154727102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154727100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab83502cafc3441e19c6e61824fd60f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spentShellPrefab: {fileID: 6485564993196806962, guid: 339704414354c4292a764a157a954577,
+    type: 3}
+  velocity: {x: -0.08, y: 0.05, z: 0.1}
+  xSpinRange: {x: 0, y: 0}
+  ySpinRange: {x: 0, y: 0}
 --- !u!4 &1166399967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4033375402519494, guid: b7f29a11a47f4a84e8b6f67062ee0448,
@@ -6895,6 +6943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f2cd8bfeb5d4891a2215b452a7d201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spentShellSource: {fileID: 1154727100}
   pelletVelocity: 3.5
   pelletSize: 0.03
   numPellets: 6

@@ -1,0 +1,36 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpentAmmoFactory : MonoBehaviour
+{
+    [SerializeField] private GameObject spentShellPrefab;
+
+    [SerializeField] private Vector3 velocity;
+
+    [SerializeField] Vector2 xSpinRange;
+    [SerializeField] Vector2 ySpinRange;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+
+    public void createSpentShell()
+    {
+        GameObject shell = Instantiate(spentShellPrefab);
+
+        Rigidbody rgbd = shell.GetComponent<Rigidbody>();
+
+        rgbd.AddForce(velocity);
+        rgbd.AddTorque(new Vector3(Random.Range(xSpinRange.x, xSpinRange.y), Random.Range(ySpinRange.x, ySpinRange.y)));
+    }
+}

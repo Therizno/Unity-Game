@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShotgunBehavior : MonoBehaviour, Observer
 {
+    [SerializeField] GameObject spentShellSource;
+
     private BulletFactory fac;
 
     [SerializeField] private float pelletVelocity;
@@ -53,7 +55,11 @@ public class ShotgunBehavior : MonoBehaviour, Observer
         chambered = false;
         cycle();
 
+        //drop a spent shell
+        spentShellSource.GetComponent<SpentAmmoFactory>().createSpentShell();
 
+
+        //fire the bullets
         for (int i = 0; i < numPellets; i++)
         {
             switch (i % 4)
