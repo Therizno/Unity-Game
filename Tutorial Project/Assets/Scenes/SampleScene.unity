@@ -5025,7 +5025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spentShellPrefab: {fileID: 6485564993196806962, guid: 339704414354c4292a764a157a954577,
     type: 3}
-  velocity: {x: -0.08, y: 0.05, z: 0.1}
+  velocity: {x: -50, y: 0, z: 1}
   xSpinRange: {x: 0, y: 0}
   ySpinRange: {x: 0, y: 0}
 --- !u!4 &1166399967 stripped
