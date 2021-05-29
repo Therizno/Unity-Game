@@ -26,8 +26,16 @@ public class SpentAmmoFactory : MonoBehaviour
 
     public void createSpentShell()
     {
+        //create the shell
         GameObject shell = Instantiate(spentShellPrefab);
 
+        shell.transform.position = gameObject.transform.position;
+        shell.transform.rotation = gameObject.transform.rotation;
+
+        shell.transform.Rotate(90, 0, 0);
+
+
+        //give it momentum
         Rigidbody rgbd = shell.GetComponent<Rigidbody>();
 
         rgbd.AddForce(velocity);

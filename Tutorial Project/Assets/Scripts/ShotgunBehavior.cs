@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShotgunBehavior : MonoBehaviour, Observer
 {
-    [SerializeField] GameObject spentShellSource;
+    [SerializeField] GameObject spentShellSource; //*for testing, remove this and associated code*
 
     private BulletFactory fac;
 
