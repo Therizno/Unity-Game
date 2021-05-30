@@ -38,7 +38,7 @@ public class SpentAmmoFactory : MonoBehaviour
         //give it momentum
         Rigidbody rgbd = shell.GetComponent<Rigidbody>();
 
-        rgbd.AddForce(velocity);
+        rgbd.AddForce((velocity.x * shell.transform.right) + (velocity.y * shell.transform.up) + (velocity.z * shell.transform.forward));
         rgbd.AddTorque(new Vector3(Random.Range(xSpinRange.x, xSpinRange.y), Random.Range(ySpinRange.x, ySpinRange.y)));
     }
 }
