@@ -5026,8 +5026,8 @@ MonoBehaviour:
   spentShellPrefab: {fileID: 6485564993196806962, guid: 339704414354c4292a764a157a954577,
     type: 3}
   velocity: {x: 50, y: 0, z: 45}
-  xSpinRange: {x: 0, y: 0}
-  ySpinRange: {x: 0, y: 0}
+  xSpinRange: {x: -15, y: 45}
+  ySpinRange: {x: 0, y: 60}
 --- !u!4 &1166399967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4033375402519494, guid: b7f29a11a47f4a84e8b6f67062ee0448,
