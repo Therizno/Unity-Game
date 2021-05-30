@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunBehavior: {fileID: 1609505087}
   shellDropper: {fileID: 1154727100}
+  animatedShell: {fileID: 2034553632}
 --- !u!4 &29537427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4537607260992020172, guid: 42c8d042cef6f403cae0a7f94927f8b9,
@@ -7891,6 +7892,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4537607260992020172, guid: 42c8d042cef6f403cae0a7f94927f8b9,
     type: 3}
   m_PrefabInstance: {fileID: 1351440004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2034553632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1279446980134434, guid: 3f43a9c20d605da49979b66a5273f3df,
+    type: 3}
+  m_PrefabInstance: {fileID: 759069608}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2060130772
 PrefabInstance:

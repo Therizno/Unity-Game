@@ -6,6 +6,7 @@ public class ShotgunAnimationEvents : MonoBehaviour
 {
     [SerializeField] private GameObject gunBehavior;
     [SerializeField] private GameObject shellDropper;
+    [SerializeField] private GameObject animatedShell;
 
     private ShotgunBehavior shotgunBehavior;
 
@@ -31,5 +32,18 @@ public class ShotgunAnimationEvents : MonoBehaviour
     public void dropShell()
     {
         shellDropper.GetComponent<SpentAmmoFactory>().createSpentShell();
+    }
+
+
+    //these are used to make the animation shell briefly invisible,
+    //allowing the physics-based shell to be seen instead
+    public void deactivateAnimShell()
+    {
+        animatedShell.GetComponent<SkinnedMeshRenderer>().enabled = false;
+    }
+
+    public void activateAnimShell()
+    {
+        animatedShell.GetComponent<SkinnedMeshRenderer>().enabled = true;
     }
 }
