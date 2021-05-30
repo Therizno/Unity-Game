@@ -5025,6 +5025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab83502cafc3441e19c6e61824fd60f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentCharacter: {fileID: 857919756}
   spentShellPrefab: {fileID: 6485564993196806962, guid: 339704414354c4292a764a157a954577,
     type: 3}
   velocity: {x: 50, y: 0, z: 45}

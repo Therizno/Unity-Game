@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SpentAmmoFactory : MonoBehaviour
 {
+    [SerializeField] private GameObject parentCharacter;
+
     [SerializeField] private GameObject spentShellPrefab;
 
     [SerializeField] private Vector3 velocity;
 
-    [SerializeField] Vector2 xSpinRange;
-    [SerializeField] Vector2 ySpinRange;
+    [SerializeField] private Vector2 xSpinRange;
+    [SerializeField] private Vector2 ySpinRange;
     
     // Start is called before the first frame update
     void Start()
@@ -40,5 +42,14 @@ public class SpentAmmoFactory : MonoBehaviour
 
         rgbd.AddForce((velocity.x * shell.transform.right) + (velocity.y * shell.transform.up) + (velocity.z * shell.transform.forward));
         rgbd.AddTorque((shell.transform.right * Random.Range(xSpinRange.x, xSpinRange.y)) + (shell.transform.up * Random.Range(ySpinRange.x, ySpinRange.y)));
+
+
+        //make sure it doesn't collide with the character that fired it
+        CharacterController cc = parentCharacter.GetComponent<CharacterController>();
+
+        if (cc != null)
+        {
+            Physics.IgnoreCollision(cc, shell.GetComponent<Collider>());
+        }
     }
 }

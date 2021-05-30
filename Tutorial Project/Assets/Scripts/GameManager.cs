@@ -107,6 +107,9 @@ public class GameManager : MonoBehaviour, Observable
         return cleanupTime;
     }
 
+
+    //player-related getters and setters
+
     public Vector3 getPlayerCoords()
     {
         return player.transform.position;
