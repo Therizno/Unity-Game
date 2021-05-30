@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunBehavior: {fileID: 1609505087}
+  shellDropper: {fileID: 1154727100}
 --- !u!4 &29537427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4537607260992020172, guid: 42c8d042cef6f403cae0a7f94927f8b9,
@@ -5027,7 +5028,7 @@ MonoBehaviour:
     type: 3}
   velocity: {x: 50, y: 0, z: 45}
   xSpinRange: {x: -15, y: 45}
-  ySpinRange: {x: 0, y: 60}
+  ySpinRange: {x: 0, y: 100}
 --- !u!4 &1166399967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4033375402519494, guid: b7f29a11a47f4a84e8b6f67062ee0448,
@@ -6943,7 +6944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f2cd8bfeb5d4891a2215b452a7d201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spentShellSource: {fileID: 1154727100}
   pelletVelocity: 3.5
   pelletSize: 0.03
   numPellets: 6

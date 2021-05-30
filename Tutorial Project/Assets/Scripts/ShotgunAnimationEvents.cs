@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShotgunAnimationEvents : MonoBehaviour
 {
     [SerializeField] private GameObject gunBehavior;
+    [SerializeField] private GameObject shellDropper;
 
     private ShotgunBehavior shotgunBehavior;
 
@@ -25,5 +26,10 @@ public class ShotgunAnimationEvents : MonoBehaviour
     public void reloadShell()
     {
         shotgunBehavior.reloadShell();
+    }
+
+    public void dropShell()
+    {
+        shellDropper.GetComponent<SpentAmmoFactory>().createSpentShell();
     }
 }
