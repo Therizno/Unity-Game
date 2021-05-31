@@ -1526,8 +1526,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530227973}
-  - component: {fileID: 530227974}
   - component: {fileID: 530227975}
+  - component: {fileID: 530227974}
   m_Layer: 8
   m_Name: LeftLegHitbox
   m_TagString: Untagged
@@ -1549,8 +1549,8 @@ Transform:
   m_Father: {fileID: 628133667}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &530227974
-BoxCollider:
+--- !u!136 &530227974
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1559,9 +1559,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.45, y: 0.21, z: 0.11}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.09
+  m_Height: 0.42
+  m_Direction: 0
+  m_Center: {x: -0.03, y: 0, z: 0}
 --- !u!114 &530227975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5767,7 +5768,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.135
-  m_Height: 0.5
+  m_Height: 0.47
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1409142094
@@ -6448,8 +6449,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1515198608}
-  - component: {fileID: 1515198610}
   - component: {fileID: 1515198609}
+  - component: {fileID: 1515198610}
   m_Layer: 8
   m_Name: RightLegHitbox
   m_TagString: Untagged
@@ -6485,8 +6486,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
   damageMultiplier: 0.8
---- !u!65 &1515198610
-BoxCollider:
+--- !u!136 &1515198610
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6495,9 +6496,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.45, y: 0.21, z: 0.11}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.09
+  m_Height: 0.42
+  m_Direction: 0
+  m_Center: {x: -0.03, y: 0, z: 0}
 --- !u!4 &1517117164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4100253998191288, guid: b715c4d3f2bae11489afa6652ee6a7cd,
