@@ -1659,8 +1659,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 556164673}
-  - component: {fileID: 556164675}
   - component: {fileID: 556164674}
+  - component: {fileID: 556164675}
   m_Layer: 8
   m_Name: LeftFootHitbox
   m_TagString: Untagged
@@ -1675,13 +1675,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556164672}
-  m_LocalRotation: {x: -0.02639632, y: -0.014479741, z: -0.30237588, w: 0.95271313}
+  m_LocalRotation: {x: 0.055795558, y: 0.011601265, z: -0.30153897, w: 0.95174927}
   m_LocalPosition: {x: -0.121, y: -0, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 925689218}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -3.3850002, y: -0.66700006, z: -35.197002}
+  m_LocalEulerAnglesHint: {x: 6.5, y: -0.66700006, z: -35.197002}
 --- !u!114 &556164674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,8 +1696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
   damageMultiplier: 0.3
---- !u!65 &556164675
-BoxCollider:
+--- !u!136 &556164675
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1706,9 +1706,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.11, z: 0.11}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.06
+  m_Height: 0.39
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.01, z: 0}
 --- !u!1001 &556497301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3349,8 +3350,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838690610}
-  - component: {fileID: 838690612}
   - component: {fileID: 838690611}
+  - component: {fileID: 838690612}
   m_Layer: 8
   m_Name: LowerLeftLegHitbox
   m_TagString: Untagged
@@ -3386,8 +3387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
   damageMultiplier: 0.5
---- !u!65 &838690612
-BoxCollider:
+--- !u!136 &838690612
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3396,9 +3397,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.15, z: 0.11}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.08
+  m_Height: 0.38
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.01, z: 0}
 --- !u!1001 &843930136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4625,8 +4627,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1042471143}
-  - component: {fileID: 1042471145}
   - component: {fileID: 1042471144}
+  - component: {fileID: 1042471145}
   m_Layer: 8
   m_Name: LowerRightLegHitbox
   m_TagString: Untagged
@@ -4662,8 +4664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
   damageMultiplier: 0.5
---- !u!65 &1042471145
-BoxCollider:
+--- !u!136 &1042471145
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4672,9 +4674,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31, y: 0.15, z: 0.11}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.08
+  m_Height: 0.38
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.01, z: 0}
 --- !u!1001 &1052462417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8320,8 +8323,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2118338943}
-  - component: {fileID: 2118338945}
   - component: {fileID: 2118338944}
+  - component: {fileID: 2118338945}
   m_Layer: 8
   m_Name: RightFootHitbox
   m_TagString: Untagged
@@ -8357,8 +8360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 677233174}
   damageMultiplier: 0.3
---- !u!65 &2118338945
-BoxCollider:
+--- !u!136 &2118338945
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8367,9 +8370,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.11, z: 0.11}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.06
+  m_Height: 0.39
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.01, z: 0}
 --- !u!1001 &2124151188
 PrefabInstance:
   m_ObjectHideFlags: 0
