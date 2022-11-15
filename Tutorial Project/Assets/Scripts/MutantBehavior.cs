@@ -11,6 +11,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
     private MutantAnimation muAnim;
     private MutantAnimationEvents muAnimEvents;
 
+    [SerializeField] private GameObject animatedMutant;
 
     [SerializeField] private float speed; 
     [SerializeField] private float attackDistance;
@@ -44,8 +45,8 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
 
         cc = GetComponent<CharacterController>();
 
-        muAnim = GetComponent<MutantAnimation>();
-        muAnimEvents = GetComponent<MutantAnimationEvents>();
+        muAnim = animatedMutant.GetComponent<MutantAnimation>();
+        muAnimEvents = animatedMutant.GetComponent<MutantAnimationEvents>();
     }
 
 
