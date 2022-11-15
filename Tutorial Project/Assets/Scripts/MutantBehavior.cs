@@ -12,6 +12,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
     private MutantAnimationEvents muAnimEvents;
 
     [SerializeField] private GameObject animatedMutant;
+    [SerializeField] private GameObject ragdollMutant;
 
     [SerializeField] private float speed; 
     [SerializeField] private float attackDistance;
@@ -117,9 +118,10 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
 
         cc.enabled = false;
 
-        notifyAll(GameEvent.MonsterDeath);
+        animatedMutant.SetActive(false);
+        ragdollMutant.SetActive(true);
 
-        muAnim.disableAnimations();
+        notifyAll(GameEvent.MonsterDeath);
 
         yield return new WaitForSeconds(ragdollFreezeTimer);
 
