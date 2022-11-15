@@ -439,20 +439,6 @@ CapsuleCollider:
   m_Height: 0.42
   m_Direction: 0
   m_Center: {x: -0.03, y: 0, z: 0}
---- !u!136 &1381190006021520636
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7657755352554692349}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.07
-  m_Height: 0.39
-  m_Direction: 0
-  m_Center: {x: 0.02, y: 0, z: -0.01}
 --- !u!1 &1381190006080205020
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,20 +499,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 1
---- !u!136 &1381190006177025749
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7657755353780792362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.07
-  m_Height: 0.36
-  m_Direction: 0
-  m_Center: {x: 0.04, y: 0, z: 0.01}
 --- !u!1 &1381190006264370972
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,34 +619,6 @@ CapsuleCollider:
   m_Height: 0.39
   m_Direction: 0
   m_Center: {x: 0, y: -0.01, z: 0}
---- !u!136 &1381190006391692513
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7657755353639939101}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.07
-  m_Height: 0.28
-  m_Direction: 0
-  m_Center: {x: -0.03, y: 0, z: 0}
---- !u!136 &1381190006402632696
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7657755352608740244}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.07
-  m_Height: 0.28
-  m_Direction: 0
-  m_Center: {x: -0.03, y: 0.01, z: 0}
 --- !u!1 &1381190006954892947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1106,7 @@ GameObject:
   - component: {fileID: 1381190007227350924}
   - component: {fileID: 1381190007227350922}
   m_Layer: 0
-  m_Name: Mutant2
+  m_Name: Mask Mutant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1301,6 +1245,7 @@ MonoBehaviour:
   speed: 2
   attackDistance: 1.3
   maxHealth: 100
+  ragdollFreezeTimer: 5
 --- !u!114 &1381190007227350926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3843,6 +3788,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 1381515110370174214}
   colliderObject: {fileID: 7657755352972908525}
+--- !u!136 &1381190006021520636
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657755352554692349}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.07
+  m_Height: 0.39
+  m_Direction: 0
+  m_Center: {x: 0.02, y: 0, z: -0.01}
+--- !u!136 &1381190006402632696
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657755352608740244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.07
+  m_Height: 0.28
+  m_Direction: 0
+  m_Center: {x: -0.03, y: 0.01, z: 0}
+--- !u!136 &1381190006391692513
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657755353639939101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.07
+  m_Height: 0.28
+  m_Direction: 0
+  m_Center: {x: -0.03, y: 0, z: 0}
+--- !u!136 &1381190006177025749
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657755353780792362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.07
+  m_Height: 0.36
+  m_Direction: 0
+  m_Center: {x: 0.04, y: 0, z: 0.01}
 --- !u!1001 &1381190005982624214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3937,15 +3938,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519ac127a56f043c7b914b49cbb4d5b8, type: 3}
---- !u!1 &7657755352972908525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8750273168081563195, guid: 519ac127a56f043c7b914b49cbb4d5b8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1381190005982624214}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7657755352972908514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8750273168081563188, guid: 519ac127a56f043c7b914b49cbb4d5b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1381190005982624214}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7657755352972908525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8750273168081563195, guid: 519ac127a56f043c7b914b49cbb4d5b8,
     type: 3}
   m_PrefabInstance: {fileID: 1381190005982624214}
   m_PrefabAsset: {fileID: 0}
@@ -4166,15 +4167,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8750273168081563189, guid: 519ac127a56f043c7b914b49cbb4d5b8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 519ac127a56f043c7b914b49cbb4d5b8, type: 3}
---- !u!1 &7657755353639939101 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8750273168081563195, guid: 519ac127a56f043c7b914b49cbb4d5b8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1381190006381462054}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7657755353639939090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8750273168081563188, guid: 519ac127a56f043c7b914b49cbb4d5b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1381190006381462054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7657755353639939101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8750273168081563195, guid: 519ac127a56f043c7b914b49cbb4d5b8,
     type: 3}
   m_PrefabInstance: {fileID: 1381190006381462054}
   m_PrefabAsset: {fileID: 0}

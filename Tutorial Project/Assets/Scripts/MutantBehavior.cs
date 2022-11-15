@@ -66,7 +66,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
             if (health <= 0)
             {
                 isDead = true;
-                onDeath();
+                StartCoroutine(onDeath());
             }
         }
     }
@@ -107,12 +107,16 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
     }
 
 
-    private void onDeath()
+    IEnumerator onDeath()
     {
         muAnim.disableAnimations();
         cc.enabled = false;
 
-        notifyAll(GameEvent.MonsterDeath); 
+        notifyAll(GameEvent.MonsterDeath);
+
+        yield return new WaitForSeconds(ragdollFreezeTimer);
+
+        notifyAll(GameEvent.FreezeRigidbody);
     }
 
 
