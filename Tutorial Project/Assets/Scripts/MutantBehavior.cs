@@ -109,10 +109,16 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
 
     IEnumerator onDeath()
     {
-        muAnim.disableAnimations();
+        muAnim.setDead();   //trigger death animation
+
+        //wait for death animation to play before ragdolling 
+        yield return new WaitForSeconds(0.25f);
+
         cc.enabled = false;
 
         notifyAll(GameEvent.MonsterDeath);
+
+        muAnim.disableAnimations();
 
         yield return new WaitForSeconds(ragdollFreezeTimer);
 

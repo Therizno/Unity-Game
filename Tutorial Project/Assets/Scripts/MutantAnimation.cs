@@ -41,6 +41,11 @@ public class MutantAnimation : MonoBehaviour
     }
 
 
+    public void setDead() 
+    {
+        anim.SetBool("isDead", true);
+    }
+
     public void disableAnimations()
     {
         anim.enabled = false;
