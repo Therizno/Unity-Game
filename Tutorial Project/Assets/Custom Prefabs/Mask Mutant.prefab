@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb68fdef6f6e4ec5b93cfeebaf3822f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damage: 20
   cooldownTime: 0.5
 --- !u!54 &3967506361561425199
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 0.8
 --- !u!136 &7805451838802513888
 CapsuleCollider:
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 0.5
 --- !u!136 &7951986979506839484
 CapsuleCollider:
@@ -1895,7 +1895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 2
 --- !u!1 &2878686335379835992
 GameObject:
@@ -2067,7 +2067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 0.8
 --- !u!136 &4961848443744670427
 CapsuleCollider:
@@ -3222,7 +3222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 0.2
 --- !u!1 &5303680890919429595
 GameObject:
@@ -3655,7 +3655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 1.2
 --- !u!1 &5988487745173259523
 GameObject:
@@ -4613,7 +4613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 0.5
 --- !u!136 &6058086374484295601
 CapsuleCollider:
@@ -4797,7 +4797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 0.3
 --- !u!136 &6102682446317503169
 CapsuleCollider:
@@ -4871,7 +4871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 1
 --- !u!1 &7968049480230718514
 GameObject:
@@ -5039,7 +5039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02703028bfbf344d2a35355047cb37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 870432793235818922}
+  parentObject: {fileID: 1381515110370174214}
   damageMultiplier: 0.3
 --- !u!136 &5980430657562900528
 CapsuleCollider:
@@ -6027,7 +6027,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentObject
       value: 
-      objectReference: {fileID: 870432793235818922}
+      objectReference: {fileID: 1381515110370174214}
     - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
         type: 3}
       propertyPath: damageMultiplier
@@ -6251,7 +6251,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentObject
       value: 
-      objectReference: {fileID: 870432793235818922}
+      objectReference: {fileID: 1381515110370174214}
     - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
         type: 3}
       propertyPath: damageMultiplier
@@ -6459,7 +6459,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentObject
       value: 
-      objectReference: {fileID: 870432793235818922}
+      objectReference: {fileID: 1381515110370174214}
     - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
         type: 3}
       propertyPath: damageMultiplier
@@ -6887,7 +6887,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentObject
       value: 
-      objectReference: {fileID: 870432793235818922}
+      objectReference: {fileID: 1381515110370174214}
     - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
         type: 3}
       propertyPath: damageMultiplier
@@ -7009,7 +7009,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentObject
       value: 
-      objectReference: {fileID: 870432793235818922}
+      objectReference: {fileID: 1381515110370174214}
     - target: {fileID: 8750273168081563194, guid: 519ac127a56f043c7b914b49cbb4d5b8,
         type: 3}
       propertyPath: damageMultiplier
