@@ -17,6 +17,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
 
     [SerializeField] private int maxHealth;
 
+    [SerializeField] private float ragdollFreezeTimer;
 
     private List<Observer> observers; 
 
@@ -111,7 +112,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
         muAnim.disableAnimations();
         cc.enabled = false;
 
-        notifyAll(GameEvent.MonsterDeath);
+        notifyAll(GameEvent.MonsterDeath); 
     }
 
 

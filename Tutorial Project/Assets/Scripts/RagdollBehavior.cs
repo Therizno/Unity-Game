@@ -36,6 +36,12 @@ public class RagdollBehavior : MonoBehaviour, Observer
         {
             activateRagdoll();
         }
+
+        //permanently prevent ragdoll weirdness, reduce compute load allowing for longer despawn timers
+        if (game == GameEvent.FreezeRigidbody)
+        {
+            freezeRagdoll();
+        }
     }
 
 
@@ -47,5 +53,10 @@ public class RagdollBehavior : MonoBehaviour, Observer
 
         rb.isKinematic = false;
         rb.maxDepenetrationVelocity = 0.1f;
+    }
+
+    public void freezeRagdoll() 
+    {
+        GetComponent<Rigidbody>().isKinematic = true;
     }
 }
