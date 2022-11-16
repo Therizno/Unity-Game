@@ -17,6 +17,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
 
     [SerializeField] private int maxHealth;
 
+    [SerializeField] private float ragdollStartTimer; 
     [SerializeField] private float ragdollFreezeTimer;
 
     private List<Observer> observers; 
@@ -112,7 +113,7 @@ public class MutantBehavior : MonoBehaviour, Damageable, MeleeAttacker, RagdollH
         muAnim.setDead();   //trigger death animation
 
         //wait for death animation to play before ragdolling 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(ragdollStartTimer);
 
         cc.enabled = false;
 
