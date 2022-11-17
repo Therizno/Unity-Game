@@ -39,11 +39,11 @@ public class CameraRotation : MonoBehaviour
 
 
     // FixedUpdate is called once per set unit of time
-    void FixedUpdate()
+    void Update()
     {
         //get raw input
         var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-
+        
         //smooth input and add it to total mouse movement
         mouseLook += smoothMouseInput(mouseDelta);
 
