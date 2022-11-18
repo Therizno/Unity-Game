@@ -1,0 +1,42 @@
+
+UPDATE NOTES:
+
+*	In order to achieve a better look, please install the Post Processing Stack from the packange manager,
+	and setup a gloobal post prcessing vlume using provided post processing profiles.
+
+*	Previously, the "First Person Controller" which is included in the Unity's "Standard Assets" pack was used which was dependent on other scripts and assets !
+	In v4.0 the same controller was taken and simplified in order to remove dependencies on other assets and systems like "CrossPlatformInput" and fov kick and camera bobbing scripts,
+	part of the same "Standard Assets" package. The current provided "SimpleFPSController" is meant to be used only for examine the demo project.
+	Be sure to integrate another advanced FPS controller for you project !
+
+	NOTES : you can delete the "CrossPlatformInput" and Utility ( they should be added int othe Misc folder ) folders if you upgrade from v3.0 and previous
+	as you do not need them anymore!
+
+
+
+Notes:
+
+*	Be sure to switch to Linear mode for correct scene look !
+
+*	Decals are using standard shader and are not using any kind of decal shaders with blend.
+	If you own a decal system or have decal shaders you can switch to it.
+	Water decals are simply Standard(Specular setup) shader with high specular values.
+
+*	Add any kind of grunge texture to the Detail slot of the Standard shader of walls etc. for even more aged look.
+
+*	Be sure to enable shadows, only for the most importnant lights.
+	Proper lights setup is a key for good looking and performing scene. Having many overlapping lights is expensive.
+
+*	You can place more area lights for lightmap baking instead of relying on point lights only
+	in order to lit up any darker area.
+
+	! IMPORTANT NOTE !
+
+*	Prefabs are NOT flagged as "Batching static" in order for material instanting to be used.
+	However materials are not having the option enabled by defaule simply because there is 
+	something about the hardware i am using which actually decreases performance.
+
+	So, be sure to go and enable instancing for objects you decide and keep it if it gives performance
+	improvements fot you.
+
+	For exampla, pipes should be perfect for using instancing because they are composed by separate parts !
