@@ -41,8 +41,7 @@ public class HUDManager : MonoBehaviour, Observer
     private GameManager gm;
 
 
-    // Start is called before the first frame update
-    void Start()
+    void notStart()
     {
         gm = GameManager.getInstance();
         gm.addObserver(this);
@@ -63,6 +62,11 @@ public class HUDManager : MonoBehaviour, Observer
     // Update is called once per frame
     void Update()
     {
+        if (gm == null)     //for some reason, Unity doesn't like the start method in this class. It can't even be called manually.
+        {
+            this.notStart();
+        }
+
         //update ammo information graphic
         magCapacity.SetText(playerBehavior.getClipAmmo() + "/");
         reserveCapacity.SetText("" + playerBehavior.getReserveAmmo());
