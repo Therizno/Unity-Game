@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -24,8 +25,9 @@ MonoBehaviour:
 --- !u!114 &114007774580862454
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -137,18 +139,24 @@ MonoBehaviour:
       curve:
         serializedVersion: 2
         m_Curve:
-        - serializedVersion: 2
+        - serializedVersion: 3
           time: 0
           value: 0
           inSlope: 1
           outSlope: 1
           tangentMode: 0
-        - serializedVersion: 2
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 1
           value: 1
           inSlope: 1
           outSlope: 1
           tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -290,18 +298,24 @@ MonoBehaviour:
       curve:
         serializedVersion: 2
         m_Curve:
-        - serializedVersion: 2
+        - serializedVersion: 3
           time: 0
           value: 0
           inSlope: 1
           outSlope: 1
           tangentMode: 0
-        - serializedVersion: 2
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 1
           value: 1
           inSlope: 1
           outSlope: 1
           tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -443,18 +457,24 @@ MonoBehaviour:
       curve:
         serializedVersion: 2
         m_Curve:
-        - serializedVersion: 2
+        - serializedVersion: 3
           time: 0
           value: 0
           inSlope: 1
           outSlope: 1
           tangentMode: 0
-        - serializedVersion: 2
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 1
           value: 1
           inSlope: 1
           outSlope: 1
           tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -596,18 +616,24 @@ MonoBehaviour:
       curve:
         serializedVersion: 2
         m_Curve:
-        - serializedVersion: 2
+        - serializedVersion: 3
           time: 0
           value: 0
           inSlope: 1
           outSlope: 1
           tangentMode: 0
-        - serializedVersion: 2
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 1
           value: 1
           inSlope: 1
           outSlope: 1
           tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -1031,30 +1057,42 @@ MonoBehaviour:
       curve:
         serializedVersion: 2
         m_Curve:
-        - serializedVersion: 2
+        - serializedVersion: 3
           time: 0
           value: 0.6197916
           inSlope: 1.205358
           outSlope: 1.205358
           tangentMode: 0
-        - serializedVersion: 2
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 0.13580246
           value: 0.5885416
           inSlope: -0.38173717
           outSlope: -0.38173717
           tangentMode: 0
-        - serializedVersion: 2
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 0.4888889
           value: 0.3697917
           inSlope: -1.3521631
           outSlope: -1.3521631
           tangentMode: 0
-        - serializedVersion: 2
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 1
           value: 0.34375
           inSlope: 0.6629466
           outSlope: 0.6629466
           tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
@@ -1079,7 +1117,7 @@ MonoBehaviour:
       - 0.60316795
       - 0.59808767
       - 0.5935505
-      - 0.58975565
+      - 0.5897557
       - 0.5867172
       - 0.58382654
       - 0.58100647
@@ -1116,14 +1154,14 @@ MonoBehaviour:
       - 0.46659225
       - 0.46003222
       - 0.45316792
-      - 0.445988
+      - 0.44598803
       - 0.43848118
       - 0.43063602
-      - 0.42244118
+      - 0.4224412
       - 0.41388535
-      - 0.40495715
+      - 0.40495718
       - 0.3956452
-      - 0.38593814
+      - 0.38593817
       - 0.3758247
       - 0.36537156
       - 0.35522074
@@ -1136,55 +1174,55 @@ MonoBehaviour:
       - 0.29617786
       - 0.2893821
       - 0.28297678
-      - 0.27695546
+      - 0.2769555
       - 0.27131173
-      - 0.2660391
+      - 0.26603913
       - 0.26113123
       - 0.2565816
       - 0.25238383
-      - 0.24853145
+      - 0.24853146
       - 0.24501806
-      - 0.24183722
+      - 0.24183723
       - 0.2389825
       - 0.23644745
-      - 0.23422565
+      - 0.23422566
       - 0.23231068
       - 0.2306961
-      - 0.22937545
-      - 0.22834234
-      - 0.22759031
-      - 0.22711293
-      - 0.2269038
-      - 0.22695644
-      - 0.22726445
-      - 0.22782138
-      - 0.22862083
-      - 0.22965632
+      - 0.22937547
+      - 0.22834235
+      - 0.22759032
+      - 0.22711295
+      - 0.22690381
+      - 0.22695646
+      - 0.22726446
+      - 0.2278214
+      - 0.22862084
+      - 0.22965634
       - 0.23092145
       - 0.23240979
       - 0.23411486
       - 0.2360303
-      - 0.23814961
-      - 0.24046642
-      - 0.24297424
-      - 0.24566668
+      - 0.23814963
+      - 0.24046643
+      - 0.24297428
+      - 0.24566671
       - 0.24853732
-      - 0.2515797
-      - 0.25478733
+      - 0.25157973
+      - 0.2547874
       - 0.25815392
       - 0.26167288
       - 0.26533788
       - 0.26914245
       - 0.27308023
       - 0.27714464
-      - 0.28132933
-      - 0.28562793
-      - 0.29003394
+      - 0.2813294
+      - 0.28562796
+      - 0.29003397
       - 0.29454094
       - 0.29914248
-      - 0.3038321
-      - 0.30860347
-      - 0.31345007
+      - 0.30383217
+      - 0.30860353
+      - 0.31345013
       - 0.31836557
       - 0.32334337
       - 0.32837713
@@ -1196,18 +1234,24 @@ MonoBehaviour:
       curve:
         serializedVersion: 2
         m_Curve:
-        - serializedVersion: 2
+        - serializedVersion: 3
           time: 0
           value: 0.4947917
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - serializedVersion: 2
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 1
           value: 0.9895833
           inSlope: 0
           outSlope: 0
           tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
@@ -1346,8 +1390,9 @@ MonoBehaviour:
 --- !u!114 &114090748117294638
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1367,8 +1412,9 @@ MonoBehaviour:
 --- !u!114 &114129301915362594
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1413,8 +1459,9 @@ MonoBehaviour:
 --- !u!114 &114315481242338046
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1440,8 +1487,9 @@ MonoBehaviour:
 --- !u!114 &114317794946637154
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1476,8 +1524,9 @@ MonoBehaviour:
 --- !u!114 &114483708986973850
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1501,8 +1550,9 @@ MonoBehaviour:
 --- !u!114 &114540673103349980
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1549,8 +1599,9 @@ MonoBehaviour:
 --- !u!114 &114658801039128390
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1592,8 +1643,9 @@ MonoBehaviour:
 --- !u!114 &114942523032761914
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
