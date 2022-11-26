@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour, Observable
 
 
     [SerializeField] private GameObject player;
-    [SerializeField] private float cleanupTime;
 
     private PlayerBehavior playerBehavior;
 
@@ -102,10 +101,6 @@ public class GameManager : MonoBehaviour, Observable
     public Color32 yellow() { return colorYellow; }
     public Color32 red() { return colorRed; }
 
-    public float getCleanupTime()
-    {
-        return cleanupTime;
-    }
 
 
     //player-related getters and setters
